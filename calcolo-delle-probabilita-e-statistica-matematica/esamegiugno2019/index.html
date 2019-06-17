@@ -5,9 +5,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Federico Reali</title>
-  <meta property="og:title" content="Federico Reali" />
-  <meta name="twitter:title" content="Federico Reali" />
+  <title>Esame Giugno 2019</title>
+  <meta property="og:title" content="Esame Giugno 2019" />
+  <meta name="twitter:title" content="Esame Giugno 2019" />
+  <meta name="description" content="
+
+">
+  <meta property="og:description" content="
+
+">
+  <meta name="twitter:description" content="
+
+">
   <meta name="author" content=""/>
   <link href='https://thefreolo.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta property="og:image" content="https://thefreolo.github.io/media/Profile_PIC.jpg" />
@@ -15,12 +24,12 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@TheFreolo" />
   <meta name="twitter:creator" content="@TheFreolo" />
-  <meta property="og:url" content="https://thefreolo.github.io/" />
+  <meta property="og:url" content="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/esamegiugno2019/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Federico Reali" />
 
   <meta name="generator" content="Hugo 0.36.1" />
-  <link rel="canonical" href="https://thefreolo.github.io/" />
+  <link rel="canonical" href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/esamegiugno2019/" />
   <link rel="alternate" href="https://thefreolo.github.io/index.xml" type="application/rss+xml" title="Federico Reali">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -164,44 +173,16 @@ ga('send', 'pageview');
 
 
   
-    <div id="header-big-imgs" data-num-img=1 data-img-src-1="https://thefreolo.github.io/img/hexagon.jpg" data-img-desc-1="Hexagon"></div>
-  
 
-  <header class="header-section has-img">
-    
-      <div class="intro-header big-img">
-        
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-              <div class="page-heading">
-                <h1>Federico Reali</h1>
-                  
-                    
-                      <hr class="small">
-                      <span class="page-subheading">Essentially, all models are wrong, but some are useful - George E. P. Box</span>
-                    
-                  
-                  
-              </div>
-            </div>
-          </div>
-        </div>
-        <span class="img-desc" style="display: inline;"></span>
-      </div>
+  <header class="header-section ">
     
     <div class="intro-header no-img">
       
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="page-heading">
-              <h1>Federico Reali</h1>
-                
-                  
-                    <hr class="small">
-                    <span class="page-subheading">Essentially, all models are wrong, but some are useful - George E. P. Box</span>
-                  
+            <div class="Calcolo delle Probabilita e Statistica Matematica-heading">
+              <h1>Esame Giugno 2019</h1>
                 
                 
             </div>
@@ -213,20 +194,54 @@ ga('send', 'pageview');
 
 
     
-  <div role="main" class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p><img src="https://www.maxpixel.net/static/photo/1x/Mechanical-Vintage-Timekeeping-Omega-Watch-Pocket-2762449.jpg" alt="" /></p>
 
-        <div class="posts-list">
+<p></p>
+
+<h1 id="esercizio-1">Esercizio 1</h1>
+
+<p>Si consideri il <a href="https://www.dropbox.com/s/rt1swt5frqlmw2n/heart.csv?dl=1">dataset</a> (<a href="https://www.kaggle.com/ronitf/heart-disease-uci">descrizione</a>) che riporta 14 parametri di 303 pazienti con problemi di cuore.</p>
+
+<ul>
+<li><strong>(1 punto)</strong> Si importi il dataset in R e si verifichi la correttezza del contenuto.</li>
+<li><strong>(2 punti)</strong> Si dividano i dati un due dataset in base ai valori della variabile <code>Target</code>. Se <code>Target</code> è uguale a 0, il paziente non ha avuto malattie cardiache. Se <code>Target</code> è uguale a 1 ne ha avute. Le seguenti analisi si intendono su entrambi i dataset.</li>
+<li><strong>(3 punti)</strong> Per entrambi i dataset, si visualizzino potenziali outliers della variabile <code>chol</code> usando i boxplot e si rimuovano le righe relative agli outliers. Dopo si verifichi la corretta rimozione di tutti gli outliers.  Quante righe abbiamo rimosso? Si commentino i risultati. Le seguenti analisi si intendono sui dataset dove sono state rimosse queste righe.</li>
+<li><strong>(2 punti)</strong> Si calcolino media, mediana, quartili  e deviazione standard per le variabili <code>chol</code> e <code>thalach</code>.</li>
+<li><strong>(2 punti)</strong> Si calcolino gli intervalli di confidenza bilateri (95%) per la variabile <code>thalach</code> dei dataset sani e malati. Si commentino i risultati. <em>(suggerimento: si usi <code>t.test</code>)</em></li>
+<li><strong>(1 punto)</strong> Si determini se la differenza delle medie è statisticamente significativa (p-value) e si commenti il risultato.</li>
+</ul>
+
+<hr />
+
+<p>Si produca uno script funzionante (o un notebook) che contiene tutto il codice per risolvere l’esercizio.</p>
+
+<h4 id="soluzione-https-www-dropbox-com-s-mpyqopai3h6s4wd-solesamegiugno2019-r-dl-1"><a href="https://www.dropbox.com/s/mpyqopai3h6s4wd/SolEsameGiugno2019.R?dl=1">Soluzione</a></h4>
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/iiprovaintermedia2019/" data-toggle="tooltip" data-placement="top" title="II Prova Intermedia 2019">&larr; Previous Post</a>
+            </li>
           
           
-        </div>
+        </ul>
+      
 
+
+      
         
-      </div>
+        
+      
+
     </div>
   </div>
+</div>
 
     <footer>
   <div class="container">

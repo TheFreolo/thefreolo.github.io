@@ -5,9 +5,24 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Federico Reali</title>
-  <meta property="og:title" content="Federico Reali" />
-  <meta name="twitter:title" content="Federico Reali" />
+  <title>Lezione7</title>
+  <meta property="og:title" content="Lezione7" />
+  <meta name="twitter:title" content="Lezione7" />
+  <meta name="description" content="Statistica e applicazioni
+
+
+
+">
+  <meta property="og:description" content="Statistica e applicazioni
+
+
+
+">
+  <meta name="twitter:description" content="Statistica e applicazioni
+
+
+
+">
   <meta name="author" content=""/>
   <link href='https://thefreolo.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta property="og:image" content="https://thefreolo.github.io/media/Profile_PIC.jpg" />
@@ -15,12 +30,12 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@TheFreolo" />
   <meta name="twitter:creator" content="@TheFreolo" />
-  <meta property="og:url" content="https://thefreolo.github.io/" />
+  <meta property="og:url" content="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/lezione7_2019/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Federico Reali" />
 
   <meta name="generator" content="Hugo 0.36.1" />
-  <link rel="canonical" href="https://thefreolo.github.io/" />
+  <link rel="canonical" href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/lezione7_2019/" />
   <link rel="alternate" href="https://thefreolo.github.io/index.xml" type="application/rss+xml" title="Federico Reali">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -164,44 +179,16 @@ ga('send', 'pageview');
 
 
   
-    <div id="header-big-imgs" data-num-img=1 data-img-src-1="https://thefreolo.github.io/img/hexagon.jpg" data-img-desc-1="Hexagon"></div>
-  
 
-  <header class="header-section has-img">
-    
-      <div class="intro-header big-img">
-        
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-              <div class="page-heading">
-                <h1>Federico Reali</h1>
-                  
-                    
-                      <hr class="small">
-                      <span class="page-subheading">Essentially, all models are wrong, but some are useful - George E. P. Box</span>
-                    
-                  
-                  
-              </div>
-            </div>
-          </div>
-        </div>
-        <span class="img-desc" style="display: inline;"></span>
-      </div>
+  <header class="header-section ">
     
     <div class="intro-header no-img">
       
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="page-heading">
-              <h1>Federico Reali</h1>
-                
-                  
-                    <hr class="small">
-                    <span class="page-subheading">Essentially, all models are wrong, but some are useful - George E. P. Box</span>
-                  
+            <div class="Calcolo delle Probabilita e Statistica Matematica-heading">
+              <h1>Lezione7</h1>
                 
                 
             </div>
@@ -213,20 +200,121 @@ ga('send', 'pageview');
 
 
     
-  <div role="main" class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h1 id="statistica-e-applicazioni">Statistica e applicazioni</h1>
 
-        <div class="posts-list">
+<p><img src="http://maxpixel.freegreatpicture.com/static/photo/1x/Illumination-Artificial-Trees-Buildings-Colorful-945387.jpg" alt="" /></p>
+
+<p></p>
+
+<h1 id="ipotesi-statistiche-test-nb-html"><a href="/Test.nb.html">Ipotesi statistiche</a></h1>
+
+<p>Le note riportano una breve introduzione sui test statistici con R.</p>
+
+<h1 id="esercizio-1">Esercizio 1</h1>
+
+<p>Si importino i dataset relativi ai valori delle azioni delle aziende <a href="https://www.dropbox.com/s/66pfg69pozo8zue/AAPL.csv?dl=1">Apple</a>, <a href="https://www.dropbox.com/s/7cihygcyet2hf2x/MSFT.csv?dl=1">Microsoft</a> e <a href="https://www.dropbox.com/s/70wwc05x2e9rixv/IBM.csv?dl=1">IBM</a>.</p>
+
+<ul>
+<li>Si verifichi la correttezza del contenuto e si analizzino i dati. Si uniscano in un unico dataset.</li>
+<li>Si visualizzi l&rsquo;andamento dei valori delle tre azioni al variare del tempo.
+Si analizzino inoltre gli indici di dispersione IQR, Range e deviazione standard.</li>
+<li>Per ognuna delle tre azioni, si calcolino gli intervalli di confidenza bilateri al livello 95% per la media dei prezzi assunti negli anni dal 2013 al 2015 usando il comando <code>t.test</code>.</li>
+<li>Si consideri un modello di regressione lineare per analizzare l&rsquo;andamento dei prezzi delle azioni di Microsoft rispetto a quello delle azioni di IBM per il periodo dal Dicembre 1990 (incluso) al Giugno 2007 (incluso). Si visualizzi la retta di regressione rispetto ai dati e si calcoli il coefficiente di <a href="../lezione6_2019">correlazione</a>.  Che conclusioni si possono trarre?</li>
+</ul>
+
+<p>Si produca uno script <strong>funzionante</strong> (o un notebook) che contiene tutto il codice per risolvere l&rsquo;esercizio.</p>
+
+<h3 id="soluzione-sollez7-r"><a href="/SolLez7.R">Soluzione</a></h3>
+
+<!-- # Esercizio 2
+
+Si definisca una funzione che dati: 
+
+- dei valori del predittore (anche diversi da quelli usati per definire il modello);
+- i corrispondenti valori della variabile dipendente;
+- i coefficienti di regressione;
+
+restituisca il valore di R quadro. -->
+
+<!-- # Esercizio 2
+
+Si consideri il dataset *Pima.tr2* contenuto nel pacchetto *MASS*.
+
+- Si verifichi la correttezza dei dati e si visualizzino i box plot di *bmi* e *glu* al variare di *type*.
+
+- Vogliamo usare le informazioni relative a *bmi* e *glu* per *predirre* i valori mancanti di *skin*.
+- - Dividiamo i dati in due dataset: Pima_skin e Pima_NoSkin a seconda che il valore *skin* sia definito o no.
+- - Dividiamo il dataset Pima_slin
+
+
+Si definisca una funzione che dati: 
+
+- dei valori della variabile predittrice (anche diversi da quelli usati per definire il modello);
+- i corrispondenti  valori della variabile dipendente;
+- i coefficienti di regressione;
+
+restituisca il valore di R quadro.
+
+Si usi tale funzione per valutare il  -->
+
+<!-- # <a name="Corr"></a> Link utili 
+- Una sintetica descrizione della [correlazione](https://it.wikipedia.org/wiki/Correlazione_(statistica)) ed una simpatica pagina web che fa intuire i limiti di questo approccio [limiti](http://www.tylervigen.com/spurious-correlations).
+ -->
+
+<!---
+
+# Una breve riflessione
+
+Questo paragrafo, vuole solo raccontare con semplicità alcune delle applicazioni della statistica (descrittiva) nelle moderne scienze e nella tecnologia.
+
+La statistica è uno strumento fondamentale che accompagna scoperte in [moltissimi campi](https://en.wikipedia.org/wiki/List_of_fields_of_application_of_statistics) delle scienze naturali e fisiche, così come le scienze biologiche o sociologiche. Allo stesso modo, accompagna moltissimi risultati in economia o nelle scienze attuariali.
+
+Molti dei risultati, che vengono pubblicati anche su importantissime riviste scientifiche, come [Nature](https://www.nature.com/) o [Science](http://www.sciencemag.org/), sono spesso supportati da strumenti di statistica come quelli che abbiamo visto in questo corso.  
+
+Allo stesso modo, con la diffusione dell'analisi dei dati, ed in particolare dei **big data**, diventa sempre più importante saper sintetizzare e processare l'esorbitante mole di informazioni che vengono create ogni giorno (e ogni ora).
+
+Che tali informazioni siano dati che possono aiutare a capire o controllare l'inquinamento nelle città  o degli stati (*ring a bell?*), o a capire quale sia linea aerea più affidabile con cui viaggiare, ci sono innumerevoli domande a cui possiamo dare risposta usando strumenti statistici. E la comunità scientifica lo fa da molto tempo.
+
+Nello stesso modo, grandi operatori di internet (e non solo) usano questi strumenti per capire quali film o video, o quale pubblicità suggerirci (o prodotti, in generale), partendo dalle informazioni dei contenuti di cui abbiamo già fruito o basandosi sulle nostre ricerche.
+
+Analogamente, i tanto discussi [machine learning, deep learning ed  intelligenza artificiale](http://www.economist.com/blogs/economist-explains/2015/05/economist-explains-14?fsrc=scn/fb/te/bl/ed/), affondano le loro radici nei concetti di probabilità e statistica affrontati in questo corso. La combinazione di queste conoscenze, unite alle capacità di programmazione in R richieste, sono già sufficienti per avvicinarsi a queste applicazioni, così come a tante altre.
+
+Per chi fosse affascinato da questi temi, e se la sentisse di mettersi in gioco, esistono molte piattaforme che ospitano competizione per lo sviluppo di modelli che hanno lo scopo di predire le più disparate quantità. Si vedano ad esempio [Kaggle](https://www.kaggle.com) o [Innocentive](https://www.innocentive.com/). Le stesse piattaforme forniscono spunti e idee (e dataset) con cui migliorare le proprie capacità.
+
+La matematica, la probabilità e la statistica possono aprire moltissime lavorative, così come possono aiutare a soddisfare la naturale *curiosità* che dovrebbe contraddistinguere uno scienziato, ed in particolare un matematico!
+--->
+
+<p> &copy; 2017-2019  Federico Reali</p>
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/lezione6_2019/" data-toggle="tooltip" data-placement="top" title="Lezione6">&larr; Previous Post</a>
+            </li>
           
           
-        </div>
+            <li class="next">
+              <a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/riflessione_2019/" data-toggle="tooltip" data-placement="top" title="Riflessione">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
 
+
+      
         
-      </div>
+        
+      
+
     </div>
   </div>
+</div>
 
     <footer>
   <div class="container">
