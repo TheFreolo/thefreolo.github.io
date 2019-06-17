@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>LezioneR</title>
+  <meta property="og:title" content="LezioneR" />
+  <meta name="twitter:title" content="LezioneR" />
+  <meta name="description" content="Usare R
+
+
+
+Perché R
+
+
+R is a free software environment for statistical computing and graphics.
+It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.
+
+ The R Foundation 
+
+
+">
+  <meta property="og:description" content="Usare R
+
+
+
+Perché R
+
+
+R is a free software environment for statistical computing and graphics.
+It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.
+
+ The R Foundation 
+
+
+">
+  <meta name="twitter:description" content="Usare R
+
+
+
+Perché R
+
+
+R is a free software environment for statistical computing and graphics.
+It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.
+
+ The R Foundation 
+
+
+">
+  <meta name="author" content=""/>
+  <link href='https://thefreolo.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="https://thefreolo.github.io/media/Profile_PIC.jpg" />
+  <meta name="twitter:image" content="https://thefreolo.github.io/media/Profile_PIC.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@TheFreolo" />
+  <meta name="twitter:creator" content="@TheFreolo" />
+  <meta property="og:url" content="https://thefreolo.github.io/biostatistics/lezioner/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Federico Reali" />
+
+  <meta name="generator" content="Hugo 0.36.1" />
+  <link rel="canonical" href="https://thefreolo.github.io/biostatistics/lezioner/" />
+  <link rel="alternate" href="https://thefreolo.github.io/index.xml" type="application/rss+xml" title="Federico Reali">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://thefreolo.github.io/css/codeblock.css" />
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-142285014-1cse', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://thefreolo.github.io/">Federico Reali</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">Teaching</a>
+              <div class="navlinks-children">
+                
+                  <a href="/teachings/">Home</a>
+                
+                  <a href="/biostatistics/">Biostatistics</a>
+                
+                  <a href="/calcolo-delle-probabilita%cc%80-e-statistica-matematica">Calcolo delle Probabilità e Statistica Matematica</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Publications" href="/publications/">Publications</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="Federico Reali" href="https://thefreolo.github.io/">
+            <img class="avatar-img" src="https://thefreolo.github.io/media/Profile_PIC.jpg" alt="Federico Reali" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="Biostatistics-heading">
+              <h1>LezioneR</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h1 id="usare-r">Usare R</h1>
+
+<p><img src="/media/Rlogo.png" alt="" /></p>
+
+<h2 id="perché-r">Perché R</h2>
+
+<blockquote>
+<p>R is a free software environment for statistical computing and graphics.
+It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.</p>
+
+<p><cite> The R Foundation <cite></p>
+</blockquote>
+
+<p></p>
+
+<p>R è un versatile linguaggio di programmazione che sta particolarmente a cuore alla comunità che si occupa di statistica, per questo esistono molte pagine volte ad insegnarne l&rsquo;uso, così come molti blog e forum dove gli utenti possono cercare risposte alle loro domande realtive all&rsquo;uso.</p>
+
+<p>R è un software libero disponibile per le maggiori piattaforme, inclusi Windows, Mac e diverse distribuzioni di Linux.</p>
+
+<h2 id="usare-r-1">Usare R</h2>
+
+<p>Una volta istallato R, è già possibile usarne tutte le funzionalità. Infatti andando in <strong>Applicazioni</strong> si può già trovare R tra esse. Pigiando la relativa icona si avvia la <strong>R console</strong>, una interfaccia molto semplice che però permette di usufruire di <strong>tutte</strong> le potenzialità del software.</p>
+
+<p><img src="/media/R_open.png" alt="Example image" /></p>
+
+<p>Ad esempio digitando</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="m">2+2</span></code></pre></div>
+<p>oppure</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="m">3</span><span class="o">*</span><span class="m">5</span></code></pre></div>
+<p>è possibile utilizzare la console come calcolatrice. Ovviamente questo tipo di uso sfrutta solo una minima parte delle potenzialità del software.</p>
+
+<p>Sebbene tutto quello che faremo sarà possibile farlo anche direttamente da console, noi useremo un software che si interfaccia ad R, ma che presenta un&rsquo;interfaccia grafica più completa. Tale programma è <a href="https://www.rstudio.com/products/rstudio/">R Studio</a>.</p>
+
+<h2 id="usare-r-studio">Usare R Studio</h2>
+
+<p>Una volta installato R Studio, avviamolo e (se l&rsquo;istallazione è andata a buon fine) dovrebbe apparire la schermata iniziale:</p>
+
+<p><img src="/media/Rstudio_blank.png" alt="RStudio - Versions" /></p>
+
+<p>L&rsquo;interfaccia grafica si presenta con 3 principali finestre che riportano la console di R (la stessa che abbiamo visto prima singolarmente), la finestra <strong>Enviroment</strong> e <strong>History</strong> e quella contenente <strong>Files</strong>, <strong>Plots</strong>, <strong>Packages</strong>, <strong>Help</strong> e <strong>Viewer</strong>.</p>
+
+<p>Per prima cosa controlliamo che tutti i pacchetti contenuti nell&rsquo;installazione siano aggiornati. Selezionando da Tools:</p>
+
+<p><img src="/media/Rstudio_tool.png" alt="RStudio - Versions" /></p>
+
+<p>Se risultano pacchetti da aggiornare, selezionateli tutti e aggiornateli. In caso non vi siano, R Studio vi dovrebbe avvisare.</p>
+
+<h3 id="cartelle">Cartelle</h3>
+
+<p>E&rsquo; possibile usare degli appositi comandi per capire in quale cartella sta lavorando R. Questo è essenziale se si vuole salvare dei file o leggerne il contenuto.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="kp">getwd</span><span class="p">()</span></code></pre></div>
+<p>Questo comando <em>get working directory</em> restituisce il path della cartella corrente. R può facilmente leggere o salvare file in questa cartella.</p>
+
+<p>E&rsquo; possibile impostare una cartella diversa. Ad esempio possiamo creare una cartella relativa al corso di <strong>BioStatistics2</strong> e possiamo creare lì dentro una cartella chiamata R, dove possiamo salvare i nostri file.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="kp">setwd</span><span class="p">(</span><span class="s">&#39;IL-Vostro-path/BioStat2/R/Lezione1&#39;</span><span class="p">)</span></code></pre></div>
+<p>Una volta capito dove siamo e dove dovremmo essere, possiamo iniziare ad usare una delle funzionalità per cui abbiamo scelto R Studio: la possibilità di creare degli script nella stessa interfaccia grafica e di lanciare comandi dagli stessi.</p>
+
+<p>Selezioniamo <strong>File|New File|R Script</strong> apriamo in R Studio una nuova finestra che permette di editare (scrivere) uno script.</p>
+
+<p><img src="/media/Rstudio_NewScript.png" alt="RStudio - Versions" /></p>
+
+<p><img src="/media/Rstudio_4tab.png" alt="RStudio - Versions" /></p>
+
+<p>Ora non rimane che spendere un po&rsquo; di tempo a familiarizzare con l&rsquo;interfaccia e con R!</p>
+
+<h2 id="operazioni-aritmetiche">Operazioni Aritmetiche</h2>
+
+<p>Come abbiamo già visto è possibile usare R per svolgere operazioni matematiche, usando i simboli standard.</p>
+
+<p>Ad esempio, l&rsquo;uso di <code>+</code> più tra due numeri farà comparire la loro somma.
+In modo analogo è possibile farne la differenza (<code>-</code>), il prodotto (<code>*</code>) e la divisione(<code>/</code>).</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="m">2+2</span> 
+<span class="m">2-2</span>
+<span class="m">2</span><span class="o">*</span><span class="m">2</span>
+<span class="m">2</span><span class="o">/</span><span class="m">2</span></code></pre></div>
+<p>Le potenze si possono esprimere usando il simbolo <code>^</code>. Lo stesso simbolo si può utilizzare per il calcolo delle radici, anche se è possibile richiamare la radice quadrata usando il comando <code>sqrt()</code>. Si noti che tale funzione accetta anche valori complessi.</p>
+
+<p>Per la divisione intera tra due numeri è possibile usare il simbolo <code>%/%</code>, mentre <code>%%</code> restituisce il resto di tale divisione.</p>
+
+<p>Un altro comando di base che può risultare utile è il calcolo del valore assoluto ottenuto con il comando <code>abs()</code>.</p>
+
+<p>In modo analogo sono già definite alcune delle funzioni che sono alla base dei calcoli matematici più frequenti. Le vedremo nei prossimi paragrafi.</p>
+
+<h2 id="esponenziale-e-logaritmi">Esponenziale e logaritmi</h2>
+
+<p>E&rsquo; possibile calcolare i valori della funzione esponenziale usando il comando <code>exp()</code> mentre per il calcolo dei logaritmi è possibile usare più funzioni:
+<code>log(), log10()</code> e <code>log2()</code> che restituiscono il logaritmo naturale, base 10 e base 2 rispettivamente. Il comando <code>log()</code> permette anche di specificare una base differente da <strong><em>e</em></strong>, che è quella di default. Ad esempio, <code>log( 5 , base = 3)</code> restituisce il logaritmo in base 3 di 5.</p>
+
+<h2 id="funzioni-trigonometriche">Funzioni Trigonometriche</h2>
+
+<p>Le principali funzioni trigonometriche sono già implementate in R e si possono richiamare usando i comandi elencati sotto, i cui nomi richiamano le funzioni stesse. Va notato che l&rsquo;input di queste funzioni è atteso in radianti, <strong>non gradi</strong>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="kp">sin</span><span class="p">()</span> <span class="c1"># seno</span>
+<span class="kp">cos</span><span class="p">()</span> <span class="c1"># cosen</span>
+<span class="kp">tan</span><span class="p">()</span> <span class="c1"># tangente</span></code></pre></div>
+<p>E&rsquo; possibile utilizzare le stesse funzioni ma con desinenza <strong><em>pi</em></strong> (<code>sinpi()</code>, <code>cospi()</code> e <code>tanpi()</code>) se si intende considerare dei multipli di pi-greco.</p>
+
+<p>Anche le funzioni inverse sono già implementate e si possono richiamare con i comandi <code>acos(), asin(), atan()</code>.</p>
+
+<h2 id="assegnazione-e-vettori">Assegnazione e vettori</h2>
+
+<p>Fin ora abbiamo usato R per calcolare dei singoli valori, in modo analogo a come avremmo usato una calcolatrice. Tuttavia R permette di fare molto di più.</p>
+
+<p>Come primo passo per scoprirne  le potenzialità vedremo la possibilità di assegnare valori e di richiamarli successivamente, così come di lavorare con vettori o matrici, invece che con singoli valori.</p>
+
+<p>Questa parte, così come alcune successive sono anche coperte dalle utili <a href="https://cran.r-project.org/doc/contrib/Mineo-dispensaR.pdf">dispense</a>, di cui ho già consigliato la lettura.</p>
+
+<p>E&rsquo; possibile assegnare un valore ad una variabile usando la freccina <code>-&gt;</code>. Stesso risultato si può ottenere usando <code>=</code> oppure <code>assign()</code>, tuttavia il primo è decisamente il comando più usato e di più facile lettura. <a href="http://stackoverflow.com/questions/1741820/assignment-operators-in-r-and">Qui</a> è possibile leggere una discussione sulle differenze nell&rsquo;uso di <code>=</code> o di <code>-&gt;</code>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">x  <span class="o">&lt;-</span> <span class="m">6</span></code></pre></div>
+<p>Usando il precedente comando viene assegnato il valore 6 alla variabile x. In questo modo è possibile richiamarla successivamente, così come è possibile scrivere espressioni più complesse che coinvolgono x a prescindere dal suo valore. Questo sarà particolarmente utile se dovremo definire delle funzioni a cui è possibile passare per argomento diversi valori.
+Si noti che il comando <code>6 -&gt; x</code> produce gli stessi risultati del precedente.</p>
+
+<p>Oltre ad assegnare un singolo valore, è possibile  considerati dei vettori.
+Il comando</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">y <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">)</span>
+y<span class="p">[</span><span class="m">1</span><span class="p">]</span></code></pre></div>
+<p>assegna a y i valori contenuti nel comando <code>c()</code>. Tale comando combina i valori in un vettore colonna ( ma viene visualizzato come riga). L&rsquo;accesso ai vettori avviene attraverso indicandone il nome, seguito da parentesi quadre. Ovviamente è possibile svolgere operazioni aritmetiche anche tra vettori, usando la stessa sintassi vista prima.
+Di default R considera operazioni puntuali tra vettori, cioè l&rsquo;operazione richiesta viene svolta entrata per entrata. Questo richiede le dimensioni siano le stesse. Qualora non lo fossero, il contenuto del vettore più piccolo viene ripetuto un numero di volte sufficienti da rendere possibile l&rsquo;operazione. Questo viene anche segnalato da un warning.</p>
+
+<p>E&rsquo; possibile ottenere le dimensioni di un vettore usando il comando <code>length()</code>.</p>
+
+<p>Un comando utile tra vettori è <code>t()</code> che traspone il vettore passato per argomento.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">z <span class="o">&lt;-</span> <span class="kp">t</span><span class="p">(</span>y<span class="p">)</span>
+y
+<span class="kp">print</span><span class="p">(</span>z<span class="p">)</span>
+z</code></pre></div>
+<p>Chiamare una variabile senza indicare operazioni ne permette la stampa a video. Inserendo l&rsquo;assegnazione tra parentesi tonde si ottiene lo stesso risultato. Anche il comando <code>print()</code> permetta la stampa a video. Inoltre questo comando, diversamente dai precedenti, permette di mostrare l&rsquo;output anche quando è chiamata dentro una funzione o uno script.</p>
+
+<p>Dal comando precedente vediamo che y e z hanno stessi valori ma dimensioni diverse. Tuttavia R permette di svolgere operazioni matematiche su di essi senza warning o errori.</p>
+
+<p>Per svolgere operazioni tra vettori, come il prodotto righe per colonne si può considerare il comando <code>%*%</code>. In questo caso il risultato dipende dall&rsquo;ordine.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">y <span class="o">%*%</span> z
+z <span class="o">%*%</span> y</code></pre></div>
+<h2 id="sequenze">Sequenze</h2>
+
+<p>Nel caso si debba indicare una successione di valori è possibile farlo senza indicarli espressamente tutti, purché essi siano una sequenza regolare.</p>
+
+<p>Ad esempio con <code>a:b</code> possiamo usare i due punti per indicare una sequenza di valori con passo 1  da <em>a</em> fino a <em>b</em> . Per indicare un passo diverso possiamo usare il comando <code>seq(a,b,passo)</code> che  produrrà una sequenza di elementi da <em>a</em> fino a <em>b</em> distanziati di un valore uguale al <em>passo</em> indicato. Se il passo viene omesso è considerato 1 di default.</p>
+
+<p>Per tutte le funzioni è possibile accedere all&rsquo;help di R usando il comando <code>help(Nome_funzione)</code>. Leggendo l&rsquo;help di <code>seq()</code> vediamo ad esempio che possiamo anche indicare in ordine diverso i parametri, a patto di specificarli usando il nome indicato nell&rsquo;help. Ad esempio <code>seq(to = b, by = passo, from = a)</code> restituisce lo stesso output di <code>seq(a,b,passo)</code>.</p>
+
+<p>Inoltre è possibile ripetere un valore o un vettore usando il comando <code>rep()</code>, ad esempio <code>rep(1,5)</code> restituisce cinque volte il valore 1. Nel caso di un vettore, il comando ripeterà 5 volte il vettore.</p>
+
+<h2 id="operazioni-su-vettori">Operazioni su vettori</h2>
+
+<p>Oltre alle operazioni che abbiamo già visto esistono altre funzioni di R appositamente pensate per i vettori. Ad esempio le funzioni <code>min</code> e <code>max</code> restituiscono, rispettivamente, il minimo ed il massimo valore contenuto in un vettore. Per accedere alla posizione di tali valori si combinano i precedenti comandi con <code>which</code>. Ad esempio</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">x <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">9</span><span class="p">,</span> <span class="m">8</span><span class="p">)</span>
+<span class="kp">min</span><span class="p">(</span>x<span class="p">)</span>
+<span class="kp">which.min</span><span class="p">(</span>x<span class="p">)</span>
+<span class="kp">max</span><span class="p">(</span>x<span class="p">)</span>
+<span class="kp">which.max</span><span class="p">(</span>x<span class="p">)</span></code></pre></div>
+<p>Altre funzioni molto utili per lavorare con i vettori sono la funzione <code>sum()</code> che calcola la somma di tutti gli elementi di un vettore e la funzione <code>diff()</code>
+che calcola la differenza di un valore da uno dei precedenti (è possibile indicare quanto prima &ldquo;guardare&rdquo;).</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="kp">sum</span><span class="p">(</span>x<span class="p">)</span>
+<span class="kp">diff</span><span class="p">(</span>x<span class="p">)</span>
+<span class="kp">diff</span><span class="p">(</span>x<span class="p">,</span><span class="m">2</span><span class="p">)</span></code></pre></div>
+<h2 id="operatori-relazionali-e-logici">Operatori relazionali e logici</h2>
+
+<p>R ci permette anche di valutare espressioni relazionali o logiche. Il loro risultato sarà un valore logico indicato con TRUE o FALSE.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="m">6</span> <span class="o">&gt;</span> <span class="m">10</span>
+<span class="m">6</span> <span class="o">&lt;=</span> <span class="m">10</span>
+is_bigger <span class="o">&lt;-</span> <span class="m">6</span><span class="o">&gt;</span> <span class="m">10</span>
+is_bigger
+<span class="kp">as.integer</span><span class="p">(</span>is_bigger<span class="p">)</span></code></pre></div>
+<p>R permette di valutare diverse espressioni relazionari, oltre a maggiore (uguale) o minore (uguale). Ad esempio è possibile valutare se due valori o variabili siano diversi <code>!=</code> o uguali <code>==</code>. Questo può essere particolarmente utile quando si definiscono delle funzioni proprie e si valuta se una condizione è soddisfatta.</p>
+
+<p>R permette anche di valutare gli operatori logici <code>&amp;</code> (and), <code>|</code> (or), <code>xor</code> e <code>!</code> (not).</p>
+
+<p>Questi operatori possono essere valutati sia su vettori logici, che di numeri qualsiasi. Nel secondo caso, tuttavia, tutto ciò che è diverso da zero conterà come TRUE, e solo lo 0 conterà come FALSE. Nel caso in cui si definiscano dei vettori misti (dove sono presenti sia valori logici che interi/reali/complessi), verranno tutti convertiti nel formato numerico presente.</p>
+
+<h2 id="matrici">Matrici</h2>
+
+<p>Come abbiamo visto i vettori sono considerati in generale vettori riga, e non è possibile generare una matrice usando il comando <code>c()</code>.</p>
+
+<p>Tuttavia le matrici esistono e si possono definire usando la funzione <code>cbind()</code> che unisce i vettori passati come argomento in una matrice dove i vettori argomento sono le colonne. La funzione <code>rbind()</code> ha la stessa funzione, ma i vettori passati come argomento saranno le righe della matrice. In tutti e due i casi, i vettori passati come argomento devono avere stessa dimensione (no uno riga e uno colonna). La funzione <code>dim()</code> restituisce le dimensioni dell&rsquo;oggetto passato come argomento. La funzione <code>length()</code> (che avevamo visto con i vettori) ci restituisce il <em>prodotto</em> delle dimensioni.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">a <span class="o">&lt;-</span> <span class="kp">cbind</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">),</span> <span class="kt">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">))</span>
+<span class="kp">dim</span><span class="p">(</span>a<span class="p">)</span>
+b <span class="o">&lt;-</span> <span class="kp">rbind</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">),</span> <span class="kt">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">))</span>
+<span class="kp">dim</span><span class="p">(</span>b<span class="p">)</span>
+a
+b</code></pre></div>
+<p>E&rsquo; possibile variare la dimensione di un oggetto usando gli stessi comandi <code>length</code> e <code>dim</code> come assegnazioni.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="kp">dim</span><span class="p">(</span>a<span class="p">)</span> <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">)</span>
+a</code></pre></div>
+<p>Il comando precedente cambia la forma della matrice, secondo la forma indicata. Tali comandi vanno comunque usati con attenzione, visto che non si ha controllo su come il contenuto verrà ridistribuito.</p>
+
+<p>Altra utile funzione per creare matrici è la funzione <code>array()</code> che chiede di specificare gli elementi della matrice e le dimensioni. Risultato analogo si può otenere con la funzione <code>matrix(elementi, num righe, num colonne)</code>. Si noti che con <code>array()</code> è possibile definire strutture con più di due dimensioni.</p>
+
+<p>Gli elementi una matrice si accedono usando le parentesi quadre, indicando la posizione dell&rsquo;elemento.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">a<span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">]</span></code></pre></div>
+<p>Se si intende selezionare un&rsquo;intera riga o colonna, basta lasciare vuoto tale campo. Per esempio <code>a[1,]</code> restitusce l&rsquo;intera prima riga.</p>
+
+<p>Alcune funzioni come <code>contour(), persp(), image()</code> permettono di ottenere dei grafici, partendo da matrici.</p>
+
+<h2 id="stringhe-vettori-di-caratteri">Stringhe (vettori di caratteri)</h2>
+
+<p>R permette di manipolare anche vettori di caratteri, o stringhe, che possono essere salvati anche come vettori. Le stringhe vengono delimitate da doppie virgolette <code>&quot; &quot;</code> (o anche semplici virgolette <code>' '</code>).</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">nomi <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#34;Francesco&#34;</span><span class="p">,</span> <span class="s">&#34;Sofia&#34;</span><span class="p">,</span> <span class="s">&#34;Alessandro&#34;</span><span class="p">)</span>
+nomi<span class="p">[</span><span class="m">1</span><span class="p">]</span>
+
+nomi_e_numeri <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#34;Francesco&#34;</span><span class="p">,</span> <span class="s">&#34;Sofia&#34;</span><span class="p">,</span> <span class="s">&#34;Alessandro&#34;</span><span class="p">,</span> <span class="m">45</span><span class="p">)</span></code></pre></div>
+<p>In R non possono convivere nello stesso array caratteri e numeri. Se ad esempio nell&rsquo;assegnazione indichiamo nomi e numeri, questi ultimi verranno convertiti in caratteri.</p>
+
+<p>Una funzione molto utile per maneggiare stringhe, ma anche altri risultati, è la funzione <code>paste()</code> che concatena dei vettori dopo averli trasformati in stringhe.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="kp">paste</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">)</span> 
+
+<span class="p">(</span>nth <span class="o">&lt;-</span> <span class="kp">paste0</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">,</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#34;st&#34;</span><span class="p">,</span> <span class="s">&#34;nd&#34;</span><span class="p">,</span> <span class="s">&#34;rd&#34;</span><span class="p">,</span> <span class="kp">rep</span><span class="p">(</span><span class="s">&#34;th&#34;</span><span class="p">,</span> <span class="m">9</span><span class="p">))))</span></code></pre></div>
+<p>Questa funzione può essere molto utile, ad esempio, se si devono creare vettori di nomi per delle variabili.</p>
+
+<p>Per capire il tipo di dati contenuto in un vettore possiamo usare il comando <code>typeof()</code> o <code>class()</code>.</p>
+
+<h2 id="liste-e-data-frame">Liste e data frame</h2>
+
+<p>Possiamo pensare ad una matrice come ad un metodo efficace per immagazzinare informazioni numeriche, ed è così! Però se il tipo di informazioni che dobbiamo immagazzinare è misto, ad esempio contiene sia numeri che caratteri, la loro efficienza viene meno e si possono preferire altri metodi.</p>
+
+<p>Una lista è un insieme ordinato di oggetti. Si possono definire liste usando il comando <code>list()</code>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="kt">c</span> <span class="o">&lt;-</span> <span class="kt">list</span><span class="p">(</span>destinazione <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#34;London&#34;</span><span class="p">,</span> <span class="s">&#34;Madrid&#34;</span><span class="p">),</span> compagnia <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#34;Ryanair&#34;</span><span class="p">,</span> <span class="s">&#34;EasyJet&#34;</span><span class="p">),</span> costo <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">60</span><span class="p">,</span> <span class="m">80</span><span class="p">),</span> valuta <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#34;£&#34;</span><span class="p">,</span> <span class="s">&#34;€&#34;</span><span class="p">)</span> <span class="p">)</span><span class="m">.</span></code></pre></div>
+<p>Si può accedere al contenuto di una lista sia per posizione con le doppie parentesi <code>c[[2]]</code>  oppure per nome <code>c[[&quot;compagnia&quot;]]</code> o <code>c$compagnia</code>. Tutti  i precedenti comandi restituiscono il contenuto della lista definito da <em>compagnia</em>. Se vogliamo accedere direttamente ad un elemento possiamo usare indifferentemente i comandi <code>c[[2]][2]</code>, <code>c[[&quot;compagnia&quot;]][2]</code> o <code>c$compagnia[2]</code>.</p>
+
+<h3 id="data-frame">Data frame</h3>
+
+<p>Un&rsquo;altra struttura dati che permette di immagazzinate dati di tipo misto sono i <em>data frame</em>. Questa struttura è di gran lunga la più usata per leggere e manipolare dati in R.</p>
+
+<p>I <em>data frame</em> sono liste di tipo &ldquo;data.frame&rdquo; contenenti variabili con lo stesso numero di righe, il cui identificativo è univoco.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">L3 <span class="o">&lt;-</span> <span class="kc">LETTERS</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span>
+fac <span class="o">&lt;-</span> <span class="kp">sample</span><span class="p">(</span>L3<span class="p">,</span> <span class="m">10</span><span class="p">,</span> replace <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<span class="p">(</span>d <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>x <span class="o">=</span> <span class="m">1</span><span class="p">,</span> y <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> fac <span class="o">=</span> fac<span class="p">))</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="kt">data.frame</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> fac<span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">## The &#34;same&#34; with automatic column names:</span>
+<span class="kt">data.frame</span><span class="p">(</span><span class="kp">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">10</span><span class="p">),</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> fac<span class="p">)</span>
+<span class="kt">data.frame</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> <span class="kp">sample</span><span class="p">(</span>L3<span class="p">,</span> <span class="m">10</span><span class="p">,</span> replace <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span></code></pre></div>
+<h3 id="tidy-data-please">Tidy data, please!</h3>
+
+<blockquote>
+<p>A huge amount of effort is spent cleaning data to get it ready for
+analysis, but there has been little research on how to make data cleaning as easy and effective as possible. This paper tackles a small, but important, component of data cleaning: data tidying. <strong>Tidy datasets</strong> are easy to manipulate, model and visualize, and <strong>have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table</strong>. This framework makes it easy to tidy messy datasets because only a small set of tools are needed to deal with a wide range of un-tidy datasets. This structure also makes it easier to develop tidy tools for data analysis, tools that both input and output tidy datasets. The advantages of a consistent data structure and matching tools are demonstrated with a case study free from mundane data manipulation chores.</p>
+
+<p><cite> <a href="https://www.jstatsoft.org/article/view/v059i10">Tidy data</a> - Hadley Wickham <cite></p>
+</blockquote>
+
+<p>Visto l&rsquo;importanza dei dati nel mondo moderno e l&rsquo;innegabile importanza del tempo nella nostra società, evitiamo di perdere troppo tempo a risistemare i nostri dati e cerchiamo di uniformarci ai <em>tidy data</em> da quando creiamo un dataset in poi. Questo ci farà risparmiare molto tempo e migliorerà la ripetibilità delle nostre analisi!</p>
+
+<h2 id="programmazione-in-r">Programmazione in R</h2>
+
+<p>R permette di eseguire comandi che permetto l&rsquo;iterazione, la valutazione di espressioni condizionali e la definizione di funzioni.</p>
+
+<h3 id="condizioni-if">Condizioni: if</h3>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="kr">if</span> <span class="p">(</span>condizione<span class="p">)</span> comando1 <span class="kr">else</span> comando2
+<span class="c1">#Oppure</span>
+<span class="kp">ifelse</span><span class="p">(</span>condizione<span class="p">,</span>comando1<span class="p">,</span>comando2<span class="p">)</span></code></pre></div>
+<p>La prima espressione verifica una <em>condizione</em> <strong>solo</strong> su singolo elemento. Al contrario, il comando <code>ifelse</code> permette di vettorializzare il controllo. Se la <em>condizione</em> è va valutata su un vettore, il comando <code>ifelse</code> la valuta su tutte le entrate e applica <em>comando1</em> se soddisfatta per quell&rsquo;entrata e <em>comando2</em> in caso contrario. Qualora venisse passato un vettore all&rsquo;espressione <code>if</code>, questo valuterebbe la <em>condizione</em> solo rispetto al primo elemento del vettore ed eseguirebbe il comando opportuno.</p>
+
+<p>Si possono raggruppare più comandi usando le parentesi graffe e il punto e virgola. Ad esempio, nell&rsquo;<code>if</code> è possibile in questo modo fare più operazioni per ogni caso.</p>
+
+<h3 id="iterazioni-for-while-repeat">Iterazioni: for - while - repeat</h3>
+
+<p>Si possono iterare dei comandi usando i comandi <code>for</code>, <code>while</code>o <code>repeat</code>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> sequenza<span class="p">)</span> comando1</code></pre></div>
+<p><code>for</code> permette di iterare comando1 al variare di una variabile, in questo caso <em>i</em>. Questa espressione è molto utile quando si visitano dei vettori e alle diverse entrate viene applicato comando1. Usando le parentesi graffe è possibile indicare più comandi.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="kr">while</span> <span class="p">(</span>condizione<span class="p">)</span> comando1</code></pre></div>
+<p><code>while</code> ripete comando1 finche la condizione è vera. L&rsquo;uso di <code>while</code> può essere rischioso qualora la condizione sia sempre soddisfatta e si rimanga bloccati in un <em>loop infinito</em>.</p>
+
+<p><code>repeat</code> ripete semplicemente un comando. <code>break</code> permette di interrompere qualsiasi iterazione ed è l&rsquo;unico modo per fermare un ciclo <code>repeat</code>.</p>
+
+<h3 id="definire-funzioni">Definire funzioni</h3>
+
+<p>R permette all&rsquo;utente di definire funzioni, attraverso il comando <code>function</code>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">nomeFunzione <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span> lista_argomenti <span class="p">)</span> comando1
+<span class="kr">return</span><span class="p">(</span>valore<span class="p">)</span></code></pre></div>
+<p>La sintassi precedente permette di definire una funzione chiamata <em>nomeFunzione</em> che valuterà comando1 e restituirà <em>valore</em>.</p>
+
+<p>L&rsquo;uso di funzioni <em>user-defined</em> permette di richiamare nei passaggi successivi la funzione che è stata definita passando diversi argomenti. Usando le parentesi graffe è possibile specificare più comandi.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">my_fun <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span> a <span class="p">,</span> b <span class="p">,</span> <span class="kt">c</span><span class="p">)</span> <span class="p">{</span>
+<span class="kr">return</span><span class="p">(</span>a<span class="o">*</span>b <span class="o">+</span> <span class="kt">c</span><span class="p">)</span>    
+<span class="p">}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">my_fun2 <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span> a <span class="p">,</span> b <span class="p">,</span> <span class="kt">c</span><span class="p">)</span> <span class="p">{</span>
+    y <span class="o">&lt;-</span> a<span class="o">**</span>b 
+<span class="kr">return</span><span class="p">(</span>y <span class="o">+</span> a<span class="o">*</span>b <span class="o">+</span> <span class="kt">c</span><span class="p">)</span>    
+<span class="p">}</span></code></pre></div>
+<p>Si possono salvare funzioni e script (usando l&rsquo;estensione .R), che possono essere poi eseguiti attraverso il comando <code>source(“nome_della_funzione.R”)</code>. Per richiamare tali funzioni è essenziale che siano nella cartella di lavoro, altrimenti va indicato il path per raggiungere il file.</p>
+
+<h1 id="link-utili">Link utili</h1>
+
+<ul>
+<li>A questo <a href="https://cran.r-project.org/doc/contrib/Mineo-dispensaR.pdf">link</a> è possibile reperire delle utili dispense sull&rsquo;uso di R.</li>
+<li>A questo <a href="https://cran.r-project.org/doc/contrib/Frascati-FormularioStatisticaR.pdf">link</a> è possibile reperire un utile formulario che descrive moltissimi comandi di R.</li>
+<li>A questo <a href="http://tryr.codeschool.com/">link</a> è possibile seguire un veloce tutorial che introduce molti dei comandi di base di R (in inglese).</li>
+<li>A questo <a href="http://tryr.codeschool.com/">link</a> è possibile seguire un veloce tutorial che introduce molti dei comandi di base di R (in inglese).</li>
+<li>Esistono molti corsi online gratuiti o a pagamento che insegnano le basi di R. Tra i tanti segnalo quello di <a href="https://www.datacamp.com/courses/free-introduction-to-r">Data Camp</a> che è gratuito (in inglese). Come questo ne esistono innumerevoli, sia in inglese che in italiano.</li>
+</ul>
+
+<p> &copy; 2017-2018  Federico Reali</p>
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+          
+            <li class="next">
+              <a href="https://thefreolo.github.io/biostatistics/lezionermd/" data-toggle="tooltip" data-placement="top" title="Reports with R Markdown">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/TheFreolo" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/TheFreolo" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/federico-reali-9379b4116" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          
+          2019
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://thefreolo.github.io/">Federico Reali</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.36.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://thefreolo.github.io/js/main.js"></script>
+<script src="https://thefreolo.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script>
+<script src="https://thefreolo.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
+
