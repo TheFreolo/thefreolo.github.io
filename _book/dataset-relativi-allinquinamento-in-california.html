@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Dataset relativi all’inquinamento in California | Note di R</title>
+  <meta name="description" content="Questo libro riassume il contenuto del laboratorio di R del corso di Probabilità e Statistica Matematica dell’anno accademico 2018/2019" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Dataset relativi all’inquinamento in California | Note di R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Questo libro riassume il contenuto del laboratorio di R del corso di Probabilità e Statistica Matematica dell’anno accademico 2018/2019" />
+  <meta name="github-repo" content="rstudio/book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Dataset relativi all’inquinamento in California | Note di R" />
+  
+  <meta name="twitter:description" content="Questo libro riassume il contenuto del laboratorio di R del corso di Probabilità e Statistica Matematica dell’anno accademico 2018/2019" />
+  
+
+<meta name="author" content="Federico Reali" />
+
+
+<meta name="date" content="2019-06-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="manipolare-i-dati.html">
+<link rel="next" href="references.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Note di R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Premessa</a></li>
+<li class="chapter" data-level="1" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html"><i class="fa fa-check"></i><b>1</b> Primi passi con R</a><ul>
+<li class="chapter" data-level="1.1" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#perche-r"><i class="fa fa-check"></i><b>1.1</b> Perché R</a></li>
+<li class="chapter" data-level="1.2" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#installare-r"><i class="fa fa-check"></i><b>1.2</b> Installare R</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#scaricare-r"><i class="fa fa-check"></i><b>1.2.1</b> Scaricare R</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#installare-r-1"><i class="fa fa-check"></i><b>1.3</b> Installare R</a></li>
+<li class="chapter" data-level="1.4" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#usare-r"><i class="fa fa-check"></i><b>1.4</b> Usare R</a></li>
+<li class="chapter" data-level="1.5" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#installare-r-studio"><i class="fa fa-check"></i><b>1.5</b> Installare R Studio</a></li>
+<li class="chapter" data-level="1.6" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#usare-r-studio"><i class="fa fa-check"></i><b>1.6</b> Usare R Studio</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#cartelle"><i class="fa fa-check"></i><b>1.6.1</b> Cartelle</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#link-utili"><i class="fa fa-check"></i><b>1.7</b> Link utili</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html"><i class="fa fa-check"></i><b>2</b> Primi comandi di R</a><ul>
+<li class="chapter" data-level="" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#before-starting"><i class="fa fa-check"></i>Before Starting!</a></li>
+<li class="chapter" data-level="2.1" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#operazioni-aritmetiche"><i class="fa fa-check"></i><b>2.1</b> Operazioni Aritmetiche</a></li>
+<li class="chapter" data-level="2.2" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#esponenziale-e-logaritmi"><i class="fa fa-check"></i><b>2.2</b> Esponenziale e logaritmi</a></li>
+<li class="chapter" data-level="2.3" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#funzioni-trigonometriche"><i class="fa fa-check"></i><b>2.3</b> Funzioni Trigonometriche</a></li>
+<li class="chapter" data-level="2.4" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#assegnazione-e-vettori"><i class="fa fa-check"></i><b>2.4</b> Assegnazione e vettori</a></li>
+<li class="chapter" data-level="2.5" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#sequenze"><i class="fa fa-check"></i><b>2.5</b> Sequenze</a></li>
+<li class="chapter" data-level="2.6" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#operazioni-su-vettori"><i class="fa fa-check"></i><b>2.6</b> Operazioni su vettori</a></li>
+<li class="chapter" data-level="2.7" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#operatori-relazionali-e-logici"><i class="fa fa-check"></i><b>2.7</b> Operatori relazionali e logici</a></li>
+<li class="chapter" data-level="2.8" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#matrici"><i class="fa fa-check"></i><b>2.8</b> Matrici</a></li>
+<li class="chapter" data-level="2.9" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#stringhe-vettori-di-caratteri"><i class="fa fa-check"></i><b>2.9</b> Stringhe (vettori di caratteri)</a></li>
+<li class="chapter" data-level="2.10" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#liste-e-data-frame"><i class="fa fa-check"></i><b>2.10</b> Liste e data frame</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#data-frame"><i class="fa fa-check"></i><b>2.10.1</b> Data frame</a></li>
+<li class="chapter" data-level="2.10.2" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#tidy-data-please"><i class="fa fa-check"></i><b>2.10.2</b> Tidy data, please!</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#programmazione-in-r"><i class="fa fa-check"></i><b>2.11</b> Programmazione in R</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#condizioni-if"><i class="fa fa-check"></i><b>2.11.1</b> Condizioni: if</a></li>
+<li class="chapter" data-level="2.11.2" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#iterazioni-for---while---repeat"><i class="fa fa-check"></i><b>2.11.2</b> Iterazioni: for - while - repeat</a></li>
+<li class="chapter" data-level="2.11.3" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#definire-funzioni"><i class="fa fa-check"></i><b>2.11.3</b> Definire funzioni</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#esercizi"><i class="fa fa-check"></i><b>2.12</b> Esercizi</a><ul>
+<li class="chapter" data-level="2.12.1" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#esercizio-1"><i class="fa fa-check"></i><b>2.12.1</b> Esercizio 1</a></li>
+<li class="chapter" data-level="2.12.2" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#esercizio-2"><i class="fa fa-check"></i><b>2.12.2</b> Esercizio 2</a></li>
+<li class="chapter" data-level="2.12.3" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#esercizio-3"><i class="fa fa-check"></i><b>2.12.3</b> Esercizio 3</a></li>
+<li class="chapter" data-level="2.12.4" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#esercizio-4"><i class="fa fa-check"></i><b>2.12.4</b> Esercizio 4</a></li>
+</ul></li>
+<li class="chapter" data-level="2.13" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#link-utili-1"><i class="fa fa-check"></i><b>2.13</b> Link utili</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html"><i class="fa fa-check"></i><b>3</b> Lavorare con i dati</a><ul>
+<li class="chapter" data-level="" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html#before-starting-again"><i class="fa fa-check"></i>Before Starting (again)!</a></li>
+<li class="chapter" data-level="3.1" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html#pacchetti"><i class="fa fa-check"></i><b>3.1</b> Pacchetti</a></li>
+<li class="chapter" data-level="3.2" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html#manipolare-dati"><i class="fa fa-check"></i><b>3.2</b> Manipolare dati</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html#leggere-e-scrivere-file"><i class="fa fa-check"></i><b>3.2.1</b> Leggere e scrivere file</a></li>
+<li class="chapter" data-level="3.2.2" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html#esplorare-i-file"><i class="fa fa-check"></i><b>3.2.2</b> Esplorare i file</a></li>
+<li class="chapter" data-level="3.2.3" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html#factors"><i class="fa fa-check"></i><b>3.2.3</b> Factors</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html#missing-data"><i class="fa fa-check"></i><b>3.3</b> Missing data</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html"><i class="fa fa-check"></i><b>4</b> Visualizzare i dati</a><ul>
+<li class="chapter" data-level="4.1" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#box-plot"><i class="fa fa-check"></i><b>4.1</b> Box plot</a></li>
+<li class="chapter" data-level="4.2" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#istogrammi-e-scatter-plost"><i class="fa fa-check"></i><b>4.2</b> Istogrammi e scatter plost</a></li>
+<li class="chapter" data-level="4.3" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#analizzare-il-dataset-body-temperature"><i class="fa fa-check"></i><b>4.3</b> Analizzare il dataset Body Temperature</a></li>
+<li class="chapter" data-level="4.4" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#visualizzare-il-dataset-bodytemperature"><i class="fa fa-check"></i><b>4.4</b> Visualizzare il dataset BodyTemperature</a></li>
+<li class="chapter" data-level="4.5" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#analizzare-il-dataset-pima.tr2"><i class="fa fa-check"></i><b>4.5</b> Analizzare il dataset Pima.tr2</a></li>
+<li class="chapter" data-level="4.6" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#visualizzare-il-dataset-pima.tr2"><i class="fa fa-check"></i><b>4.6</b> Visualizzare il dataset Pima.tr2</a></li>
+<li class="chapter" data-level="4.7" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#esercizi-1"><i class="fa fa-check"></i><b>4.7</b> Esercizi</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#esercizio-1-1"><i class="fa fa-check"></i><b>4.7.1</b> Esercizio 1</a></li>
+<li class="chapter" data-level="4.7.2" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#esercizio-2-1"><i class="fa fa-check"></i><b>4.7.2</b> Esercizio 2</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#link-utili-2"><i class="fa fa-check"></i><b>4.8</b> Link utili</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="manipolare-i-dati.html"><a href="manipolare-i-dati.html"><i class="fa fa-check"></i><b>5</b> Manipolare i dati</a><ul>
+<li class="chapter" data-level="5.1" data-path="manipolare-i-dati.html"><a href="manipolare-i-dati.html#manipolare-dati-continua"><i class="fa fa-check"></i><b>5.1</b> Manipolare dati (continua)</a></li>
+<li class="chapter" data-level="5.2" data-path="manipolare-i-dati.html"><a href="manipolare-i-dati.html#distribuzioni-di-probabilita"><i class="fa fa-check"></i><b>5.2</b> Distribuzioni di probabilità</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="dataset-relativi-allinquinamento-in-california.html"><a href="dataset-relativi-allinquinamento-in-california.html"><i class="fa fa-check"></i><b>6</b> Dataset relativi all’inquinamento in California</a><ul>
+<li class="chapter" data-level="6.1" data-path="dataset-relativi-allinquinamento-in-california.html"><a href="dataset-relativi-allinquinamento-in-california.html#inquinamento-a-san-andreas"><i class="fa fa-check"></i><b>6.1</b> Inquinamento a San Andreas</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="dataset-relativi-allinquinamento-in-california.html"><a href="dataset-relativi-allinquinamento-in-california.html#dati-giornalieri"><i class="fa fa-check"></i><b>6.1.1</b> Dati giornalieri</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="dataset-relativi-allinquinamento-in-california.html"><a href="dataset-relativi-allinquinamento-in-california.html#inquinamento-in-california"><i class="fa fa-check"></i><b>6.2</b> Inquinamento in California</a></li>
+<li class="chapter" data-level="6.3" data-path="dataset-relativi-allinquinamento-in-california.html"><a href="dataset-relativi-allinquinamento-in-california.html#inquinamento-a-los-angeles"><i class="fa fa-check"></i><b>6.3</b> Inquinamento a Los Angeles</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="dataset-relativi-allinquinamento-in-california.html"><a href="dataset-relativi-allinquinamento-in-california.html#esercizio-1-2"><i class="fa fa-check"></i><b>6.3.1</b> <a name="L5Ex1"></a>Esercizio 1</a></li>
+<li class="chapter" data-level="6.3.2" data-path="dataset-relativi-allinquinamento-in-california.html"><a href="dataset-relativi-allinquinamento-in-california.html#esercizio-2-2"><i class="fa fa-check"></i><b>6.3.2</b> Esercizio 2</a></li>
+<li class="chapter" data-level="6.3.3" data-path="dataset-relativi-allinquinamento-in-california.html"><a href="dataset-relativi-allinquinamento-in-california.html#esercizio-3-1"><i class="fa fa-check"></i><b>6.3.3</b> <a name="L5Ex3"></a>Esercizio 3</a></li>
+<li class="chapter" data-level="6.3.4" data-path="dataset-relativi-allinquinamento-in-california.html"><a href="dataset-relativi-allinquinamento-in-california.html#esercizio-4-1"><i class="fa fa-check"></i><b>6.3.4</b> <a name="L5Ex4"></a>Esercizio 4</a></li>
+<li class="chapter" data-level="6.3.5" data-path="dataset-relativi-allinquinamento-in-california.html"><a href="dataset-relativi-allinquinamento-in-california.html#esercizio-5"><i class="fa fa-check"></i><b>6.3.5</b> Esercizio 5</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Note di R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="dataset-relativi-allinquinamento-in-california" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Dataset relativi all’inquinamento in California</h1>
+<div id="inquinamento-a-san-andreas" class="section level2">
+<h2><span class="header-section-number">6.1</span> Inquinamento a San Andreas</h2>
+<p>Iniziamo scaricando il dataset dal <a href="https://www.dropbox.com/s/9zx2dtne9gnafcm/PM10dataSanAndreas.csv?dl=1">link</a> dove ho isolato (e pulito) i dati raccolti dall’agenzia americana per la tutela dell’ambiente, relativi alle rilevazioni orarie della concentrazione delle PM10 nell’aria nella città di San Andreas, CA.</p>
+<p>Questo dataset è una parte di un dataset molto più grande che si può trovare al <a href="http://aqsdr1.epa.gov/aqsweb/aqstmp/airdata/download_files.html#Raw">link</a>.</p>
+<p>Una volta salvato il file nella nostra cartella <em>data</em> passiamo a leggere il suo contenuto.</p>
+<pre class="sourceCode r"><code class="sourceCode r">PM10dataSA &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;./data/PM10dataSanAndreas.csv&quot;</span>)
+<span class="kw">head</span>(PM10dataSA)</code></pre>
+<pre><code>##   X.2 X.1      X State.Code County.Code Site.Num Parameter.Code POC
+## 1   1   1 308088          6           9        1          81102   3
+## 2   2   2 308089          6           9        1          81102   3
+## 3   3   3 308090          6           9        1          81102   3
+## 4   4   4 308091          6           9        1          81102   3
+## 5   5   5 308092          6           9        1          81102   3
+## 6   6   6 308093          6           9        1          81102   3
+##   Latitude Longitude Datum        Parameter.Name Date.Local Time.Local
+## 1 38.20185 -120.6816 WGS84 PM10 Total 0-10um STP 2016-01-01      00:00
+## 2 38.20185 -120.6816 WGS84 PM10 Total 0-10um STP 2016-01-01      01:00
+## 3 38.20185 -120.6816 WGS84 PM10 Total 0-10um STP 2016-01-01      02:00
+## 4 38.20185 -120.6816 WGS84 PM10 Total 0-10um STP 2016-01-01      03:00
+## 5 38.20185 -120.6816 WGS84 PM10 Total 0-10um STP 2016-01-01      04:00
+## 6 38.20185 -120.6816 WGS84 PM10 Total 0-10um STP 2016-01-01      05:00
+##     Date.GMT Time.GMT Sample.Measurement              Units.of.Measure MDL
+## 1 2016-01-01    08:00                 25 Micrograms/cubic meter (25 C)   4
+## 2 2016-01-01    09:00                 48 Micrograms/cubic meter (25 C)   4
+## 3 2016-01-01    10:00                 26 Micrograms/cubic meter (25 C)   4
+## 4 2016-01-01    11:00                 14 Micrograms/cubic meter (25 C)   4
+## 5 2016-01-01    12:00                  7 Micrograms/cubic meter (25 C)   4
+## 6 2016-01-01    13:00                 14 Micrograms/cubic meter (25 C)   4
+##   Uncertainty Qualifier Method.Type Method.Code
+## 1          NA        NA         FEM         122
+## 2          NA        NA         FEM         122
+## 3          NA        NA         FEM         122
+## 4          NA        NA         FEM         122
+## 5          NA        NA         FEM         122
+## 6          NA        NA         FEM         122
+##                                      Method.Name State.Name County.Name
+## 1 INSTRUMENT MET ONE 4 MODELS - BETA ATTENUATION California   Calaveras
+## 2 INSTRUMENT MET ONE 4 MODELS - BETA ATTENUATION California   Calaveras
+## 3 INSTRUMENT MET ONE 4 MODELS - BETA ATTENUATION California   Calaveras
+## 4 INSTRUMENT MET ONE 4 MODELS - BETA ATTENUATION California   Calaveras
+## 5 INSTRUMENT MET ONE 4 MODELS - BETA ATTENUATION California   Calaveras
+## 6 INSTRUMENT MET ONE 4 MODELS - BETA ATTENUATION California   Calaveras
+##   Date.of.Last.Change      DateTime.Local
+## 1          2016-05-06 2016-01-01 00:00:00
+## 2          2016-05-06 2016-01-01 01:00:00
+## 3          2016-05-06 2016-01-01 02:00:00
+## 4          2016-05-06 2016-01-01 03:00:00
+## 5          2016-05-06 2016-01-01 04:00:00
+## 6          2016-05-06 2016-01-01 05:00:00</code></pre>
+<p>Possiamo iniziare a prendere confidenza con il dataset leggendo alcune informazioni essenziali, come la dimensione, il nome delle variabili, oppure ne possiamo esplorare la struttura, visualizzare le prime o le ultime righe.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(PM10dataSA)</code></pre>
+<pre><code>## [1] 2581   28</code></pre>
+<p>Vediamo subito che il dataset contiene più di 2mila osservazioni per 26 variabili. Accediamo i nomi delle variabili per vedere se riusciamo a capirne il significato.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(PM10dataSA)</code></pre>
+<pre><code>##  [1] &quot;X.2&quot;                 &quot;X.1&quot;                 &quot;X&quot;                  
+##  [4] &quot;State.Code&quot;          &quot;County.Code&quot;         &quot;Site.Num&quot;           
+##  [7] &quot;Parameter.Code&quot;      &quot;POC&quot;                 &quot;Latitude&quot;           
+## [10] &quot;Longitude&quot;           &quot;Datum&quot;               &quot;Parameter.Name&quot;     
+## [13] &quot;Date.Local&quot;          &quot;Time.Local&quot;          &quot;Date.GMT&quot;           
+## [16] &quot;Time.GMT&quot;            &quot;Sample.Measurement&quot;  &quot;Units.of.Measure&quot;   
+## [19] &quot;MDL&quot;                 &quot;Uncertainty&quot;         &quot;Qualifier&quot;          
+## [22] &quot;Method.Type&quot;         &quot;Method.Code&quot;         &quot;Method.Name&quot;        
+## [25] &quot;State.Name&quot;          &quot;County.Name&quot;         &quot;Date.of.Last.Change&quot;
+## [28] &quot;DateTime.Local&quot;</code></pre>
+<p>Proseguiamo visualizzando la struttura ed alcune righe dei dati.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(PM10dataSA)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    2581 obs. of  28 variables:
+##  $ X.2                : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ X.1                : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ X                  : int  308088 308089 308090 308091 308092 308093 308094 308095 308096 308097 ...
+##  $ State.Code         : int  6 6 6 6 6 6 6 6 6 6 ...
+##  $ County.Code        : int  9 9 9 9 9 9 9 9 9 9 ...
+##  $ Site.Num           : int  1 1 1 1 1 1 1 1 1 1 ...
+##  $ Parameter.Code     : int  81102 81102 81102 81102 81102 81102 81102 81102 81102 81102 ...
+##  $ POC                : int  3 3 3 3 3 3 3 3 3 3 ...
+##  $ Latitude           : num  38.2 38.2 38.2 38.2 38.2 ...
+##  $ Longitude          : num  -121 -121 -121 -121 -121 ...
+##  $ Datum              : Factor w/ 1 level &quot;WGS84&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ Parameter.Name     : Factor w/ 1 level &quot;PM10 Total 0-10um STP&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ Date.Local         : Factor w/ 120 levels &quot;2016-01-01&quot;,&quot;2016-01-02&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ Time.Local         : Factor w/ 24 levels &quot;00:00&quot;,&quot;01:00&quot;,..: 1 2 3 4 5 6 7 8 9 10 ...
+##  $ Date.GMT           : Factor w/ 122 levels &quot;2016-01-01&quot;,&quot;2016-01-02&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ Time.GMT           : Factor w/ 24 levels &quot;00:00&quot;,&quot;01:00&quot;,..: 9 10 11 12 13 14 15 16 17 18 ...
+##  $ Sample.Measurement : int  25 48 26 14 7 14 11 16 17 11 ...
+##  $ Units.of.Measure   : Factor w/ 1 level &quot;Micrograms/cubic meter (25 C)&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ MDL                : int  4 4 4 4 4 4 4 4 4 4 ...
+##  $ Uncertainty        : logi  NA NA NA NA NA NA ...
+##  $ Qualifier          : logi  NA NA NA NA NA NA ...
+##  $ Method.Type        : Factor w/ 1 level &quot;FEM&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ Method.Code        : int  122 122 122 122 122 122 122 122 122 122 ...
+##  $ Method.Name        : Factor w/ 1 level &quot;INSTRUMENT MET ONE 4 MODELS - BETA ATTENUATION&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ State.Name         : Factor w/ 1 level &quot;California&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ County.Name        : Factor w/ 1 level &quot;Calaveras&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ Date.of.Last.Change: Factor w/ 4 levels &quot;2016-05-06&quot;,&quot;2016-05-12&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ DateTime.Local     : Factor w/ 2580 levels &quot;2016-01-01 00:00:00&quot;,..: 1 2 3 4 5 6 7 8 9 10 ...</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(PM10dataSA)</code></pre>
+<pre><code>##   X.2 X.1      X State.Code County.Code Site.Num Parameter.Code POC
+## 1   1   1 308088          6           9        1          81102   3
+## 2   2   2 308089          6           9        1          81102   3
+## 3   3   3 308090          6           9        1          81102   3
+## 4   4   4 308091          6           9        1          81102   3
+## 5   5   5 308092          6           9        1          81102   3
+## 6   6   6 308093          6           9        1          81102   3
+##   Latitude Longitude Datum        Parameter.Name Date.Local Time.Local
+## 1 38.20185 -120.6816 WGS84 PM10 Total 0-10um STP 2016-01-01      00:00
+## 2 38.20185 -120.6816 WGS84 PM10 Total 0-10um STP 2016-01-01      01:00
+## 3 38.20185 -120.6816 WGS84 PM10 Total 0-10um STP 2016-01-01      02:00
+## 4 38.20185 -120.6816 WGS84 PM10 Total 0-10um STP 2016-01-01      03:00
+## 5 38.20185 -120.6816 WGS84 PM10 Total 0-10um STP 2016-01-01      04:00
+## 6 38.20185 -120.6816 WGS84 PM10 Total 0-10um STP 2016-01-01      05:00
+##     Date.GMT Time.GMT Sample.Measurement              Units.of.Measure MDL
+## 1 2016-01-01    08:00                 25 Micrograms/cubic meter (25 C)   4
+## 2 2016-01-01    09:00                 48 Micrograms/cubic meter (25 C)   4
+## 3 2016-01-01    10:00                 26 Micrograms/cubic meter (25 C)   4
+## 4 2016-01-01    11:00                 14 Micrograms/cubic meter (25 C)   4
+## 5 2016-01-01    12:00                  7 Micrograms/cubic meter (25 C)   4
+## 6 2016-01-01    13:00                 14 Micrograms/cubic meter (25 C)   4
+##   Uncertainty Qualifier Method.Type Method.Code
+## 1          NA        NA         FEM         122
+## 2          NA        NA         FEM         122
+## 3          NA        NA         FEM         122
+## 4          NA        NA         FEM         122
+## 5          NA        NA         FEM         122
+## 6          NA        NA         FEM         122
+##                                      Method.Name State.Name County.Name
+## 1 INSTRUMENT MET ONE 4 MODELS - BETA ATTENUATION California   Calaveras
+## 2 INSTRUMENT MET ONE 4 MODELS - BETA ATTENUATION California   Calaveras
+## 3 INSTRUMENT MET ONE 4 MODELS - BETA ATTENUATION California   Calaveras
+## 4 INSTRUMENT MET ONE 4 MODELS - BETA ATTENUATION California   Calaveras
+## 5 INSTRUMENT MET ONE 4 MODELS - BETA ATTENUATION California   Calaveras
+## 6 INSTRUMENT MET ONE 4 MODELS - BETA ATTENUATION California   Calaveras
+##   Date.of.Last.Change      DateTime.Local
+## 1          2016-05-06 2016-01-01 00:00:00
+## 2          2016-05-06 2016-01-01 01:00:00
+## 3          2016-05-06 2016-01-01 02:00:00
+## 4          2016-05-06 2016-01-01 03:00:00
+## 5          2016-05-06 2016-01-01 04:00:00
+## 6          2016-05-06 2016-01-01 05:00:00</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tail</span>(PM10dataSA)</code></pre>
+<pre><code>##       X.2  X.1      X State.Code County.Code Site.Num Parameter.Code POC
+## 2576 2576 2862 310949          6           9        1          81102   3
+## 2577 2577 2863 310950          6           9        1          81102   3
+## 2578 2578 2864 310951          6           9        1          81102   3
+## 2579 2579 2865 310952          6           9        1          81102   3
+## 2580 2580 2866 310953          6           9        1          81102   3
+## 2581 2581 2867 310954          6           9        1          81102   3
+##      Latitude Longitude Datum        Parameter.Name Date.Local Time.Local
+## 2576 38.20185 -120.6816 WGS84 PM10 Total 0-10um STP 2016-04-30      18:00
+## 2577 38.20185 -120.6816 WGS84 PM10 Total 0-10um STP 2016-04-30      19:00
+## 2578 38.20185 -120.6816 WGS84 PM10 Total 0-10um STP 2016-04-30      20:00
+## 2579 38.20185 -120.6816 WGS84 PM10 Total 0-10um STP 2016-04-30      21:00
+## 2580 38.20185 -120.6816 WGS84 PM10 Total 0-10um STP 2016-04-30      22:00
+## 2581 38.20185 -120.6816 WGS84 PM10 Total 0-10um STP 2016-04-30      23:00
+##        Date.GMT Time.GMT Sample.Measurement              Units.of.Measure
+## 2576 2016-05-01    02:00                 15 Micrograms/cubic meter (25 C)
+## 2577 2016-05-01    03:00                 13 Micrograms/cubic meter (25 C)
+## 2578 2016-05-01    04:00                  9 Micrograms/cubic meter (25 C)
+## 2579 2016-05-01    05:00                  4 Micrograms/cubic meter (25 C)
+## 2580 2016-05-01    06:00                  6 Micrograms/cubic meter (25 C)
+## 2581 2016-05-01    07:00                  4 Micrograms/cubic meter (25 C)
+##      MDL Uncertainty Qualifier Method.Type Method.Code
+## 2576   4          NA        NA         FEM         122
+## 2577   4          NA        NA         FEM         122
+## 2578   4          NA        NA         FEM         122
+## 2579   4          NA        NA         FEM         122
+## 2580   4          NA        NA         FEM         122
+## 2581   4          NA        NA         FEM         122
+##                                         Method.Name State.Name County.Name
+## 2576 INSTRUMENT MET ONE 4 MODELS - BETA ATTENUATION California   Calaveras
+## 2577 INSTRUMENT MET ONE 4 MODELS - BETA ATTENUATION California   Calaveras
+## 2578 INSTRUMENT MET ONE 4 MODELS - BETA ATTENUATION California   Calaveras
+## 2579 INSTRUMENT MET ONE 4 MODELS - BETA ATTENUATION California   Calaveras
+## 2580 INSTRUMENT MET ONE 4 MODELS - BETA ATTENUATION California   Calaveras
+## 2581 INSTRUMENT MET ONE 4 MODELS - BETA ATTENUATION California   Calaveras
+##      Date.of.Last.Change      DateTime.Local
+## 2576          2016-11-08 2016-04-30 18:00:00
+## 2577          2016-11-08 2016-04-30 19:00:00
+## 2578          2016-11-08 2016-04-30 20:00:00
+## 2579          2016-11-08 2016-04-30 21:00:00
+## 2580          2016-11-08 2016-04-30 22:00:00
+## 2581          2016-11-08 2016-04-30 23:00:00</code></pre>
+<p>Vediamo che i dati contengono indicazioni come coordinate geografiche e lo stato dove sono stati raccolti i dati. Nel caso del dataset originale, queste informazioni sono essenziali per individuare il luogo di raccolta dati, mentre nel nostro caso potrebbero essere omesse, <strong>dopo</strong> aver verificato che siano consistenti in tutto il dataset.</p>
+<p>Siamo interessati a capire l’andamento delle PM10 nel nostro dataset durante il tempo in cui sono stati raccolti i dati. Per prima cosa convertiamo i dati riguardanti le date nel giusto formato, cioè in <em>Date</em>. Usiamo per ora solo le informazioni relative al fuso orario locale.</p>
+<pre class="sourceCode r"><code class="sourceCode r">PM10dataSA<span class="op">$</span>Date.Local &lt;-<span class="st"> </span><span class="kw">as.Date</span>(PM10dataSA<span class="op">$</span>Date.Local)</code></pre>
+<p>Ora che i dati sono in formato <em>Date</em>, R capisce che sono numeri salvati con un particolare formato e non stringhe.</p>
+<p>In questo modo possiamo, ad esempio, vedere il periodo temporale che coprono usano i comandi min e max.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="kw">min</span>(PM10dataSA<span class="op">$</span>Date.Local), <span class="kw">which.min</span>(PM10dataSA<span class="op">$</span>Date.Local))</code></pre>
+<pre><code>## [1] &quot;2016-01-01 1&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="kw">max</span>(PM10dataSA<span class="op">$</span>Date.Local), <span class="kw">which.max</span>(PM10dataSA<span class="op">$</span>Date.Local))</code></pre>
+<pre><code>## [1] &quot;2016-04-30 2559&quot;</code></pre>
+<p>Possiamo notare che il dataset non supera Aprile e che il max non è assunto nell’ultima osservazione, che sarebbe la 2867. Usando il comando <code>tail()</code> vediamo di capire perché.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tail</span>(PM10dataSA<span class="op">$</span>Date.Local, <span class="dv">25</span>)</code></pre>
+<pre><code>##  [1] &quot;2016-04-29&quot; &quot;2016-04-29&quot; &quot;2016-04-30&quot; &quot;2016-04-30&quot; &quot;2016-04-30&quot;
+##  [6] &quot;2016-04-30&quot; &quot;2016-04-30&quot; &quot;2016-04-30&quot; &quot;2016-04-30&quot; &quot;2016-04-30&quot;
+## [11] &quot;2016-04-30&quot; &quot;2016-04-30&quot; &quot;2016-04-30&quot; &quot;2016-04-30&quot; &quot;2016-04-30&quot;
+## [16] &quot;2016-04-30&quot; &quot;2016-04-30&quot; &quot;2016-04-30&quot; &quot;2016-04-30&quot; &quot;2016-04-30&quot;
+## [21] &quot;2016-04-30&quot; &quot;2016-04-30&quot; &quot;2016-04-30&quot; &quot;2016-04-30&quot; &quot;2016-04-30&quot;</code></pre>
+<p>Fortunatamente vediamo che tutte le ultime 24 rilevazioni sono state fatte durante lo stesso giorno, pertanto il risultato di <code>which.min()</code> non è un errore. Ce lo potevamo aspettare, visto che le misurazioni sono ogni ora, ma è sempre meglio controllare.</p>
+<p>Usando la funzione <code>summary()</code> estrapoliamo altre informazioni dal dataset.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(PM10dataSA)</code></pre>
+<pre><code>##       X.2            X.1             X            State.Code  County.Code
+##  Min.   :   1   Min.   :   1   Min.   :308088   Min.   :6    Min.   :9   
+##  1st Qu.: 646   1st Qu.: 771   1st Qu.:308858   1st Qu.:6    1st Qu.:9   
+##  Median :1291   Median :1442   Median :309529   Median :6    Median :9   
+##  Mean   :1291   Mean   :1464   Mean   :309551   Mean   :6    Mean   :9   
+##  3rd Qu.:1936   3rd Qu.:2192   3rd Qu.:310279   3rd Qu.:6    3rd Qu.:9   
+##  Max.   :2581   Max.   :2867   Max.   :310954   Max.   :6    Max.   :9   
+##                                                                          
+##     Site.Num Parameter.Code       POC       Latitude      Longitude     
+##  Min.   :1   Min.   :81102   Min.   :3   Min.   :38.2   Min.   :-120.7  
+##  1st Qu.:1   1st Qu.:81102   1st Qu.:3   1st Qu.:38.2   1st Qu.:-120.7  
+##  Median :1   Median :81102   Median :3   Median :38.2   Median :-120.7  
+##  Mean   :1   Mean   :81102   Mean   :3   Mean   :38.2   Mean   :-120.7  
+##  3rd Qu.:1   3rd Qu.:81102   3rd Qu.:3   3rd Qu.:38.2   3rd Qu.:-120.7  
+##  Max.   :1   Max.   :81102   Max.   :3   Max.   :38.2   Max.   :-120.7  
+##                                                                         
+##    Datum                    Parameter.Name   Date.Local        
+##  WGS84:2581   PM10 Total 0-10um STP:2581   Min.   :2016-01-01  
+##                                            1st Qu.:2016-02-02  
+##                                            Median :2016-03-01  
+##                                            Mean   :2016-03-02  
+##                                            3rd Qu.:2016-04-02  
+##                                            Max.   :2016-04-30  
+##                                                                
+##    Time.Local         Date.GMT       Time.GMT    Sample.Measurement
+##  19:00  : 116   2016-01-02:  24   03:00  : 116   Min.   : 1.00     
+##  20:00  : 116   2016-01-03:  24   04:00  : 116   1st Qu.: 4.00     
+##  06:00  : 113   2016-01-04:  24   02:00  : 113   Median : 7.00     
+##  07:00  : 113   2016-01-26:  24   05:00  : 113   Mean   : 8.24     
+##  18:00  : 113   2016-01-28:  24   14:00  : 113   3rd Qu.:11.00     
+##  21:00  : 113   2016-01-29:  24   15:00  : 113   Max.   :60.00     
+##  (Other):1897   (Other)   :2437   (Other):1897                     
+##                       Units.of.Measure      MDL    Uncertainty   
+##  Micrograms/cubic meter (25 C):2581    Min.   :4   Mode:logical  
+##                                        1st Qu.:4   NA&#39;s:2581     
+##                                        Median :4                 
+##                                        Mean   :4                 
+##                                        3rd Qu.:4                 
+##                                        Max.   :4                 
+##                                                                  
+##  Qualifier      Method.Type  Method.Code 
+##  Mode:logical   FEM:2581    Min.   :122  
+##  NA&#39;s:2581                  1st Qu.:122  
+##                             Median :122  
+##                             Mean   :122  
+##                             3rd Qu.:122  
+##                             Max.   :122  
+##                                          
+##                                          Method.Name        State.Name  
+##  INSTRUMENT MET ONE 4 MODELS - BETA ATTENUATION:2581   California:2581  
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##     County.Name   Date.of.Last.Change             DateTime.Local
+##  Calaveras:2581   2016-05-06:619      2016-01-01 00:00:00:   1  
+##                   2016-05-12:656      2016-01-01 01:00:00:   1  
+##                   2016-06-22:618      2016-01-01 02:00:00:   1  
+##                   2016-11-08:688      2016-01-01 03:00:00:   1  
+##                                       2016-01-01 04:00:00:   1  
+##                                       (Other)            :2575  
+##                                       NA&#39;s               :   1</code></pre>
+<p>Possiamo notare che alcune delle variabili sono trattate come numeriche anche se dovrebbero essere di tipo Factor. Possiamo o convertirle, o semplicemente tenerlo a mente qualora dovessimo lavorarci. Inoltre potremmo eliminare le colonne che non ci interessano usano l’assegnazione <code>&lt;- NULL</code>. Ad esempio, <strong>dopo</strong> aver verificato che latitudine e longitudine sono le stesse in tutto il dataset, e corrispondono alla città di San Andreas, potremmo eliminarle. Va prima verificato che il dataset non contenga dati estranei, altrimenti eliminando una variabile, potremmo non essere più in grado di capirlo!</p>
+<p>Tale verifica si può fare (in questo caso, ma può dipende dai dati) o usando il comando <code>unique()</code>, o anche leggendo i risultati di <code>summary()</code>.</p>
+<p>Volendo visualizzare i dati, che sono raccolti giornalmente, potrebbe fare comodo una colonna che riporta data e ora, in un formato che R riconosce.
+Possiamo ottenere tutto ciò con un solo comando. Va segnalato che il datset che è stato fornito, già contiene tale colonna, che è stata creata con il comando:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Sys.setenv</span>(<span class="dt">TZ=</span><span class="st">&#39;GMT&#39;</span>)
+<span class="co">#Sys.setlocale(&quot;LC_TIME&quot;,&quot;it_IT&quot;)</span>
+PM10dataSA<span class="op">$</span>DateTime.Local &lt;-<span class="st"> </span><span class="kw">as.POSIXct</span>(<span class="kw">paste</span>(PM10dataSA[,<span class="kw">c</span>(<span class="st">&quot;Date.Local&quot;</span>)] , PM10dataSA[,<span class="kw">c</span>(<span class="st">&quot;Time.Local&quot;</span>)] ), <span class="dt">format =</span> <span class="st">&quot;%Y-%m-%d %H:%M&quot;</span>,  <span class="dt">tz=</span><span class="st">&quot;America/Los_Angeles&quot;</span>,<span class="dt">usetz=</span><span class="ot">TRUE</span>)</code></pre>
+<p>Ora possiamo visualizzare i dati usando la funzione <code>plot()</code> aggiungendo delle opportune label lungo gli assi per migliorare la leggibilità.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(PM10dataSA<span class="op">$</span>DateTime.Local, PM10dataSA<span class="op">$</span>Sample.Measurement, <span class="dt">xlab =</span> <span class="st">&quot;2016&quot;</span>, <span class="dt">ylab=</span> <span class="st">&quot;PM 10 (ug/m3)&quot;</span>, <span class="dt">cex =</span> <span class="fl">.5</span>)</code></pre>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-69-1.png" width="672" /></p>
+<p>Poiché il grafico contiene un punto per ogni misurazione oraria, il grafico contiene moltissime informazioni.</p>
+<p>Aggiungiamo una linea che indica il limite massimo giornaliero di PM 10 consentito (in Italia).</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(PM10dataSA<span class="op">$</span>DateTime.Local, PM10dataSA<span class="op">$</span>Sample.Measurement, <span class="dt">xlab =</span> <span class="st">&quot;2016&quot;</span>, <span class="dt">ylab=</span> <span class="st">&quot;PM 10 (ug/m3)&quot;</span>, <span class="dt">cex =</span> <span class="fl">.5</span>)
+<span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">50</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</code></pre>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-70-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Per salviare l&#39;immagine</span>
+<span class="co">#png(filename=&quot;../plot/DailyPM10.png&quot;)</span></code></pre>
+<p>Si può notare che (fortunatamente) poche misurazioni superano i limiti consentiti.</p>
+<div id="dati-giornalieri" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Dati giornalieri</h3>
+<p>Vediamo di ridurle il numero di dati, aggregandoli per avere misurazioni giornaliere. Possiamo farlo usando la funzione <code>aggregate()</code> che ci permette di applicare una funzione ad un dataset indicando. Possiamo, ad esempio, decidere di salvare in un nuovo dataset le misure medie e massime per i dati di SA.</p>
+<pre class="sourceCode r"><code class="sourceCode r">DailyVal &lt;-<span class="st"> </span><span class="kw">aggregate</span>(PM10dataSA<span class="op">$</span>Sample.Measurement <span class="op">~</span><span class="st"> </span>Date.Local, <span class="dt">data =</span> PM10dataSA, <span class="dt">FUN =</span> mean)
+DailyVal[,<span class="dv">3</span>] &lt;-<span class="st"> </span><span class="kw">aggregate</span>(PM10dataSA<span class="op">$</span>Sample.Measurement <span class="op">~</span><span class="st"> </span>Date.Local, <span class="dt">data =</span> PM10dataSA, <span class="dt">FUN =</span> max)[<span class="dv">2</span>]
+<span class="kw">head</span>(DailyVal)</code></pre>
+<pre><code>##   Date.Local PM10dataSA$Sample.Measurement PM10dataSA$Sample.Measurement.1
+## 1 2016-01-01                      16.70833                              48
+## 2 2016-01-02                      17.54167                              38
+## 3 2016-01-03                      23.91667                              60
+## 4 2016-01-04                      14.37500                              36
+## 5 2016-01-05                       3.05000                              10
+## 6 2016-01-06                       2.87500                               6</code></pre>
+<p>Possiamo migliorare la leggibilità del dataset cambiando i nomi delle variabili.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(DailyVal)[<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;mean daily PM10&quot;</span>, <span class="st">&quot;max daily PM 10&quot;</span>)
+<span class="kw">head</span>(DailyVal)</code></pre>
+<pre><code>##   Date.Local mean daily PM10 max daily PM 10
+## 1 2016-01-01        16.70833              48
+## 2 2016-01-02        17.54167              38
+## 3 2016-01-03        23.91667              60
+## 4 2016-01-04        14.37500              36
+## 5 2016-01-05         3.05000              10
+## 6 2016-01-06         2.87500               6</code></pre>
+<p>Visualizziamo ora i dati medi e massimi giornalieri:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(DailyVal<span class="op">$</span>Date.Local, DailyVal<span class="op">$</span><span class="st">`</span><span class="dt">mean daily PM10</span><span class="st">`</span>, <span class="dt">xlab =</span> <span class="st">&quot;2016&quot;</span>, <span class="dt">ylab=</span> <span class="st">&quot;PM 10 (ug/m3)&quot;</span>, <span class="dt">cex =</span> <span class="fl">.8</span>, <span class="dt">main =</span> <span class="st">&quot;Concentrazione media giornaliera di PM10&quot;</span>)</code></pre>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(DailyVal<span class="op">$</span>Date.Local, DailyVal<span class="op">$</span><span class="st">`</span><span class="dt">max daily PM 10</span><span class="st">`</span>, <span class="dt">xlab =</span> <span class="st">&quot;2016&quot;</span>, <span class="dt">ylab=</span> <span class="st">&quot;PM 10 (ug/m3)&quot;</span>, <span class="dt">cex =</span> <span class="fl">.8</span>, <span class="dt">main =</span> <span class="st">&quot;Concentrazione massima giornaliera di PM10&quot;</span>)
+<span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">50</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</code></pre>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
+<p>Potrebbe essere interessante vedere se il giorno della settimana influenza la concentrazione di PM10, ad esempio in giorni con più traffico potremmo aspettarci più inquinamento.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">typeof</span>(DailyVal<span class="op">$</span>Date.Local)</code></pre>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Sys.setlocale(&quot;LC_TIME&quot;,&quot;C&quot;) #Nomi </span>
+DailyVal<span class="op">$</span>DayOfTheWeek &lt;-<span class="st"> </span><span class="kw">weekdays</span>(DailyVal<span class="op">$</span>Date.Local, <span class="dt">abbreviate =</span> <span class="ot">TRUE</span>)
+<span class="kw">head</span>(DailyVal)</code></pre>
+<pre><code>##   Date.Local mean daily PM10 max daily PM 10 DayOfTheWeek
+## 1 2016-01-01        16.70833              48          Ven
+## 2 2016-01-02        17.54167              38          Sab
+## 3 2016-01-03        23.91667              60          Dom
+## 4 2016-01-04        14.37500              36          Lun
+## 5 2016-01-05         3.05000              10          Mar
+## 6 2016-01-06         2.87500               6          Mer</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#ordiniamo i giorni in modo che la settimana inizi di lunedì</span>
+<span class="co"># ci sarà utile dopo</span>
+DailyVal<span class="op">$</span>DayOfTheWeek &lt;-<span class="st"> </span><span class="kw">ordered</span>(DailyVal<span class="op">$</span>DayOfTheWeek, <span class="dt">levels=</span><span class="kw">c</span>( <span class="st">&quot;Lun&quot;</span> , <span class="st">&quot;Mar&quot;</span>, <span class="st">&quot;Mer&quot;</span> , <span class="st">&quot;Gio&quot;</span>, <span class="st">&quot;Ven&quot;</span> ,  <span class="st">&quot;Sab&quot;</span>, <span class="st">&quot;Dom&quot;</span> ))</code></pre>
+<p>Vediamo di colorare il grafico precedente usando un colore diverso per ogni giorno della settimana.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(DailyVal<span class="op">$</span>Date.Local, DailyVal<span class="op">$</span><span class="st">`</span><span class="dt">max daily PM 10</span><span class="st">`</span>, <span class="dt">xlab =</span> <span class="st">&quot;2016&quot;</span>, <span class="dt">ylab=</span> <span class="st">&quot;PM 10 (ug/m3)&quot;</span>, <span class="dt">cex =</span> <span class="fl">.8</span>, <span class="dt">main =</span> <span class="st">&quot;Concentrazione massima giornaliera di PM10&quot;</span>, <span class="dt">col =</span> DailyVal<span class="op">$</span>DayOfTheWeek)
+<span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">50</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</code></pre>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
+<p>Vediamo che non sembra che i picchi siano raggiunti negli stessi giorni. Comunque una legenda andrebbe aggiunta. Vediamo con dei boxplot come la quantità media di polveri PM10 è distribuita rispetto ai giorni della settimana.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(<span class="st">`</span><span class="dt">mean daily PM10</span><span class="st">`</span> <span class="op">~</span><span class="st"> </span>DayOfTheWeek, <span class="dt">data =</span> DailyVal, <span class="dt">ylab=</span> <span class="st">&quot;PM 10 (ug/m3)&quot;</span>)</code></pre>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
+<p>Aggiungere ad esempio una linea che indica le media delle misurazioni, aiuta a fare un confronto tra i dati.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>( <span class="st">`</span><span class="dt">mean daily PM10</span><span class="st">`</span> <span class="op">~</span><span class="st"> </span>DayOfTheWeek, <span class="dt">data =</span> DailyVal, <span class="dt">ylab=</span> <span class="st">&quot;PM 10 (ug/m3)&quot;</span>)
+<span class="kw">abline</span>(<span class="dt">h =</span> <span class="kw">mean</span>(DailyVal<span class="op">$</span><span class="st">`</span><span class="dt">mean daily PM10</span><span class="st">`</span>), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</code></pre>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
+<p>Vediamo la data in cui è stato assunto il valore massimo:</p>
+<pre class="sourceCode r"><code class="sourceCode r">DailyVal[DailyVal<span class="op">$</span><span class="st">`</span><span class="dt">mean daily PM10</span><span class="st">`</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">20</span>,]</code></pre>
+<pre><code>##   Date.Local mean daily PM10 max daily PM 10 DayOfTheWeek
+## 3 2016-01-03        23.91667              60          Dom</code></pre>
+<p>Che sarà successo quel giorno? Potrebbe essere un errore di lettura?</p>
+<p>Se volessimo visualizzare la distribuzione dei dati rispetto ai giorni, possiamo usare la funzione <code>hist()</code>. Purtroppo tale funzione non supporta la notazione <code>~</code>, perciò dovremo specificare un grafico per giorno della settimana.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">1</span>), <span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>))
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">levels</span>(DailyVal<span class="op">$</span>DayOfTheWeek) ) {
+  <span class="kw">hist</span>( DailyVal[DailyVal<span class="op">$</span>DayOfTheWeek <span class="op">==</span><span class="st"> </span>i, <span class="st">&quot;mean daily PM10&quot;</span>] , <span class="dt">freq =</span> <span class="ot">FALSE</span>, <span class="dt">main =</span> i, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.2</span>) , <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">26</span>,<span class="dv">2</span>))
+}</code></pre>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-80-1.png" width="960" /></p>
+<p>Dal grafico possiamo capire come si distribuiscono le misurazioni rispetto ai giorni della settimana.
+Si usi l’help per comprendere i parametri che sono stati usati.</p>
+</div>
+</div>
+<div id="inquinamento-in-california" class="section level2">
+<h2><span class="header-section-number">6.2</span> Inquinamento in California</h2>
+<p>Decidiamo ora di concentrare la nostra attenzione sull’inquinamento in California e dopo aver letto il <a href="https://www.dropbox.com/s/z926dmp2lvdz48p/daily_81102_2016.csv?dl=1">dataset</a> che contiene i valori <strong>medi giornalieri</strong> di PM10, salviamo un sottoinsieme di dati che contiene solo dati relativi alla California.</p>
+<pre class="sourceCode r"><code class="sourceCode r">PM10data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;./data/daily_81102_2016.csv&quot;</span>)
+<span class="kw">dim</span>(PM10data)</code></pre>
+<pre><code>## [1] 118885     29</code></pre>
+<p>Vediamo che il file è molto grande, contiene molte righe e molte variabili. R impiega diverso tempo a leggerlo.</p>
+<pre class="sourceCode r"><code class="sourceCode r">PM10dataCAL &lt;-<span class="st"> </span>PM10data[PM10data<span class="op">$</span>State.Name <span class="op">==</span><span class="st"> &quot;California&quot;</span>,]
+<span class="kw">head</span>(PM10dataCAL)</code></pre>
+<pre><code>##       State.Code County.Code Site.Num Parameter.Code POC Latitude
+## 15472          6           7        8          81102   3 39.76154
+## 15473          6           7        8          81102   3 39.76154
+## 15474          6           7        8          81102   3 39.76154
+## 15475          6           7        8          81102   3 39.76154
+## 15476          6           7        8          81102   3 39.76154
+## 15477          6           7        8          81102   3 39.76154
+##       Longitude Datum        Parameter.Name Sample.Duration
+## 15472 -121.8416 WGS84 PM10 Total 0-10um STP   24-HR BLK AVG
+## 15473 -121.8416 WGS84 PM10 Total 0-10um STP   24-HR BLK AVG
+## 15474 -121.8416 WGS84 PM10 Total 0-10um STP   24-HR BLK AVG
+## 15475 -121.8416 WGS84 PM10 Total 0-10um STP   24-HR BLK AVG
+## 15476 -121.8416 WGS84 PM10 Total 0-10um STP   24-HR BLK AVG
+## 15477 -121.8416 WGS84 PM10 Total 0-10um STP   24-HR BLK AVG
+##       Pollutant.Standard Date.Local              Units.of.Measure
+## 15472  PM10 24-hour 2006 2016-01-01 Micrograms/cubic meter (25 C)
+## 15473  PM10 24-hour 2006 2016-01-02 Micrograms/cubic meter (25 C)
+## 15474  PM10 24-hour 2006 2016-01-03 Micrograms/cubic meter (25 C)
+## 15475  PM10 24-hour 2006 2016-01-04 Micrograms/cubic meter (25 C)
+## 15476  PM10 24-hour 2006 2016-01-05 Micrograms/cubic meter (25 C)
+## 15477  PM10 24-hour 2006 2016-01-06 Micrograms/cubic meter (25 C)
+##       Event.Type Observation.Count Observation.Percent Arithmetic.Mean
+## 15472       None                 1                 100              21
+## 15473       None                 1                 100              18
+## 15474       None                 1                 100              23
+## 15475       None                 1                 100              31
+## 15476       None                 1                 100               9
+## 15477       None                 1                 100               6
+##       X1st.Max.Value X1st.Max.Hour AQI Method.Code Method.Name
+## 15472             21            23  19          NA          - 
+## 15473             18            23  17          NA          - 
+## 15474             23            23  21          NA          - 
+## 15475             31            23  29          NA          - 
+## 15476              9            23   8          NA          - 
+## 15477              6            23   6          NA          - 
+##         Local.Site.Name                Address State.Name County.Name
+## 15472 Chico-East Avenue 984 East Avenue, Chico California       Butte
+## 15473 Chico-East Avenue 984 East Avenue, Chico California       Butte
+## 15474 Chico-East Avenue 984 East Avenue, Chico California       Butte
+## 15475 Chico-East Avenue 984 East Avenue, Chico California       Butte
+## 15476 Chico-East Avenue 984 East Avenue, Chico California       Butte
+## 15477 Chico-East Avenue 984 East Avenue, Chico California       Butte
+##       City.Name CBSA.Name Date.of.Last.Change
+## 15472     Chico Chico, CA          2016-11-08
+## 15473     Chico Chico, CA          2016-11-08
+## 15474     Chico Chico, CA          2016-11-08
+## 15475     Chico Chico, CA          2016-11-08
+## 15476     Chico Chico, CA          2016-11-08
+## 15477     Chico Chico, CA          2016-11-08</code></pre>
+<p>In questo caso il nome della variabile che ci interessa è <em>Arithmetic.Mean</em>.</p>
+<p>Ora vogliamo visualizzare su una mappa quali sono lo città che superano la soglia di inquinamento consentita durante le osservazioni. In R, questa operazione è molto semplice usando i pacchetti <code>maps</code> o <code>RgoogleMaps</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages(&quot;maps&quot;)</span>
+<span class="kw">library</span>(maps)
+<span class="kw">map</span>(<span class="st">&quot;county&quot;</span>, <span class="st">&quot;california&quot;</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">125</span>,<span class="op">-</span><span class="dv">114</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">32</span>,<span class="dv">43</span>))
+<span class="kw">points</span>( PM10dataCAL[PM10dataCAL<span class="op">$</span>Arithmetic.Mean <span class="op">&gt;</span><span class="st"> </span><span class="dv">50</span>,<span class="kw">c</span>(<span class="st">&quot;Longitude&quot;</span>, <span class="st">&quot;Latitude&quot;</span>)] ,<span class="dt">cex =</span> <span class="fl">.8</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</code></pre>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-83-1.png" width="960" /></p>
+<!-- Se vogliamo usare una mappa di Goole Maps possiamo farlo usando il pacchetto dedicato. Tuttavia nelel versioni più recenti è richiesto di attivare un API key, quindi non  -->
+<!-- ```{r, fig.width = 10, fig.height = 10, eval = F} -->
+<!-- #install.packages("RgoogleMaps") -->
+<!-- library(RgoogleMaps) -->
+<!-- map <- RgoogleMaps::GetMap(center="California", zoom = 6) -->
+<!-- map1 <- plotmap( lat =  PM10dataCAL[PM10dataCAL$Arithmetic.Mean > 50,c( "Latitude")], lon =  PM10dataCAL[PM10dataCAL$Arithmetic.Mean > 50,c("Longitude")]  ,map = map) -->
+<!-- ``` -->
+</div>
+<div id="inquinamento-a-los-angeles" class="section level2">
+<h2><span class="header-section-number">6.3</span> Inquinamento a Los Angeles</h2>
+<p>Usiamo lo stesso dataset contenente i dati giornalieri relativi alle PM10 negli Stati Uniti e concentriamoci sulla sola città di Los Angeles.</p>
+<pre class="sourceCode r"><code class="sourceCode r">PM10dataLA &lt;-<span class="st"> </span>PM10data[PM10data<span class="op">$</span>City.Name<span class="op">==</span><span class="st"> &quot;Los Angeles&quot;</span>,]
+<span class="kw">dim</span>(PM10dataLA)</code></pre>
+<pre><code>## [1] 90 29</code></pre>
+<p>Vediamo che sono state raccolte 90 osservazioni relative alla sola città di LA, cerchiamo di capire quando e con che frequenza sono state raccolte.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">typeof</span>(PM10dataLA)</code></pre>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">PM10dataLA<span class="op">$</span>Date.Local[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</code></pre>
+<pre><code>##  [1] 2016-01-01 2016-01-07 2016-01-13 2016-01-19 2016-01-25 2016-01-31
+##  [7] 2016-02-06 2016-02-12 2016-02-18 2016-02-24
+## 336 Levels: 2016-01-01 2016-01-02 2016-01-03 2016-01-04 ... 2016-12-02</code></pre>
+<p>Vediamo che le date sono state salvate come liste. In realtà, come già visto, R prevede il formato <em>Date</em> che potrebbe essere utile e più maneggevole di una lista per fare “operazioni aritmetiche”. Convertiamo quindi la colonna in <em>Date</em>.</p>
+<pre class="sourceCode r"><code class="sourceCode r">PM10dataLA<span class="op">$</span>Date.Local &lt;-<span class="st"> </span><span class="kw">as.Date</span>(PM10dataLA<span class="op">$</span>Date.Local)
+<span class="kw">typeof</span>(PM10dataLA<span class="op">$</span>Date.Local)</code></pre>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+<p>La variabile ora risulta di tipo <em>Date.</em> Questo ci permette, ad esempio, di vedere quanti giorni passano tra una rilevazione e l’altra.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">diff</span>(PM10dataLA<span class="op">$</span>Date.Local)</code></pre>
+<pre><code>## Time differences in days
+##  [1]    6    6    6    6    6    6    6    6    6    6    6    6    6    6
+## [15]    6    6    6    6    6    6    7    5    6    6    6    6    6    6
+## [29]    6    6    6    6    6    6    6    6    6    6    6    6    6    6
+## [43]    6   12 -270    6    6    6    6    6    6    6    6    6    6    6
+## [57]    6    6   12    6    6    6    6    6    6    6    6    6    6    6
+## [71]    6    6    6    6    6    6    6    6    6    6    6    6    6    6
+## [85]    6    6    6    6    6</code></pre>
+<p>Salta all’occhio che la frequenza delle registrazioni è circa ogni 6 giorni, ma compare un dato inatteso. Investighiamo meglio cosa è successo.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">unique</span>(PM10dataLA<span class="op">$</span>Date.Local)</code></pre>
+<pre><code>##  [1] &quot;2016-01-01&quot; &quot;2016-01-07&quot; &quot;2016-01-13&quot; &quot;2016-01-19&quot; &quot;2016-01-25&quot;
+##  [6] &quot;2016-01-31&quot; &quot;2016-02-06&quot; &quot;2016-02-12&quot; &quot;2016-02-18&quot; &quot;2016-02-24&quot;
+## [11] &quot;2016-03-01&quot; &quot;2016-03-07&quot; &quot;2016-03-13&quot; &quot;2016-03-19&quot; &quot;2016-03-25&quot;
+## [16] &quot;2016-03-31&quot; &quot;2016-04-06&quot; &quot;2016-04-12&quot; &quot;2016-04-18&quot; &quot;2016-04-24&quot;
+## [21] &quot;2016-04-30&quot; &quot;2016-05-07&quot; &quot;2016-05-12&quot; &quot;2016-05-18&quot; &quot;2016-05-24&quot;
+## [26] &quot;2016-05-30&quot; &quot;2016-06-05&quot; &quot;2016-06-11&quot; &quot;2016-06-17&quot; &quot;2016-06-23&quot;
+## [31] &quot;2016-06-29&quot; &quot;2016-07-05&quot; &quot;2016-07-11&quot; &quot;2016-07-17&quot; &quot;2016-07-23&quot;
+## [36] &quot;2016-07-29&quot; &quot;2016-08-04&quot; &quot;2016-08-10&quot; &quot;2016-08-16&quot; &quot;2016-08-22&quot;
+## [41] &quot;2016-08-28&quot; &quot;2016-09-03&quot; &quot;2016-09-09&quot; &quot;2016-09-15&quot; &quot;2016-09-27&quot;
+## [46] &quot;2016-05-06&quot; &quot;2016-09-21&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(<span class="kw">unique</span>(PM10dataLA<span class="op">$</span>Date.Local))</code></pre>
+<pre><code>## [1] 47</code></pre>
+<p>Capiamo che sebbene le osservazioni siano 90, non tutte si riferiscono a giorni differenti, quindi bisogna capire come gestire le misurazioni ripetute durante lo stesso giorno. Vediamo, ad esempio, cosa caratterizza le misurazioni ripetute del primo giorno dell’anno.</p>
+<pre class="sourceCode r"><code class="sourceCode r">PM10dataLA[PM10dataLA<span class="op">$</span>Date.Local<span class="op">==</span><span class="st"> &quot;2016-01-01&quot;</span>,]</code></pre>
+<pre><code>##       State.Code County.Code Site.Num Parameter.Code POC Latitude
+## 23477          6          37     1103          81102   2 34.06659
+## 23613          6          37     5005          81102   1 33.95080
+##       Longitude Datum        Parameter.Name Sample.Duration
+## 23477 -118.2269 WGS84 PM10 Total 0-10um STP         24 HOUR
+## 23613 -118.4304 WGS84 PM10 Total 0-10um STP         24 HOUR
+##       Pollutant.Standard Date.Local              Units.of.Measure
+## 23477  PM10 24-hour 2006 2016-01-01 Micrograms/cubic meter (25 C)
+## 23613  PM10 24-hour 2006 2016-01-01 Micrograms/cubic meter (25 C)
+##       Event.Type Observation.Count Observation.Percent Arithmetic.Mean
+## 23477       None                 1                 100              17
+## 23613       None                 1                 100              12
+##       X1st.Max.Value X1st.Max.Hour AQI Method.Code
+## 23477             17             0  16          63
+## 23613             12             0  11          63
+##                            Method.Name               Local.Site.Name
+## 23477 HI-VOL SA/GMW-1200 - GRAVIMETRIC Los Angeles-North Main Street
+## 23613 HI-VOL SA/GMW-1200 - GRAVIMETRIC                  LAX Hastings
+##                           Address State.Name County.Name   City.Name
+## 23477 1630 N MAIN ST, LOS ANGELES California Los Angeles Los Angeles
+## 23613 7201 W. WESTCHESTER PARKWAY California Los Angeles Los Angeles
+##                                CBSA.Name Date.of.Last.Change
+## 23477 Los Angeles-Long Beach-Anaheim, CA          2016-12-20
+## 23613 Los Angeles-Long Beach-Anaheim, CA          2016-12-20</code></pre>
+<p>Possiamo osservare che ci sono almeno due siti diversi dove vengono raccolti i dati. Questa osservazione segue sia la comparsa di due diversi <em>Site.Num</em> per la stessa data, sia le differenze nei valori di <em>Latitude</em> e <em>Longitude</em>. Vediamo se esistono solo due siti o più.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="kw">unique</span>(PM10dataLA<span class="op">$</span>Site.Num) , <span class="kw">unique</span>(PM10dataLA<span class="op">$</span>Latitude), <span class="kw">unique</span>(PM10dataLA<span class="op">$</span>Longitude))</code></pre>
+<pre><code>## [1] &quot;1103 34.06659 -118.22688&quot; &quot;5005 33.9508 -118.43043&quot;</code></pre>
+<p>Abbiamo appurato che esistono due (e solo due) siti individuati da diverse coordinate geografiche.</p>
+<p>Estrapoliamo ora alcune informazioni per le variabili numeriche usando il comando <code>summary()</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(PM10dataLA)</code></pre>
+<pre><code>##    State.Code  County.Code    Site.Num    Parameter.Code       POC     
+##  Min.   :6    Min.   :37   Min.   :1103   Min.   :81102   Min.   :1.0  
+##  1st Qu.:6    1st Qu.:37   1st Qu.:1103   1st Qu.:81102   1st Qu.:1.0  
+##  Median :6    Median :37   Median :3054   Median :81102   Median :1.5  
+##  Mean   :6    Mean   :37   Mean   :3054   Mean   :81102   Mean   :1.5  
+##  3rd Qu.:6    3rd Qu.:37   3rd Qu.:5005   3rd Qu.:81102   3rd Qu.:2.0  
+##  Max.   :6    Max.   :37   Max.   :5005   Max.   :81102   Max.   :2.0  
+##                                                                        
+##     Latitude       Longitude        Datum                  Parameter.Name
+##  Min.   :33.95   Min.   :-118.4   NAD83: 0   PM10 Total 0-10um STP:90    
+##  1st Qu.:33.95   1st Qu.:-118.4   WGS84:90                               
+##  Median :34.01   Median :-118.3                                          
+##  Mean   :34.01   Mean   :-118.3                                          
+##  3rd Qu.:34.07   3rd Qu.:-118.2                                          
+##  Max.   :34.07   Max.   :-118.2                                          
+##                                                                          
+##       Sample.Duration         Pollutant.Standard   Date.Local        
+##  24 HOUR      :90     PM10 24-hour 2006:90       Min.   :2016-01-01  
+##  24-HR BLK AVG: 0                                1st Qu.:2016-03-07  
+##                                                  Median :2016-05-15  
+##                                                  Mean   :2016-05-14  
+##                                                  3rd Qu.:2016-07-21  
+##                                                  Max.   :2016-09-27  
+##                                                                      
+##                       Units.of.Measure    Event.Type Observation.Count
+##  Micrograms/cubic meter (25 C):90      Excluded: 0   Min.   :1        
+##                                        Included: 0   1st Qu.:1        
+##                                        None    :90   Median :1        
+##                                                      Mean   :1        
+##                                                      3rd Qu.:1        
+##                                                      Max.   :1        
+##                                                                       
+##  Observation.Percent Arithmetic.Mean X1st.Max.Value  X1st.Max.Hour
+##  Min.   :100         Min.   : 6.00   Min.   : 6.00   Min.   :0    
+##  1st Qu.:100         1st Qu.:16.00   1st Qu.:16.00   1st Qu.:0    
+##  Median :100         Median :20.50   Median :20.50   Median :0    
+##  Mean   :100         Mean   :22.18   Mean   :22.18   Mean   :0    
+##  3rd Qu.:100         3rd Qu.:28.00   3rd Qu.:28.00   3rd Qu.:0    
+##  Max.   :100         Max.   :57.00   Max.   :57.00   Max.   :0    
+##                                                                   
+##       AQI         Method.Code
+##  Min.   : 6.00   Min.   :63  
+##  1st Qu.:15.00   1st Qu.:63  
+##  Median :19.00   Median :63  
+##  Mean   :20.54   Mean   :63  
+##  3rd Qu.:26.00   3rd Qu.:63  
+##  Max.   :52.00   Max.   :63  
+##                              
+##                                       Method.Name
+##  HI-VOL SA/GMW-1200 - GRAVIMETRIC           :90  
+##   -                                         : 0  
+##  BGI Inc. Model PQ200 PM10 - Gravimetric    : 0  
+##  Hi Vol SSI Ecotech Model 3000 - Gravimetric: 0  
+##  HI-VOL-SA/GMW-321-B - GRAVIMETRIC          : 0  
+##  HI-VOL-WEDDING-INLET - GRAVIMETRIC         : 0  
+##  (Other)                                    : 0  
+##                                              Local.Site.Name
+##  LAX Hastings                                        :45    
+##  Los Angeles-North Main Street                       :45    
+##                                                      : 0    
+##  1 Site (Met Station and Hi-Vols BA1 and BA1-B)      : 0    
+##  10 METER TOWER, AT NW CORNER, U OF I RESEARCH CENTER: 0    
+##  19th &amp; Burt                                         : 0    
+##  (Other)                                             : 0    
+##                                    Address        State.Name
+##  1630 N MAIN ST, LOS ANGELES           :45   California:90  
+##  7201 W. WESTCHESTER PARKWAY           :45   Alabama   : 0  
+##   151 NO SUNRISE BLVD, ROSEVILLE, CA   : 0   Alaska    : 0  
+##   201 ASHVILLE ROAD                    : 0   Arizona   : 0  
+##   2220 NORTH STREET, ANDERSON, CA 96007: 0   Arkansas  : 0  
+##   3337 Sandy Way, South Lake Tahoe, CA : 0   Colorado  : 0  
+##  (Other)                               : 0   (Other)   : 0  
+##       County.Name           City.Name 
+##  Los Angeles:90   Los Angeles    :90  
+##  Ada        : 0   Aberdeen       : 0  
+##  Adair      : 0   Ajo            : 0  
+##  Adams      : 0   Ak-Chin Village: 0  
+##  Alamosa    : 0   Alamosa        : 0  
+##  Albany     : 0   Albuquerque    : 0  
+##  (Other)    : 0   (Other)        : 0  
+##                               CBSA.Name  Date.of.Last.Change
+##  Los Angeles-Long Beach-Anaheim, CA:90   2016-12-20:90      
+##                                    : 0   2016-04-11: 0      
+##  Aberdeen, SD                      : 0   2016-04-15: 0      
+##  Albuquerque, NM                   : 0   2016-05-11: 0      
+##  Allentown-Bethlehem-Easton, PA-NJ : 0   2016-05-13: 0      
+##  Altoona, PA                       : 0   2016-05-18: 0      
+##  (Other)                           : 0   (Other)   : 0</code></pre>
+<p>Possiamo notare che, anche in questo caso, alcune delle variabili sono trattate come numeriche anche se dovrebbero essere di tipo Factor. Possiamo o convertirle, o semplicemente tenerlo a mente qualora dovessimo lavorarci. Possiamo altrimenti rimuoverle come visto prima.</p>
+<p>Per prima cosa, definiamo un campo di interesse. Se vogliamo, ad esempio, vedere l’andamento delle misurazioni medie di PM10 nei due siti, molte delle variabili non ci interessano. Possiamo investigare più nel dettaglio le variabili legate alla nostra indagine e non considerare le altre:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(Arithmetic.Mean <span class="op">~</span><span class="st"> </span>Site.Num, <span class="dt">data =</span> PM10dataLA)</code></pre>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-92-1.png" width="672" /></p>
+<p>Possiamo notare che uno dei due siti presenta delle misurazioni che in generale sono più alte.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(PM10dataLA<span class="op">$</span>Date.Local , PM10dataLA<span class="op">$</span>Arithmetic.Mean, <span class="dt">col=</span> PM10dataLA<span class="op">$</span>Site.Num, <span class="dt">xlab =</span> <span class="st">&quot;2016&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;mean PM10&quot;</span>)
+<span class="kw">legend</span>( <span class="st">&quot;topright&quot;</span>, <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&quot;1103&quot;</span>,<span class="st">&quot;5005&quot;</span> ), <span class="dt">col=</span> <span class="kw">unique</span>(PM10dataLA<span class="op">$</span>Site.Num), <span class="dt">pch =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>) )</code></pre>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-93-1.png" width="672" /></p>
+<!-- Vediamo spazialmente dove sono posizionati i due punti di monitoraggio, questo potrebbe spiegare le differenze nelle misurazioni. -->
+<!-- ```{r, fig.width = 10, fig.height = 10} -->
+<!-- mapLA <- RgoogleMaps::GetMap(center="Los Angeles", zoom = 10) -->
+<!-- mapLA1 <- plotmap( lat =  unique(PM10dataLA[,c( "Latitude")]), lon = unique(PM10dataLA[,c("Longitude")])  ,map = mapLA) -->
+<!-- library(maps) -->
+<!-- # map("county", "california", xlim=c(-125,-114), ylim=c(32,43)) -->
+<!-- map("county", "california", xlim=c(-118.8,-118), ylim=c(33,35)) -->
+<!-- points(unique(PM10dataLA[,c( "Latitude")]) , unique(PM10dataLA[,c("Longitude")]) ,cex = .8, col = "red" ) -->
+<!-- ``` -->
+<!-- Dalla mappa sembra che uno dei due siti (cerchi neri) sia in centro mentre il secondo è più vicino alla spiaggia, dove possiamo aspettarci meno traffico.  -->
+<!-- Per avere una comprensione migliore visualizziamo una mappa differente, che mostra sia le strade che l'immagine satellitare della zona. -->
+<!-- ```{r, fig.width = 10, fig.height = 10} -->
+<!-- mapLA1 <- plotmap( lat =  unique(PM10dataLA[,c( "Latitude")]), lon = unique(PM10dataLA[,c("Longitude")]) , API = "google", maptype = "hybrid", zoom = 11) -->
+<!-- TextOnStaticMap(mapLA1,lat =  unique(PM10dataLA[,c( "Latitude")]), lon = unique(PM10dataLA[,c("Longitude")]),labels= unique(PM10dataLA[,c( "Site.Num")]), add=TRUE, cex = 2, col = "green" , pch = 6)  -->
+<!-- ``` -->
+<!-- Vediamo che il secondo punto di osservazione, sebbene registri valori più bassi, probabilmente perché più vicino alla spiaggia, è comunque vicino all'aeroporto. Questo sicuramente influenza la qualità dell'aria e potrebbe spiegare perché sebbene più bassi, i valori non siano bassissimi. Non ci stupirebbe se altri parametri misurati fossero addirittura peggiori rispetto a quelli registrati in centro.  -->
+<!-- Senza opportuni strumenti di visualizzazione dei dati, non saremmo potuti giungere a queste conclusioni. -->
+<p>##Esercizo</p>
+<div id="esercizio-1-2" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> <a name="L5Ex1"></a>Esercizio 1</h3>
+<p>Si trovi un modo adeguato per importare i dati relativi al <a href="http://docs.google.com/spreadsheet/pub?key=0ArfEDsV3bBwCdGhJcHAwanc2aFdZeXl1WTVZQnJjb1E&amp;output=xlsx">reddito nazionale lordo pro capite</a> e alla <a href="http://docs.google.com/spreadsheet/pub?key=0AkBd6lyS3EmpdDBKd2V5VmxkYlJuUHAtOURzUkZzNEE&amp;output=csv">percentuale di strade asfaltate</a> in R. Dopo aver analizzato e preparato i dataset, si usino i dati per investigare le due variabili rispetto ad un paese del G7, un paese in via di sviluppo ed un paese del terzo mondo a scelta, nel periodo dal 1990 al 2009.
+Si analizzino i dati e si visualizzino.</p>
+</div>
+<div id="esercizio-2-2" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> Esercizio 2</h3>
+<p>Si svolga il primo capitolo del <a href="https://www.datacamp.com/courses/introduction-to-credit-risk-modeling-in-r">corso online</a> di DataCamp che riguarda i modelli di rischio nel credito. Il primo capitolo del corso (in inglese) è gratuito.</p>
+</div>
+<div id="esercizio-3-1" class="section level3">
+<h3><span class="header-section-number">6.3.3</span> <a name="L5Ex3"></a>Esercizio 3</h3>
+<p>Si importi il <a href="https://raw.githubusercontent.com/socviz/soc880/master/data/gapminder.csv">dataset</a> contenente i dati relativi alla aspettativa di vita, popolazione e prodotto interno lordo pro capite di 142 paesi del mondo.
+Si aggreghino i dati per continenti e si visualizzi l’andamento dell’aspettativa di vita rispetto alle variabili tempo, reddito pro capite e popolazione.
+Si investighi una possibile trasformazione dei dati per rendere più informativa l’analisi e si ripetano le analisi sui dati trasformati.</p>
+</div>
+<div id="esercizio-4-1" class="section level3">
+<h3><span class="header-section-number">6.3.4</span> <a name="L5Ex4"></a>Esercizio 4</h3>
+<p>Si consideri il <a href="https://www.kaggle.com/ronitf/heart-disease-uci">dataset</a> che riporta 14 parametri di 303 pazienti con problemi di cuore. Si importi il dataset e si visualizzino con degli istogrammi le distribuzioni delle variabili. Inoltre usando la funzione <code>aggregate</code>, si determini al variare dell’età, il valore medio e massimo delle variabili <code>chol</code> (colesterolo) e <code>thalach</code> (frequenza cardiaca massima).</p>
+</div>
+<div id="esercizio-5" class="section level3">
+<h3><span class="header-section-number">6.3.5</span> Esercizio 5</h3>
+<p>Dopo aver svolto l’<a href="./#L5Ex4">Esercizio 4</a>, si consulti il notebook R al <a href="https://www.kaggle.com/naik170106027/prediction-of-heart-diseases">link</a>. Quali sono gli obbiettivi dell’autore? Quale tecniche utilizza? Quale di queste non sono ancora state trattate nel nostro corso?</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="manipolare-i-dati.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/05-DataMan.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["bookdown.pdf", "bookdown.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
