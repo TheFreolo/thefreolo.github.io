@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 BodyTemperature | Note di R</title>
+  <meta name="description" content="Questo libro riassume il contenuto del laboratorio di R del corso di Probabilità e Statistica Matematica dell’anno accademico 2018/2019" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 BodyTemperature | Note di R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Questo libro riassume il contenuto del laboratorio di R del corso di Probabilità e Statistica Matematica dell’anno accademico 2018/2019" />
+  <meta name="github-repo" content="rstudio/book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 BodyTemperature | Note di R" />
+  
+  <meta name="twitter:description" content="Questo libro riassume il contenuto del laboratorio di R del corso di Probabilità e Statistica Matematica dell’anno accademico 2018/2019" />
+  
+
+<meta name="author" content="Federico Reali" />
+
+
+<meta name="date" content="2019-06-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="visualizzare-i-dati.html">
+<link rel="next" href="link-utili-2.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Premessa</a></li>
+<li class="chapter" data-level="2" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html"><i class="fa fa-check"></i><b>2</b> Primi passi con R</a><ul>
+<li class="chapter" data-level="2.1" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#perche-r"><i class="fa fa-check"></i><b>2.1</b> Perché R</a></li>
+<li class="chapter" data-level="2.2" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#installare-r"><i class="fa fa-check"></i><b>2.2</b> Installare R</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#scaricare-r"><i class="fa fa-check"></i><b>2.2.1</b> Scaricare R</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#installare-r-1"><i class="fa fa-check"></i><b>2.3</b> Installare R</a></li>
+<li class="chapter" data-level="2.4" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#usare-r"><i class="fa fa-check"></i><b>2.4</b> Usare R</a></li>
+<li class="chapter" data-level="2.5" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#installare-r-studio"><i class="fa fa-check"></i><b>2.5</b> Installare R Studio</a></li>
+<li class="chapter" data-level="2.6" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#usare-r-studio"><i class="fa fa-check"></i><b>2.6</b> Usare R Studio</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#cartelle"><i class="fa fa-check"></i><b>2.6.1</b> Cartelle</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#link-utili"><i class="fa fa-check"></i><b>2.7</b> Link utili</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html"><i class="fa fa-check"></i><b>3</b> Primi comandi di R</a><ul>
+<li class="chapter" data-level="3.0.1" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#before-starting"><i class="fa fa-check"></i><b>3.0.1</b> Before Starting!</a></li>
+<li class="chapter" data-level="3.1" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#operazioni-aritmetiche"><i class="fa fa-check"></i><b>3.1</b> Operazioni Aritmetiche</a></li>
+<li class="chapter" data-level="3.2" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#esponenziale-e-logaritmi"><i class="fa fa-check"></i><b>3.2</b> Esponenziale e logaritmi</a></li>
+<li class="chapter" data-level="3.3" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#funzioni-trigonometriche"><i class="fa fa-check"></i><b>3.3</b> Funzioni Trigonometriche</a></li>
+<li class="chapter" data-level="3.4" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#assegnazione-e-vettori"><i class="fa fa-check"></i><b>3.4</b> Assegnazione e vettori</a></li>
+<li class="chapter" data-level="3.5" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#sequenze"><i class="fa fa-check"></i><b>3.5</b> Sequenze</a></li>
+<li class="chapter" data-level="3.6" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#operazioni-su-vettori"><i class="fa fa-check"></i><b>3.6</b> Operazioni su vettori</a></li>
+<li class="chapter" data-level="3.7" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#operatori-relazionali-e-logici"><i class="fa fa-check"></i><b>3.7</b> Operatori relazionali e logici</a></li>
+<li class="chapter" data-level="3.8" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#matrici"><i class="fa fa-check"></i><b>3.8</b> Matrici</a></li>
+<li class="chapter" data-level="3.9" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#stringhe-vettori-di-caratteri"><i class="fa fa-check"></i><b>3.9</b> Stringhe (vettori di caratteri)</a></li>
+<li class="chapter" data-level="3.10" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#liste-e-data-frame"><i class="fa fa-check"></i><b>3.10</b> Liste e data frame</a><ul>
+<li class="chapter" data-level="3.10.1" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#data-frame"><i class="fa fa-check"></i><b>3.10.1</b> Data frame</a></li>
+<li class="chapter" data-level="3.10.2" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#tidy-data-please"><i class="fa fa-check"></i><b>3.10.2</b> Tidy data, please!</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#programmazione-in-r"><i class="fa fa-check"></i><b>3.11</b> Programmazione in R</a><ul>
+<li class="chapter" data-level="3.11.1" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#condizioni-if"><i class="fa fa-check"></i><b>3.11.1</b> Condizioni: if</a></li>
+<li class="chapter" data-level="3.11.2" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#iterazioni-for---while---repeat"><i class="fa fa-check"></i><b>3.11.2</b> Iterazioni: for - while - repeat</a></li>
+<li class="chapter" data-level="3.11.3" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#definire-funzioni"><i class="fa fa-check"></i><b>3.11.3</b> Definire funzioni</a></li>
+</ul></li>
+<li class="chapter" data-level="3.12" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#esercizi"><i class="fa fa-check"></i><b>3.12</b> Esercizi</a><ul>
+<li class="chapter" data-level="3.12.1" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#esercizio-1"><i class="fa fa-check"></i><b>3.12.1</b> Esercizio 1</a></li>
+<li class="chapter" data-level="3.12.2" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#esercizio-2"><i class="fa fa-check"></i><b>3.12.2</b> Esercizio 2</a></li>
+<li class="chapter" data-level="3.12.3" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#esercizio-3"><i class="fa fa-check"></i><b>3.12.3</b> Esercizio 3</a></li>
+<li class="chapter" data-level="3.12.4" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#esercizio-4"><i class="fa fa-check"></i><b>3.12.4</b> Esercizio 4</a></li>
+</ul></li>
+<li class="chapter" data-level="3.13" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#link-utili-1"><i class="fa fa-check"></i><b>3.13</b> Link utili</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html"><i class="fa fa-check"></i><b>4</b> Lavorare con i dati</a><ul>
+<li class="chapter" data-level="4.0.1" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html#before-starting-1"><i class="fa fa-check"></i><b>4.0.1</b> Before Starting!</a></li>
+<li class="chapter" data-level="4.1" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html#pacchetti"><i class="fa fa-check"></i><b>4.1</b> Pacchetti</a></li>
+<li class="chapter" data-level="4.2" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html#manipolare-dati"><i class="fa fa-check"></i><b>4.2</b> Manipolare dati</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html#leggere-e-scrivere-file"><i class="fa fa-check"></i><b>4.2.1</b> Leggere e scrivere file</a></li>
+<li class="chapter" data-level="4.2.2" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html#esplorare-i-file"><i class="fa fa-check"></i><b>4.2.2</b> Esplorare i file</a></li>
+<li class="chapter" data-level="4.2.3" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html#factors"><i class="fa fa-check"></i><b>4.2.3</b> Factors</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html#missing-data"><i class="fa fa-check"></i><b>4.3</b> Missing data</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html"><i class="fa fa-check"></i><b>5</b> Visualizzare i dati</a><ul>
+<li class="chapter" data-level="5.1" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#box-plot"><i class="fa fa-check"></i><b>5.1</b> Box plot</a></li>
+<li class="chapter" data-level="5.2" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#istogrammi-e-scatter-plost"><i class="fa fa-check"></i><b>5.2</b> Istogrammi e scatter plost</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="bodytemperature.html"><a href="bodytemperature.html"><i class="fa fa-check"></i><b>6</b> BodyTemperature</a><ul>
+<li class="chapter" data-level="6.1" data-path="bodytemperature.html"><a href="bodytemperature.html#visualizzare-il-dataset-bodytemperature"><i class="fa fa-check"></i><b>6.1</b> Visualizzare il dataset BodyTemperature</a></li>
+<li class="chapter" data-level="6.2" data-path="bodytemperature.html"><a href="bodytemperature.html#pima.tr2"><i class="fa fa-check"></i><b>6.2</b> Pima.tr2</a></li>
+<li class="chapter" data-level="6.3" data-path="bodytemperature.html"><a href="bodytemperature.html#visualizzare-il-dataset-pima.tr2"><i class="fa fa-check"></i><b>6.3</b> Visualizzare il dataset Pima.tr2</a></li>
+<li class="chapter" data-level="6.4" data-path="bodytemperature.html"><a href="bodytemperature.html#esercizi-1"><i class="fa fa-check"></i><b>6.4</b> Esercizi</a></li>
+<li class="chapter" data-level="6.5" data-path="bodytemperature.html"><a href="bodytemperature.html#esercizio-1-1"><i class="fa fa-check"></i><b>6.5</b> Esercizio 1</a></li>
+<li class="chapter" data-level="6.6" data-path="bodytemperature.html"><a href="bodytemperature.html#esercizio-2-1"><i class="fa fa-check"></i><b>6.6</b> Esercizio 2</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="link-utili-2.html"><a href="link-utili-2.html"><i class="fa fa-check"></i><b>7</b> Link utili</a></li>
+<li class="chapter" data-level="8" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>8</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Note di R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="bodytemperature" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> BodyTemperature</h1>
+<p>BodyTemperature è un dataset che contiene la misurazione di quattro variabili (sesso, età, frequenza cardiaca e temperatura corporea ascellare) di 100 pazienti. Possiamo leggere importare il file specificando invece che il percorso, l’indirizzo url.</p>
+<pre class="sourceCode r"><code class="sourceCode r">BodyTemperature &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">url</span>(<span class="st">&#39;http://extras.springer.com/2012/978-1-4614-1301-1/BodyTemperature.txt&#39;</span>))</code></pre>
+<p>Se però visualizziamo questo dataset qualosa non torna.
+Il comando giusto specifica quale separatore viene considerato: in questo caso lo spazio, che è diverso da quello di default di <code>read.csv</code>. In modo analogo avremmo potuto leggere i dati usando <code>read.table()</code>. Tuttavia, controllaimo bene l’output per capire se effettivamente il dataset è stato letto nel modo giusto!</p>
+<pre class="sourceCode r"><code class="sourceCode r">(BodyTemperature &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="kw">url</span>(<span class="st">&#39;http://extras.springer.com/2012/978-1-4614-1301-1/BodyTemperature.txt&#39;</span>)) )</code></pre>
+<pre><code>##         V1  V2        V3          V4
+## 1   Gender Age HeartRate Temperature
+## 2        M  33        69          97
+## 3        M  32        72        98.8
+## 4        M  42        68        96.2
+## 5        F  33        75        97.8
+## 6        F  26        68        98.8
+## 7        M  37        79       101.3
+## 8        F  32        71        97.8
+## 9        F  45        73        97.4
+## 10       F  31        77        99.2
+## 11       M  49        81        99.2
+## 12       M  40        69        97.5
+## 13       F  45        70        97.7
+## 14       F  49        71        98.3
+## 15       F  37        74        98.8
+## 16       F  47        79        98.5
+## 17       M  34        73        97.3
+## 18       F  41        71        98.9
+## 19       M  33        77        98.6
+## 20       F  38        70        99.2
+## 21       F  31        69        97.9
+## 22       F  41        67        97.1
+## 23       F  45        67          97
+## 24       F  36        74        98.9
+## 25       M  35        77          99
+## 26       F  28        76        97.9
+## 27       M  25        79          98
+## 28       M  30        76          97
+## 29       M  41        61        97.6
+## 30       M  37        84          99
+## 31       F  37        67        97.8
+## 32       F  34        73        97.9
+## 33       F  34        81         100
+## 34       M  50        68        97.1
+## 35       M  48        76        98.9
+## 36       M  34        80        98.6
+## 37       F  36        68        97.7
+## 38       F  21        70        98.3
+## 39       M  23        79        98.9
+## 40       F  42        76        99.4
+## 41       F  33        75        98.6
+## 42       M  37        73        97.2
+## 43       M  33        72          98
+## 44       F  36        77        99.3
+## 45       M  43        81        99.4
+## 46       M  36        73        98.8
+## 47       M  29        64        98.5
+## 48       F  36        69        98.4
+## 49       F  44        80        98.6
+## 50       F  30        80          97
+## 51       F  38        67        98.2
+## 52       M  41        78        99.6
+## 53       F  43        73        98.9
+## 54       M  42        77        97.3
+## 55       M  41        66        96.5
+## 56       F  36        71        98.2
+## 57       F  34        78        99.3
+## 58       F  36        69        98.2
+## 59       M  41        72        97.8
+## 60       F  41        73        98.3
+## 61       F  40        73        97.4
+## 62       F  40        72        98.2
+## 63       M  33        75        98.3
+## 64       M  35        75        98.1
+## 65       F  37        68        98.8
+## 66       M  43        82        98.8
+## 67       M  31        67        97.7
+## 68       F  44        75        96.8
+## 69       M  47        78        98.3
+## 70       M  44        72        97.7
+## 71       M  37        80        99.1
+## 72       F  30        67        97.9
+## 73       F  34        80        98.3
+## 74       M  32        74        98.8
+## 75       M  44        78        97.4
+## 76       M  46        87        96.9
+## 77       M  45        74          98
+## 78       F  35        71        98.3
+## 79       M  42        69        98.4
+## 80       F  46        87       100.8
+## 81       M  22        81       100.3
+## 82       M  49        75          97
+## 83       F  49        83        99.2
+## 84       F  43        78        99.8
+## 85       M  31        70          99
+## 86       F  36        76        98.8
+## 87       M  38        78       100.6
+## 88       M  40        75          98
+## 89       M  40        75        98.5
+## 90       F  44        70        97.1
+## 91       M  48        72          97
+## 92       F  34        79        98.7
+## 93       F  30        78        99.9
+## 94       M  25        67          97
+## 95       M  38        63        98.6
+## 96       F  39        69        98.4
+## 97       M  42        69        97.8
+## 98       F  38        69        99.7
+## 99       F  40        79        98.7
+## 100      F  34        71        99.2
+## 101      M  35        62        97.3</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">BodyTemperature &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">url</span>(<span class="st">&#39;http://extras.springer.com/2012/978-1-4614-1301-1/BodyTemperature.txt&#39;</span>), <span class="dt">sep=</span> <span class="st">&quot; &quot;</span>)</code></pre>
+<p>Esploriamo un po’ il dataset per capirne il contenuto e le variabili</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(BodyTemperature)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    100 obs. of  4 variables:
+##  $ Gender     : Factor w/ 2 levels &quot;F&quot;,&quot;M&quot;: 2 2 2 1 1 2 1 1 1 2 ...
+##  $ Age        : int  33 32 42 33 26 37 32 45 31 49 ...
+##  $ HeartRate  : int  69 72 68 75 68 79 71 73 77 81 ...
+##  $ Temperature: num  97 98.8 96.2 97.8 98.8 ...</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(BodyTemperature)</code></pre>
+<pre><code>##   Gender Age HeartRate Temperature
+## 1      M  33        69        97.0
+## 2      M  32        72        98.8
+## 3      M  42        68        96.2
+## 4      F  33        75        97.8
+## 5      F  26        68        98.8
+## 6      M  37        79       101.3</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(BodyTemperature)</code></pre>
+<pre><code>## [1] &quot;Gender&quot;      &quot;Age&quot;         &quot;HeartRate&quot;   &quot;Temperature&quot;</code></pre>
+<p>Solo a scopo didattico, vediamo l’applicazione di uno dei comandi visti: <code>levels()</code>:</p>
+<pre class="sourceCode r"><code class="sourceCode r">BodyTemperature<span class="op">$</span>GenderLong &lt;-<span class="st"> </span>BodyTemperature<span class="op">$</span>Gender
+<span class="kw">levels</span>(BodyTemperature<span class="op">$</span>GenderLong) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(BodyTemperature)</code></pre>
+<pre><code>##  Gender      Age          HeartRate      Temperature    
+##  F:51   Min.   :21.00   Min.   :61.00   Min.   : 96.20  
+##  M:49   1st Qu.:33.75   1st Qu.:69.00   1st Qu.: 97.70  
+##         Median :37.00   Median :73.00   Median : 98.30  
+##         Mean   :37.62   Mean   :73.66   Mean   : 98.33  
+##         3rd Qu.:42.00   3rd Qu.:78.00   3rd Qu.: 98.90  
+##         Max.   :50.00   Max.   :87.00   Max.   :101.30</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">range</span>(BodyTemperature[,<span class="op">-</span><span class="dv">1</span>])</code></pre>
+<pre><code>## [1]  21.0 101.3</code></pre>
+<p>In modo analogo possiamo cercare di ottenere la distanza interquartile per i gli elementi del dataset con <code>IQR(BodyTemperature[,2:4])</code>, tuttavia questo ci da errore.</p>
+<p>Possiamo aggirare questa limitazione usando il comando <code>apply()</code>. La stessa funzione la possiamo usare per individuare, ad esempio, il valore minimo rispetto alle variabili (numeriche) e quale indice lo assume.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apply</span>(BodyTemperature[,<span class="op">-</span><span class="dv">1</span>], <span class="dv">2</span>, IQR )</code></pre>
+<pre><code>##         Age   HeartRate Temperature 
+##        8.25        9.00        1.20</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apply</span>(BodyTemperature[,<span class="op">-</span><span class="dv">1</span>], <span class="dv">2</span>, min )</code></pre>
+<pre><code>##         Age   HeartRate Temperature 
+##        21.0        61.0        96.2</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apply</span>(BodyTemperature[,<span class="op">-</span><span class="dv">1</span>], <span class="dv">2</span>, which.min )</code></pre>
+<pre><code>##         Age   HeartRate Temperature 
+##          37          28           3</code></pre>
+<p>Possiamo notare che la temperatura non è espressa in gradi Celsius (°C), bensì in Fahrenheit (F). Usando delle semplici operazioni di base possiamo trasformare le temperature in gradi Celsius e salvare questi nuovi dati nella colonna che chiamiamo <em>TempC</em>.</p>
+<pre class="sourceCode r"><code class="sourceCode r">fromFtoC &lt;-<span class="st"> </span><span class="cf">function</span>(dataF) {
+<span class="kw">return</span>((dataF <span class="op">-</span><span class="st"> </span><span class="dv">32</span>)<span class="op">*</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">9</span>)) 
+}
+BodyTemperature<span class="op">$</span>TempC &lt;-<span class="st"> </span>(BodyTemperature<span class="op">$</span>Temperature <span class="dv">-32</span>)<span class="op">*</span><span class="dv">5</span><span class="op">/</span><span class="dv">9</span>
+
+<span class="kw">head</span>(BodyTemperature)</code></pre>
+<pre><code>##   Gender Age HeartRate Temperature    TempC
+## 1      M  33        69        97.0 36.11111
+## 2      M  32        72        98.8 37.11111
+## 3      M  42        68        96.2 35.66667
+## 4      F  33        75        97.8 36.55556
+## 5      F  26        68        98.8 37.11111
+## 6      M  37        79       101.3 38.50000</code></pre>
+<div id="visualizzare-il-dataset-bodytemperature" class="section level2">
+<h2><span class="header-section-number">6.1</span> Visualizzare il dataset BodyTemperature</h2>
+<p>Passiamo ora a visualizzare il contenuto del dateset.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(BodyTemperature<span class="op">$</span>TempC )</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(TempC <span class="op">~</span><span class="st"> </span>Gender, <span class="dt">data =</span> BodyTemperature)</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
+<p>Vediamo ora come affiancare diversi plot e usiamo alcuni dei parametri delle funzioni di plot.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))
+<span class="kw">hist</span>(BodyTemperature<span class="op">$</span>TempC, <span class="dt">main =</span> <span class="st">&quot;&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;°C&quot;</span>)
+<span class="kw">boxplot</span>(TempC <span class="op">~</span><span class="st"> </span>Gender, <span class="dt">data =</span> BodyTemperature, <span class="dt">xlab =</span> <span class="st">&quot;Gender&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Temperature [°C]&quot;</span>)</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))
+<span class="kw">boxplot</span>(BodyTemperature<span class="op">$</span>TempC , <span class="dt">ylab =</span> <span class="st">&quot;Temperature [°C]&quot;</span>)
+<span class="kw">boxplot</span>(TempC <span class="op">~</span><span class="st"> </span>Gender, <span class="dt">data =</span> BodyTemperature, <span class="dt">xlab =</span> <span class="st">&quot;Gender&quot;</span>)</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-52-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))
+<span class="kw">boxplot</span>(BodyTemperature<span class="op">$</span>TempC , <span class="dt">ylab =</span> <span class="st">&quot;Temperature [°C]&quot;</span>)
+<span class="kw">boxplot</span>(TempC <span class="op">~</span><span class="st"> </span>Gender, <span class="dt">data =</span> BodyTemperature, <span class="dt">xlab =</span> <span class="st">&quot;Gender&quot;</span>)
+<span class="kw">title</span>(<span class="st">&quot;Boxplots for Temperature&quot;</span>, <span class="dt">outer =</span> T, <span class="dt">line =</span> <span class="dv">-2</span>)</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))
+<span class="kw">hist</span>((BodyTemperature<span class="op">$</span>TempC) , <span class="dt">xlab =</span> <span class="st">&quot;Temperature [°C]&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;&quot;</span>)
+<span class="kw">boxplot</span>(TempC <span class="op">~</span><span class="st"> </span>Gender, <span class="dt">data =</span> BodyTemperature, <span class="dt">xlab =</span> <span class="st">&quot;Gender&quot;</span>)
+<span class="kw">hist</span>(BodyTemperature<span class="op">$</span>TempC[BodyTemperature<span class="op">$</span>Gender <span class="op">==</span><span class="st"> &quot;F&quot;</span>],<span class="dt">freq =</span> <span class="ot">FALSE</span> ,<span class="dt">main =</span> <span class="st">&quot;Female&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;pink&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;Temperature [°C]&quot;</span>)
+<span class="kw">hist</span>(BodyTemperature<span class="op">$</span>TempC[BodyTemperature<span class="op">$</span>Gender <span class="op">==</span><span class="st"> &quot;M&quot;</span>],<span class="dt">freq =</span> <span class="ot">FALSE</span> ,<span class="dt">main =</span> <span class="st">&quot;Male&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;skyblue&quot;</span> , <span class="dt">xlab =</span> <span class="st">&quot;Temperature [°C]&quot;</span>)</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-54-1.png" width="960" /></p>
+<p>Esistono altri comandi che si possono abbinare a quelli di visualizzazione visti fin qui, ad esempio <code>abline()</code>, <code>text()</code> e <code>lines()</code>.</p>
+<p><em>Esercizio</em> Usare l’help per capire le funzionalità dei comandi precedenti e si usino per aggiungere informazioni ai grafici precedenti.</p>
+</div>
+<div id="pima.tr2" class="section level2">
+<h2><span class="header-section-number">6.2</span> Pima.tr2</h2>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(MASS) <span class="co"># necessario per accedere al dataset</span>
+<span class="kw">str</span>(Pima.tr2)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    300 obs. of  8 variables:
+##  $ npreg: int  5 7 5 0 0 5 3 1 3 2 ...
+##  $ glu  : int  86 195 77 165 107 97 83 193 142 128 ...
+##  $ bp   : int  68 70 82 76 60 76 58 50 80 78 ...
+##  $ skin : int  28 33 41 43 25 27 31 16 15 37 ...
+##  $ bmi  : num  30.2 25.1 35.8 47.9 26.4 35.6 34.3 25.9 32.4 43.3 ...
+##  $ ped  : num  0.364 0.163 0.156 0.259 0.133 ...
+##  $ age  : int  24 55 35 26 23 52 25 24 63 31 ...
+##  $ type : Factor w/ 2 levels &quot;No&quot;,&quot;Yes&quot;: 1 2 1 1 1 2 1 1 1 2 ...</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(Pima.tr2)</code></pre>
+<pre><code>## [1] 300   8</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(Pima.tr2)</code></pre>
+<pre><code>## [1] &quot;npreg&quot; &quot;glu&quot;   &quot;bp&quot;    &quot;skin&quot;  &quot;bmi&quot;   &quot;ped&quot;   &quot;age&quot;   &quot;type&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">?Pima.tr2
+(Pima.tr2)</code></pre>
+<pre><code>##     npreg glu  bp skin  bmi   ped age type
+## 1       5  86  68   28 30.2 0.364  24   No
+## 2       7 195  70   33 25.1 0.163  55  Yes
+## 3       5  77  82   41 35.8 0.156  35   No
+## 4       0 165  76   43 47.9 0.259  26   No
+## 5       0 107  60   25 26.4 0.133  23   No
+## 6       5  97  76   27 35.6 0.378  52  Yes
+## 7       3  83  58   31 34.3 0.336  25   No
+## 8       1 193  50   16 25.9 0.655  24   No
+## 9       3 142  80   15 32.4 0.200  63   No
+## 10      2 128  78   37 43.3 1.224  31  Yes
+## 11      0 137  40   35 43.1 2.288  33  Yes
+## 12      9 154  78   30 30.9 0.164  45   No
+## 13      1 189  60   23 30.1 0.398  59  Yes
+## 14     12  92  62    7 27.6 0.926  44  Yes
+## 15      1  86  66   52 41.3 0.917  29   No
+## 16      4  99  76   15 23.2 0.223  21   No
+## 17      1 109  60    8 25.4 0.947  21   No
+## 18     11 143  94   33 36.6 0.254  51  Yes
+## 19      1 149  68   29 29.3 0.349  42  Yes
+## 20      0 139  62   17 22.1 0.207  21   No
+## 21      2  99  70   16 20.4 0.235  27   No
+## 22      1 100  66   29 32.0 0.444  42   No
+## 23      4  83  86   19 29.3 0.317  34   No
+## 24      0 101  64   17 21.0 0.252  21   No
+## 25      1  87  68   34 37.6 0.401  24   No
+## 26      9 164  84   21 30.8 0.831  32  Yes
+## 27      1  99  58   10 25.4 0.551  21   No
+## 28      0 140  65   26 42.6 0.431  24  Yes
+## 29      5 108  72   43 36.1 0.263  33   No
+## 30      2 110  74   29 32.4 0.698  27   No
+## 31      1  79  60   42 43.5 0.678  23   No
+## 32      3 148  66   25 32.5 0.256  22   No
+## 33      0 121  66   30 34.3 0.203  33  Yes
+## 34      3 158  64   13 31.2 0.295  24   No
+## 35      2 105  80   45 33.7 0.711  29  Yes
+## 36     13 145  82   19 22.2 0.245  57   No
+## 37      1  79  80   25 25.4 0.583  22   No
+## 38      1  71  48   18 20.4 0.323  22   No
+## 39      0 102  86   17 29.3 0.695  27   No
+## 40      0 119  66   27 38.8 0.259  22   No
+## 41      8 176  90   34 33.7 0.467  58  Yes
+## 42      1  97  68   21 27.2 1.095  22   No
+## 43      4 129  60   12 27.5 0.527  31   No
+## 44      1  97  64   19 18.2 0.299  21   No
+## 45      0  86  68   32 35.8 0.238  25   No
+## 46      2 125  60   20 33.8 0.088  31   No
+## 47      5 123  74   40 34.1 0.269  28   No
+## 48      2  92  76   20 24.2 1.698  28   No
+## 49      3 171  72   33 33.3 0.199  24  Yes
+## 50      1 199  76   43 42.9 1.394  22  Yes
+## 51      3 116  74   15 26.3 0.107  24   No
+## 52      2  83  66   23 32.2 0.497  22   No
+## 53      8 154  78   32 32.4 0.443  45  Yes
+## 54      1 114  66   36 38.1 0.289  21   No
+## 55      1 106  70   28 34.2 0.142  22   No
+## 56      4 127  88   11 34.5 0.598  28   No
+## 57      1 124  74   36 27.8 0.100  30   No
+## 58      1 109  38   18 23.1 0.407  26   No
+## 59      2 123  48   32 42.1 0.520  26   No
+## 60      8 167 106   46 37.6 0.165  43  Yes
+## 61      7 184  84   33 35.5 0.355  41  Yes
+## 62      1  96  64   27 33.2 0.289  21   No
+## 63     10 129  76   28 35.9 0.280  39   No
+## 64      6  92  62   32 32.0 0.085  46   No
+## 65      6 109  60   27 25.0 0.206  27   No
+## 66      5 139  80   35 31.6 0.361  25  Yes
+## 67      6 134  70   23 35.4 0.542  29  Yes
+## 68      3 106  54   21 30.9 0.292  24   No
+## 69      0 131  66   40 34.3 0.196  22  Yes
+## 70      0 135  94   46 40.6 0.284  26   No
+## 71      5 158  84   41 39.4 0.395  29  Yes
+## 72      3 112  74   30 31.6 0.197  25  Yes
+## 73      8 181  68   36 30.1 0.615  60  Yes
+## 74      2 121  70   32 39.1 0.886  23   No
+## 75      1 168  88   29 35.0 0.905  52  Yes
+## 76      1 144  82   46 46.1 0.335  46  Yes
+## 77      2 101  58   17 24.2 0.614  23   No
+## 78      2  96  68   13 21.1 0.647  26   No
+## 79      3 107  62   13 22.9 0.678  23  Yes
+## 80     12 121  78   17 26.5 0.259  62   No
+## 81      2 100  64   23 29.7 0.368  21   No
+## 82      4 154  72   29 31.3 0.338  37   No
+## 83      6 125  78   31 27.6 0.565  49  Yes
+## 84     10 125  70   26 31.1 0.205  41  Yes
+## 85      2 122  76   27 35.9 0.483  26   No
+## 86      2 114  68   22 28.7 0.092  25   No
+## 87      1 115  70   30 34.6 0.529  32  Yes
+## 88      7 114  76   17 23.8 0.466  31   No
+## 89      2 115  64   22 30.8 0.421  21   No
+## 90      1 130  60   23 28.6 0.692  21   No
+## 91      1  79  75   30 32.0 0.396  22   No
+## 92      4 112  78   40 39.4 0.236  38   No
+## 93      7 150  78   29 35.2 0.692  54  Yes
+## 94      1  91  54   25 25.2 0.234  23   No
+## 95      1 100  72   12 25.3 0.658  28   No
+## 96     12 140  82   43 39.2 0.528  58  Yes
+## 97      4 110  76   20 28.4 0.118  27   No
+## 98      2  94  76   18 31.6 0.649  23   No
+## 99      2  84  50   23 30.4 0.968  21   No
+## 100    10 148  84   48 37.6 1.001  51  Yes
+## 101     3  61  82   28 34.4 0.243  46   No
+## 102     4 117  62   12 29.7 0.380  30  Yes
+## 103     3  99  80   11 19.3 0.284  30   No
+## 104     3  80  82   31 34.2 1.292  27  Yes
+## 105     4 154  62   31 32.8 0.237  23   No
+## 106     6 103  72   32 37.7 0.324  55   No
+## 107     6 111  64   39 34.2 0.260  24   No
+## 108     0 124  70   20 27.4 0.254  36  Yes
+## 109     1 143  74   22 26.2 0.256  21   No
+## 110     1  81  74   41 46.3 1.096  32   No
+## 111     4 189 110   31 28.5 0.680  37   No
+## 112     4 116  72   12 22.1 0.463  37   No
+## 113     7 103  66   32 39.1 0.344  31  Yes
+## 114     8 124  76   24 28.7 0.687  52  Yes
+## 115     1  71  78   50 33.2 0.422  21   No
+## 116     0 137  84   27 27.3 0.231  59   No
+## 117     9 112  82   32 34.2 0.260  36  Yes
+## 118     4 148  60   27 30.9 0.150  29  Yes
+## 119     1 136  74   50 37.4 0.399  24   No
+## 120     9 145  80   46 37.9 0.637  40  Yes
+## 121     1  93  56   11 22.5 0.417  22   No
+## 122     1 107  72   30 30.8 0.821  24   No
+## 123    12 151  70   40 41.8 0.742  38  Yes
+## 124     1  97  70   40 38.1 0.218  30   No
+## 125     5 144  82   26 32.0 0.452  58  Yes
+## 126     2 112  86   42 38.4 0.246  28   No
+## 127     2  99  52   15 24.6 0.637  21   No
+## 128     1 109  56   21 25.2 0.833  23   No
+## 129     1 120  80   48 38.9 1.162  41   No
+## 130     7 187  68   39 37.7 0.254  41  Yes
+## 131     3 129  92   49 36.4 0.968  32  Yes
+## 132     7 179  95   31 34.2 0.164  60   No
+## 133     6  80  66   30 26.2 0.313  41   No
+## 134     2 105  58   40 34.9 0.225  25   No
+## 135     3 191  68   15 30.9 0.299  34   No
+## 136     0  95  80   45 36.5 0.330  26   No
+## 137     4  99  72   17 25.6 0.294  28   No
+## 138     0 137  68   14 24.8 0.143  21   No
+## 139     1  97  70   15 18.2 0.147  21   No
+## 140     0 100  88   60 46.8 0.962  31   No
+## 141     1 167  74   17 23.4 0.447  33  Yes
+## 142     0 180  90   26 36.5 0.314  35  Yes
+## 143     2 122  70   27 36.8 0.340  27   No
+## 144     1  90  62   12 27.2 0.580  24   No
+## 145     3 120  70   30 42.9 0.452  30   No
+## 146     6 154  78   41 46.1 0.571  27   No
+## 147     2  56  56   28 24.2 0.332  22   No
+## 148     0 177  60   29 34.6 1.072  21  Yes
+## 149     3 124  80   33 33.2 0.305  26   No
+## 150     8  85  55   20 24.4 0.136  42   No
+## 151    12  88  74   40 35.3 0.378  48   No
+## 152     9 152  78   34 34.2 0.893  33  Yes
+## 153     0 198  66   32 41.3 0.502  28  Yes
+## 154     0 188  82   14 32.0 0.682  22  Yes
+## 155     5 139  64   35 28.6 0.411  26   No
+## 156     7 168  88   42 38.2 0.787  40  Yes
+## 157     2 197  70   99 34.7 0.575  62  Yes
+## 158     2 142  82   18 24.7 0.761  21   No
+## 159     8 126  74   38 25.9 0.162  39   No
+## 160     3 158  76   36 31.6 0.851  28  Yes
+## 161     3 130  78   23 28.4 0.323  34  Yes
+## 162     2 100  54   28 37.8 0.498  24   No
+## 163     1 164  82   43 32.8 0.341  50   No
+## 164     4  95  60   32 35.4 0.284  28   No
+## 165     2 122  52   43 36.2 0.816  28   No
+## 166     4  85  58   22 27.8 0.306  28   No
+## 167     0 151  90   46 42.1 0.371  21  Yes
+## 168     6 144  72   27 33.9 0.255  40   No
+## 169     3 111  90   12 28.4 0.495  29   No
+## 170     1 107  68   19 26.5 0.165  24   No
+## 171     6 115  60   39 33.7 0.245  40  Yes
+## 172     5 105  72   29 36.9 0.159  28   No
+## 173     7 194  68   28 35.9 0.745  41  Yes
+## 174     4 184  78   39 37.0 0.264  31  Yes
+## 175     0  95  85   25 37.4 0.247  24  Yes
+## 176     7 124  70   33 25.5 0.161  37   No
+## 177     1 111  62   13 24.0 0.138  23   No
+## 178     7 137  90   41 32.0 0.391  39   No
+## 179     9  57  80   37 32.8 0.096  41   No
+## 180     2 157  74   35 39.4 0.134  30   No
+## 181     2  95  54   14 26.1 0.748  22   No
+## 182    12 140  85   33 37.4 0.244  41   No
+## 183     0 117  66   31 30.8 0.493  22   No
+## 184     8 100  74   40 39.4 0.661  43  Yes
+## 185     9 123  70   44 33.1 0.374  40   No
+## 186     0 138  60   35 34.6 0.534  21  Yes
+## 187    14 100  78   25 36.6 0.412  46  Yes
+## 188    14 175  62   30 33.6 0.212  38  Yes
+## 189     0  74  52   10 27.8 0.269  22   No
+## 190     1 133 102   28 32.8 0.234  45  Yes
+## 191     0 119  64   18 34.9 0.725  23   No
+## 192     5 155  84   44 38.7 0.619  34   No
+## 193     1 128  48   45 40.5 0.613  24  Yes
+## 194     2 112  68   22 34.1 0.315  26   No
+## 195     1 140  74   26 24.1 0.828  23   No
+## 196     2 141  58   34 25.4 0.699  24   No
+## 197     7 129  68   49 38.5 0.439  43  Yes
+## 198     0 106  70   37 39.4 0.605  22   No
+## 199     1 118  58   36 33.3 0.261  23   No
+## 200     8 155  62   26 34.0 0.543  46  Yes
+## 201     2 134  70   NA 28.9 0.542  23  Yes
+## 202    10  75  82   NA 33.3 0.263  38   No
+## 203     0 146  70   NA 37.9 0.334  28  Yes
+## 204     1 180  NA   NA 43.3 0.282  41  Yes
+## 205     5 104  74   NA 28.8 0.153  48   No
+## 206     9 164  78   NA 32.8 0.148  45  Yes
+## 207     1  80  55   NA 19.1 0.258  21   No
+## 208     4 171  72   NA 43.6 0.479  26  Yes
+## 209     3 139  54   NA 25.6 0.402  22  Yes
+## 210     3 122  78   NA 23.0 0.254  40   No
+## 211     5 116  74   NA 25.6 0.201  30   No
+## 212     6 195  70   NA 30.9 0.328  31  Yes
+## 213     8 125  96   NA   NA 0.232  54  Yes
+## 214     4 122  68   NA 35.0 0.394  29   No
+## 215     0 107  76   NA 45.3 0.686  24   No
+## 216     1 151  60   NA 26.1 0.179  22   No
+## 217     9 165  88   NA 30.4 0.302  49  Yes
+## 218    10 168  74   NA 38.0 0.537  34  Yes
+## 219     3 102  74   NA 29.5 0.121  32   No
+## 220    13  76  60   NA 32.8 0.180  41   No
+## 221     5 143  78   NA 45.0 0.190  47   No
+## 222     6 124  72   NA 27.6 0.368  29  Yes
+## 223     8  95  72   NA 36.8 0.485  57   No
+## 224     3  78  70   NA 32.5 0.270  39   No
+## 225     5 112  66   NA 37.8 0.261  41  Yes
+## 226     5  73  60   NA 26.8 0.268  27   No
+## 227     0 102  52   NA 25.1 0.078  21   No
+## 228     2 109  92   NA 42.7 0.845  54   No
+## 229     4 114  65   NA 21.9 0.432  37   No
+## 230     0 102  75   23   NA 0.572  21   No
+## 231    10 133  68   NA 27.0 0.245  36   No
+## 232     4 118  70   NA 44.5 0.904  26   No
+## 233     7 136  90   NA 29.9 0.210  50   No
+## 234     7 100  NA   NA 30.0 0.484  32  Yes
+## 235     1 138  82   NA 40.1 0.236  28   No
+## 236     0 131  NA   NA 43.2 0.270  26  Yes
+## 237     2 111  60   NA 26.2 0.343  23   No
+## 238     7 133  84   NA 40.2 0.696  37   No
+## 239     6 137  61   NA 24.2 0.151  55   No
+## 240     5 115  98   NA 52.9 0.209  28  Yes
+## 241     3 125  58   NA 31.6 0.151  24   No
+## 242     4 142  86   NA 44.0 0.645  22  Yes
+## 243     4 146  92   NA 31.2 0.539  61  Yes
+## 244     4 128  70   NA 34.3 0.303  24   No
+## 245     0 132  78   NA 32.4 0.393  21   No
+## 246     4 134  72   NA 23.8 0.277  60  Yes
+## 247     2 120  54   NA 26.8 0.455  27   No
+## 248     0 111  65   NA 24.6 0.660  31   No
+## 249     2 139  75   NA 25.6 0.167  29   No
+## 250     1 106  76   NA 37.5 0.197  26   No
+## 251     6 147  80   NA 29.5 0.178  50  Yes
+## 252     8 107  80   NA 24.6 0.856  34   No
+## 253     4 183  NA   NA 28.4 0.212  36  Yes
+## 254     6  96  NA   NA 23.7 0.190  28   No
+## 255     4 158  78   NA 32.9 0.803  31  Yes
+## 256    11 127 106   NA 39.0 0.190  51   No
+## 257     6  87  80   NA 23.2 0.084  32   No
+## 258     4 123  62   NA 32.0 0.226  35  Yes
+## 259     2 118  80   NA 42.9 0.693  21  Yes
+## 260     6 103  66   NA 24.3 0.249  29   No
+## 261     4 110  66   NA 31.9 0.471  29   No
+## 262     5 147  78   NA 33.7 0.218  65   No
+## 263     0 119  NA   NA 32.4 0.141  24  Yes
+## 264     4 156  75   NA 48.3 0.238  32  Yes
+## 265     8 197  74   NA 25.9 1.191  39  Yes
+## 266     6 102  82   NA 30.8 0.180  36  Yes
+## 267     0 131  88   NA 31.6 0.743  32  Yes
+## 268     5 136  82   NA   NA 0.640  69   No
+## 269    13 158 114   NA 42.3 0.257  44  Yes
+## 270     0  93  60   NA 35.3 0.263  25   No
+## 271     2  87  NA   23 28.9 0.773  25   No
+## 272    10 108  66   NA 32.4 0.272  42  Yes
+## 273    10 139  80   NA 27.1 1.441  57   No
+## 274     4 110  92   NA 37.6 0.191  30   No
+## 275     4 114  64   NA 28.9 0.126  24   No
+## 276     0 101  62   NA 21.9 0.336  25   No
+## 277     2  91  62   NA 27.3 0.525  22   No
+## 278     8 133  72   NA 32.9 0.270  39  Yes
+## 279     1 111  94   NA 32.8 0.265  45   No
+## 280     5 147  75   NA 29.9 0.434  28   No
+## 281     4  92  80   NA 42.2 0.237  29   No
+## 282     2  90  60   NA 23.5 0.191  25   No
+## 283     7 114  64   NA 27.4 0.732  34  Yes
+## 284     7 125  86   NA 37.6 0.304  51   No
+## 285     2 119  NA   NA 19.6 0.832  72   No
+## 286     5 115  76   NA 31.2 0.343  44  Yes
+## 287     0 141  NA   NA 42.4 0.205  29  Yes
+## 288     0 167  NA   NA 32.3 0.839  30  Yes
+## 289     4  90  NA   NA 28.0 0.610  31   No
+## 290     5 132  80   NA 26.8 0.186  69   No
+## 291     0 125  96   NA 22.5 0.262  21   No
+## 292     3 150  76   NA 21.0 0.207  37   No
+## 293     4  95  64   NA 32.0 0.161  31  Yes
+## 294     4 136  70   NA 31.2 1.182  22  Yes
+## 295     8 110  76   NA 27.8 0.237  58   No
+## 296     0 125  68   NA 24.7 0.206  21   No
+## 297     6  92  92   NA 19.9 0.188  28   No
+## 298     3 141  NA   NA 30.0 0.761  27  Yes
+## 299     0  73  NA   NA 21.1 0.342  25   No
+## 300     2 129  84   NA 28.0 0.284  27   No</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(Pima.tr2)</code></pre>
+<pre><code>##      npreg             glu              bp              skin      
+##  Min.   : 0.000   Min.   : 56.0   Min.   : 38.00   Min.   : 7.00  
+##  1st Qu.: 1.000   1st Qu.:101.0   1st Qu.: 64.00   1st Qu.:21.00  
+##  Median : 3.000   Median :121.0   Median : 72.00   Median :29.00  
+##  Mean   : 3.787   Mean   :123.7   Mean   : 72.32   Mean   :29.15  
+##  3rd Qu.: 6.000   3rd Qu.:142.0   3rd Qu.: 80.00   3rd Qu.:36.00  
+##  Max.   :14.000   Max.   :199.0   Max.   :114.00   Max.   :99.00  
+##                                   NA&#39;s   :13       NA&#39;s   :98     
+##       bmi             ped              age        type    
+##  Min.   :18.20   Min.   :0.0780   Min.   :21.0   No :194  
+##  1st Qu.:27.10   1st Qu.:0.2367   1st Qu.:24.0   Yes:106  
+##  Median :32.00   Median :0.3360   Median :29.0            
+##  Mean   :32.05   Mean   :0.4357   Mean   :33.1            
+##  3rd Qu.:36.50   3rd Qu.:0.5867   3rd Qu.:40.0            
+##  Max.   :52.90   Max.   :2.2880   Max.   :72.0            
+##  NA&#39;s   :3</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">which</span>(<span class="kw">is.na</span>(Pima.tr2))</code></pre>
+<pre><code>##   [1]  804  834  836  853  854  863  871  885  887  888  889  898  899 1101
+##  [15] 1102 1103 1104 1105 1106 1107 1108 1109 1110 1111 1112 1113 1114 1115
+##  [29] 1116 1117 1118 1119 1120 1121 1122 1123 1124 1125 1126 1127 1128 1129
+##  [43] 1131 1132 1133 1134 1135 1136 1137 1138 1139 1140 1141 1142 1143 1144
+##  [57] 1145 1146 1147 1148 1149 1150 1151 1152 1153 1154 1155 1156 1157 1158
+##  [71] 1159 1160 1161 1162 1163 1164 1165 1166 1167 1168 1169 1170 1172 1173
+##  [85] 1174 1175 1176 1177 1178 1179 1180 1181 1182 1183 1184 1185 1186 1187
+##  [99] 1188 1189 1190 1191 1192 1193 1194 1195 1196 1197 1198 1199 1200 1413
+## [113] 1430 1468</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># amico di apply</span>
+<span class="kw">lapply</span>(<span class="kw">lapply</span>(Pima.tr2 , is.na),which)</code></pre>
+<pre><code>## $npreg
+## integer(0)
+## 
+## $glu
+## integer(0)
+## 
+## $bp
+##  [1] 204 234 236 253 254 263 271 285 287 288 289 298 299
+## 
+## $skin
+##  [1] 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217
+## [18] 218 219 220 221 222 223 224 225 226 227 228 229 231 232 233 234 235
+## [35] 236 237 238 239 240 241 242 243 244 245 246 247 248 249 250 251 252
+## [52] 253 254 255 256 257 258 259 260 261 262 263 264 265 266 267 268 269
+## [69] 270 272 273 274 275 276 277 278 279 280 281 282 283 284 285 286 287
+## [86] 288 289 290 291 292 293 294 295 296 297 298 299 300
+## 
+## $bmi
+## [1] 213 230 268
+## 
+## $ped
+## integer(0)
+## 
+## $age
+## integer(0)
+## 
+## $type
+## integer(0)</code></pre>
+<p>Cosa possiamo fare con i diversi NA?</p>
+<p>Un’idea ovviamente è quella di rimuovere le righe dove compare un NA</p>
+<pre class="sourceCode r"><code class="sourceCode r">data_no_Na &lt;-<span class="st"> </span><span class="kw">na.omit</span>(Pima.tr2)
+
+<span class="kw">dim</span>(data_no_Na)</code></pre>
+<pre><code>## [1] 200   8</code></pre>
+<p>Abbiamo rimosso un terzo del dataset…..</p>
+<p>Rimuovere così tanti dati impoverisce significativamente il dataset, quindi magari si possono trovare soluzioni meno radicali.</p>
+<p>Ad esempio, possiamo notare come gran parte dei NA siano nella variabile <em>skin</em>… se questa non ci interessa, possiamo evitare di rimuovere quelle righe!</p>
+<pre class="sourceCode r"><code class="sourceCode r">data_no_Na &lt;-<span class="st"> </span><span class="kw">na.omit</span>(Pima.tr2[,<span class="op">-</span><span class="dv">4</span>])
+
+<span class="kw">dim</span>(data_no_Na)</code></pre>
+<pre><code>## [1] 284   7</code></pre>
+<p>In questo modo abbiamo rimosso molte meno righe.
+Si noti che alcune funzioni (vedi mean) hanno specifici argomenti per gestire i NA e si può quindi evitare di rimuoverli dal dataset ma gestirli i vari casi dalle funzioni</p>
+<p>In alcuni casi, si preferisce non rimuovere alcun dato, ma piuttosto si sostituiscono i valori mancanti con informazioni prese dai dati correnti.</p>
+<p>Ad esempio, si possono sostituire con la media, la mediana o si possono anche definire modelli più complessi per definire i sostituti.</p>
+</div>
+<div id="visualizzare-il-dataset-pima.tr2" class="section level2">
+<h2><span class="header-section-number">6.3</span> Visualizzare il dataset Pima.tr2</h2>
+<p>Usando gli strumenti di visualizzazione visti, si esplorino le relazioni tra le variabili del dataset.</p>
+<p>Si faccia attenzione agli NA e si confrontino i risultati nei casi in cui:</p>
+<ul>
+<li>vengono rimosse tutte le righe contenenti NA;</li>
+<li>vengono solo le righe contenenti NA nelle variabili di interesse;</li>
+<li>vengono sostituiti gli NA con la media o la mediana della variabile;</li>
+</ul>
+</div>
+<div id="esercizi-1" class="section level2">
+<h2><span class="header-section-number">6.4</span> Esercizi</h2>
+</div>
+<div id="esercizio-1-1" class="section level2">
+<h2><span class="header-section-number">6.5</span> Esercizio 1</h2>
+<p>Si scarichi il dataset <a href="http://extras.springer.com/2012/978-1-4614-1301-1">AstmaLOS.txt</a> (<a href="https://www.dropbox.com/s/kjhafwojufpwaga/AsthmaLOS_description.txt?dl=0">descrizione</a>). Dopo averlo analizzato ed aver individuato eventuali errori nei dati relativi ad age e owner.type, si analizzi e visualizzi la variabile age. Si provino almeno due tecniche di rimozione degli errori dai dati e si confrontino i risultati.</p>
+</div>
+<div id="esercizio-2-1" class="section level2">
+<h2><span class="header-section-number">6.6</span> Esercizio 2</h2>
+<p>Si analizzi il dataset <em>hflights</em> e si scelga una destinazione. Si analizzino e visualizzino i dati relativi a lunghezza del volo e ritardi per tale destinazione. Inoltre si determini:</p>
+<ul>
+<li>il giorno in cui è possibile volare con minore probabilità di subire ritardo.</li>
+<li>il giorno in cui è possibile volare con maggiore probabilità di subire la cancellazione del volo.</li>
+</ul>
+<!-- ## <a name="L3Ex3"></a>Esercizio 3
+
+Si importi il [dataset](https://raw.githubusercontent.com/socviz/soc880/master/data/gapminder.csv) contenente i dati relativi alla aspettativa di vita, popolazione e prodotto interno lordo pro capite di 142 paesi del mondo.
+Si aggreghino i dati per continenti e si visualizzi l'andamento dell'aspettativa di vita rispetto alle variabili tempo, reddito pro capite e popolazione. 
+Si investighi una possibile trasformazione dei dati per rendere più informativa l'analisi e si ripetano le analisi sui dati trasformati. -->
+<div id="soluzioni" class="section level4">
+<h4><span class="header-section-number">6.6.0.1</span> <a href="/SvolgimentoEsL3.R">Soluzioni</a></h4>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="visualizzare-i-dati.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="link-utili-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-VisDati.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

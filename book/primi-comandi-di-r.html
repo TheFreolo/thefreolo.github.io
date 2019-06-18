@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Primi comandi di R | Note di R</title>
+  <meta name="description" content="Questo libro riassume il contenuto del laboratorio di R del corso di Probabilità e Statistica Matematica dell’anno accademico 2018/2019" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Primi comandi di R | Note di R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Questo libro riassume il contenuto del laboratorio di R del corso di Probabilità e Statistica Matematica dell’anno accademico 2018/2019" />
+  <meta name="github-repo" content="rstudio/book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Primi comandi di R | Note di R" />
+  
+  <meta name="twitter:description" content="Questo libro riassume il contenuto del laboratorio di R del corso di Probabilità e Statistica Matematica dell’anno accademico 2018/2019" />
+  
+
+<meta name="author" content="Federico Reali" />
+
+
+<meta name="date" content="2019-06-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="primi-passi-con-r.html">
+<link rel="next" href="lavorare-con-i-dati.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Note di R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Premessa</a></li>
+<li class="chapter" data-level="1" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html"><i class="fa fa-check"></i><b>1</b> Primi passi con R</a><ul>
+<li class="chapter" data-level="1.1" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#perche-r"><i class="fa fa-check"></i><b>1.1</b> Perché R</a></li>
+<li class="chapter" data-level="1.2" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#installare-r"><i class="fa fa-check"></i><b>1.2</b> Installare R</a></li>
+<li class="chapter" data-level="1.3" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#installare-r-1"><i class="fa fa-check"></i><b>1.3</b> Installare R</a></li>
+<li class="chapter" data-level="1.4" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#usare-r"><i class="fa fa-check"></i><b>1.4</b> Usare R</a></li>
+<li class="chapter" data-level="1.5" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#installare-r-studio"><i class="fa fa-check"></i><b>1.5</b> Installare R Studio</a></li>
+<li class="chapter" data-level="1.6" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#usare-r-studio"><i class="fa fa-check"></i><b>1.6</b> Usare R Studio</a></li>
+<li class="chapter" data-level="1.7" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#link-utili"><i class="fa fa-check"></i><b>1.7</b> Link utili</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html"><i class="fa fa-check"></i><b>2</b> Primi comandi di R</a><ul>
+<li class="chapter" data-level="2.1" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#operazioni-aritmetiche"><i class="fa fa-check"></i><b>2.1</b> Operazioni Aritmetiche</a></li>
+<li class="chapter" data-level="2.2" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#esponenziale-e-logaritmi"><i class="fa fa-check"></i><b>2.2</b> Esponenziale e logaritmi</a></li>
+<li class="chapter" data-level="2.3" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#funzioni-trigonometriche"><i class="fa fa-check"></i><b>2.3</b> Funzioni Trigonometriche</a></li>
+<li class="chapter" data-level="2.4" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#assegnazione-e-vettori"><i class="fa fa-check"></i><b>2.4</b> Assegnazione e vettori</a></li>
+<li class="chapter" data-level="2.5" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#sequenze"><i class="fa fa-check"></i><b>2.5</b> Sequenze</a></li>
+<li class="chapter" data-level="2.6" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#operazioni-su-vettori"><i class="fa fa-check"></i><b>2.6</b> Operazioni su vettori</a></li>
+<li class="chapter" data-level="2.7" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#operatori-relazionali-e-logici"><i class="fa fa-check"></i><b>2.7</b> Operatori relazionali e logici</a></li>
+<li class="chapter" data-level="2.8" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#matrici"><i class="fa fa-check"></i><b>2.8</b> Matrici</a></li>
+<li class="chapter" data-level="2.9" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#stringhe-vettori-di-caratteri"><i class="fa fa-check"></i><b>2.9</b> Stringhe (vettori di caratteri)</a></li>
+<li class="chapter" data-level="2.10" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#liste-e-data-frame"><i class="fa fa-check"></i><b>2.10</b> Liste e data frame</a></li>
+<li class="chapter" data-level="2.11" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#programmazione-in-r"><i class="fa fa-check"></i><b>2.11</b> Programmazione in R</a></li>
+<li class="chapter" data-level="2.12" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#esercizi"><i class="fa fa-check"></i><b>2.12</b> Esercizi</a></li>
+<li class="chapter" data-level="2.13" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#link-utili-1"><i class="fa fa-check"></i><b>2.13</b> Link utili</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html"><i class="fa fa-check"></i><b>3</b> Lavorare con i dati</a><ul>
+<li class="chapter" data-level="3.1" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html#pacchetti"><i class="fa fa-check"></i><b>3.1</b> Pacchetti</a></li>
+<li class="chapter" data-level="3.2" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html#manipolare-dati"><i class="fa fa-check"></i><b>3.2</b> Manipolare dati</a></li>
+<li class="chapter" data-level="3.3" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html#missing-data"><i class="fa fa-check"></i><b>3.3</b> Missing data</a></li>
+<li class="chapter" data-level="3.4" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html#manipolare-i-dati"><i class="fa fa-check"></i><b>3.4</b> Manipolare i dati</a></li>
+<li class="chapter" data-level="3.5" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html#distribuzioni-di-probabilita"><i class="fa fa-check"></i><b>3.5</b> Distribuzioni di probabilità</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html"><i class="fa fa-check"></i><b>4</b> Visualizzare i dati</a><ul>
+<li class="chapter" data-level="4.1" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#box-plot"><i class="fa fa-check"></i><b>4.1</b> Box plot</a></li>
+<li class="chapter" data-level="4.2" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#istogrammi-e-scatter-plost"><i class="fa fa-check"></i><b>4.2</b> Istogrammi e scatter plost</a></li>
+<li class="chapter" data-level="4.3" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#analizzare-il-dataset-body-temperature"><i class="fa fa-check"></i><b>4.3</b> Analizzare il dataset Body Temperature</a></li>
+<li class="chapter" data-level="4.4" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#visualizzare-il-dataset-bodytemperature"><i class="fa fa-check"></i><b>4.4</b> Visualizzare il dataset BodyTemperature</a></li>
+<li class="chapter" data-level="4.5" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#analizzare-il-dataset-pima.tr2"><i class="fa fa-check"></i><b>4.5</b> Analizzare il dataset Pima.tr2</a></li>
+<li class="chapter" data-level="4.6" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#visualizzare-il-dataset-pima.tr2"><i class="fa fa-check"></i><b>4.6</b> Visualizzare il dataset Pima.tr2</a></li>
+<li class="chapter" data-level="4.7" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#esercizi-1"><i class="fa fa-check"></i><b>4.7</b> Esercizi</a></li>
+<li class="chapter" data-level="4.8" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#link-utili-2"><i class="fa fa-check"></i><b>4.8</b> Link utili</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="fare-pratica-con-i-dati.html"><a href="fare-pratica-con-i-dati.html"><i class="fa fa-check"></i><b>5</b> Fare pratica con i dati</a><ul>
+<li class="chapter" data-level="5.1" data-path="fare-pratica-con-i-dati.html"><a href="fare-pratica-con-i-dati.html#inquinamento-a-san-andreas"><i class="fa fa-check"></i><b>5.1</b> Inquinamento a San Andreas</a></li>
+<li class="chapter" data-level="5.2" data-path="fare-pratica-con-i-dati.html"><a href="fare-pratica-con-i-dati.html#inquinamento-in-california"><i class="fa fa-check"></i><b>5.2</b> Inquinamento in California</a></li>
+<li class="chapter" data-level="5.3" data-path="fare-pratica-con-i-dati.html"><a href="fare-pratica-con-i-dati.html#inquinamento-a-los-angeles"><i class="fa fa-check"></i><b>5.3</b> Inquinamento a Los Angeles</a></li>
+<li class="chapter" data-level="5.4" data-path="fare-pratica-con-i-dati.html"><a href="fare-pratica-con-i-dati.html#esercizi-2"><i class="fa fa-check"></i><b>5.4</b> Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="regressione.html"><a href="regressione.html"><i class="fa fa-check"></i><b>6</b> Regressione</a><ul>
+<li class="chapter" data-level="6.1" data-path="regressione.html"><a href="regressione.html#regressione-lineare"><i class="fa fa-check"></i><b>6.1</b> Regressione lineare</a></li>
+<li class="chapter" data-level="6.2" data-path="regressione.html"><a href="regressione.html#stimare-beta_0-e-beta_1"><i class="fa fa-check"></i><b>6.2</b> Stimare <span class="math inline">\(\beta_0\)</span> e <span class="math inline">\(\beta_1\)</span></a></li>
+<li class="chapter" data-level="6.3" data-path="regressione.html"><a href="regressione.html#valutare-il-modello-r2"><i class="fa fa-check"></i><b>6.3</b> Valutare il modello: <span class="math inline">\(R^2\)</span></a></li>
+<li class="chapter" data-level="6.4" data-path="regressione.html"><a href="regressione.html#regressione-lineare-in-r"><i class="fa fa-check"></i><b>6.4</b> Regressione lineare in R</a></li>
+<li class="chapter" data-level="6.5" data-path="regressione.html"><a href="regressione.html#regressione-multipla"><i class="fa fa-check"></i><b>6.5</b> Regressione multipla</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="esercitazione-1.html"><a href="esercitazione-1.html"><i class="fa fa-check"></i><b>7</b> Esercitazione 1</a><ul>
+<li class="chapter" data-level="7.1" data-path="esercitazione-1.html"><a href="esercitazione-1.html#esercizi-3"><i class="fa fa-check"></i><b>7.1</b> Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Note di R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="primi-comandi-di-r" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Primi comandi di R</h1>
+<p><img src="media/abacus.jpg" /></p>
+<div id="operazioni-aritmetiche" class="section level2">
+<h2><span class="header-section-number">2.1</span> Operazioni Aritmetiche</h2>
+<p>Come abbiamo già visto è possibile usare R per svolgere operazioni matematiche, usando i simboli standard.</p>
+<p>Ad esempio, l’uso di <code>+</code> più tra due numeri farà comparire la loro somma.
+In modo analogo è possibile farne la differenza (<code>-</code>), il prodotto (<code>*</code>) e la divisione(<code>/</code>).</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span><span class="op">+</span><span class="dv">2</span> </code></pre>
+<pre><code>## [1] 4</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2-2</span></code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span><span class="op">*</span><span class="dv">2</span></code></pre>
+<pre><code>## [1] 4</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span><span class="op">/</span><span class="dv">2</span></code></pre>
+<pre><code>## [1] 1</code></pre>
+<p>Le potenze si possono esprimere usando il simbolo <code>^</code>. Lo stesso simbolo si può utilizzare per il calcolo delle radici, anche se è possibile richiamare la radice quadrata usando il comando <code>sqrt()</code>. Si noti che tale funzione accetta anche valori complessi.</p>
+<p>Per la divisione intera tra due numeri è possibile usare il simbolo <code>%/%</code>, mentre <code>%%</code> restituisce il resto di tale divisione.</p>
+<p>Un altro comando di base che può risultare utile è il calcolo del valore assoluto ottenuto con il comando <code>abs()</code>.</p>
+<p>In modo analogo sono già definite alcune delle funzioni che sono alla base dei calcoli matematici più frequenti. Le vedremo nei prossimi paragrafi.</p>
+</div>
+<div id="esponenziale-e-logaritmi" class="section level2">
+<h2><span class="header-section-number">2.2</span> Esponenziale e logaritmi</h2>
+<p>E’ possibile calcolare i valori della funzione esponenziale usando il comando <code>exp()</code> mentre per il calcolo dei logaritmi è possibile usare più funzioni:
+<code>log(), log10()</code> e <code>log2()</code> che restituiscono il logaritmo naturale, base 10 e base 2 rispettivamente. Il comando <code>log()</code> permette anche di specificare una base differente da <strong><em>e</em></strong>, che è quella di default. Ad esempio, <code>log( 5 , base = 3)</code> restituisce il logaritmo in base 3 di 5.</p>
+</div>
+<div id="funzioni-trigonometriche" class="section level2">
+<h2><span class="header-section-number">2.3</span> Funzioni Trigonometriche</h2>
+<p>Le principali funzioni trigonometriche sono già implementate in R e si possono richiamare usando i comandi elencati sotto, i cui nomi richiamano le funzioni stesse. Va notato che l’input di queste funzioni è atteso in radianti, <strong>non gradi</strong>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sin</span>() <span class="co"># seno</span>
+<span class="kw">cos</span>() <span class="co"># cosen</span>
+<span class="kw">tan</span>() <span class="co"># tangente</span></code></pre>
+<p>E’ possibile utilizzare le stesse funzioni ma con desinenza <strong><em>pi</em></strong> (<code>sinpi()</code>, <code>cospi()</code> e <code>tanpi()</code>) se si intende considerare dei multipli di pi-greco.</p>
+<p>Anche le funzioni inverse sono già implementate e si possono richiamare con i comandi <code>acos(), asin(), atan()</code>.</p>
+</div>
+<div id="assegnazione-e-vettori" class="section level2">
+<h2><span class="header-section-number">2.4</span> Assegnazione e vettori</h2>
+<p>Fin ora abbiamo usato R per calcolare dei singoli valori, in modo analogo a come avremmo usato una calcolatrice. Tuttavia R permette di fare molto di più.</p>
+<p>Come primo passo per scoprirne le potenzialità vedremo la possibilità di assegnare valori e di richiamarli successivamente, così come di lavorare con vettori o matrici, invece che con singoli valori.</p>
+<p>Questa parte, così come alcune successive sono anche coperte dalle utili <a href="https://cran.r-project.org/doc/contrib/Mineo-dispensaR.pdf">dispense</a>, di cui ho già consigliato la lettura.</p>
+<p>E’ possibile assegnare un valore ad una variabile usando la freccina <code>-&gt;</code>. Stesso risultato si può ottenere usando <code>=</code> oppure <code>assign()</code>, tuttavia il primo è decisamente il comando più usato e di più facile lettura. <a href="http://stackoverflow.com/questions/1741820/assignment-operators-in-r-and">Qui</a> è possibile leggere una discussione sulle differenze nell’uso di <code>=</code> o di <code>-&gt;</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r">x  &lt;-<span class="st"> </span><span class="dv">6</span></code></pre>
+<p>Usando il precedente comando viene assegnato il valore 6 alla variabile x. In questo modo è possibile richiamarla successivamente, così come è possibile scrivere espressioni più complesse che coinvolgono x a prescindere dal suo valore. Questo sarà particolarmente utile se dovremo definire delle funzioni a cui è possibile passare per argomento diversi valori.
+Si noti che il comando <code>6 -&gt; x</code> produce gli stessi risultati del precedente.</p>
+<p>Oltre ad assegnare un singolo valore, è possibile considerati dei vettori.
+Il comando</p>
+<pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)
+y[<span class="dv">1</span>]</code></pre>
+<pre><code>## [1] 1</code></pre>
+<p>assegna a y i valori contenuti nel comando <code>c()</code>. Tale comando combina i valori in un vettore colonna ( ma viene visualizzato come riga). L’accesso ai vettori avviene attraverso indicandone il nome, seguito da parentesi quadre. Ovviamente è possibile svolgere operazioni aritmetiche anche tra vettori, usando la stessa sintassi vista prima.
+Di default R considera operazioni puntuali tra vettori, cioè l’operazione richiesta viene svolta entrata per entrata. Questo richiede le dimensioni siano le stesse. Qualora non lo fossero, il contenuto del vettore più piccolo viene ripetuto un numero di volte sufficienti da rendere possibile l’operazione. Questo viene anche segnalato da un warning.</p>
+<p>E’ possibile ottenere le dimensioni di un vettore usando il comando <code>length()</code>.</p>
+<p>Un comando utile tra vettori è <code>t()</code> che traspone il vettore passato per argomento.</p>
+<pre class="sourceCode r"><code class="sourceCode r">z &lt;-<span class="st"> </span><span class="kw">t</span>(y)
+y</code></pre>
+<pre><code>## [1] 1 2 3 4</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(z)</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    1    2    3    4</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">z</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    1    2    3    4</code></pre>
+<p>Chiamare una variabile senza indicare operazioni ne permette la stampa a video. Inserendo l’assegnazione tra parentesi tonde si ottiene lo stesso risultato. Anche il comando <code>print()</code> permetta la stampa a video. Inoltre questo comando, diversamente dai precedenti, permette di mostrare l’output anche quando è chiamata dentro una funzione o uno script.</p>
+<p>Dal comando precedente vediamo che y e z hanno stessi valori ma dimensioni diverse. Tuttavia R permette di svolgere operazioni matematiche su di essi senza warning o errori.</p>
+<p>Per svolgere operazioni tra vettori, come il prodotto righe per colonne si può considerare il comando <code>%*%</code>. In questo caso il risultato dipende dall’ordine.</p>
+<pre class="sourceCode r"><code class="sourceCode r">y <span class="op">%*%</span><span class="st"> </span>z</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    1    2    3    4
+## [2,]    2    4    6    8
+## [3,]    3    6    9   12
+## [4,]    4    8   12   16</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">z <span class="op">%*%</span><span class="st"> </span>y</code></pre>
+<pre><code>##      [,1]
+## [1,]   30</code></pre>
+</div>
+<div id="sequenze" class="section level2">
+<h2><span class="header-section-number">2.5</span> Sequenze</h2>
+<p>Nel caso si debba indicare una successione di valori è possibile farlo senza indicarli espressamente tutti, purché essi siano una sequenza regolare.</p>
+<p>Ad esempio con <code>a:b</code> possiamo usare i due punti per indicare una sequenza di valori con passo 1 da <em>a</em> fino a <em>b</em> . Per indicare un passo diverso possiamo usare il comando <code>seq(a,b,passo)</code> che produrrà una sequenza di elementi da <em>a</em> fino a <em>b</em> distanziati di un valore uguale al <em>passo</em> indicato. Se il passo viene omesso è considerato 1 di default.</p>
+<p>Per tutte le funzioni è possibile accedere all’help di R usando il comando <code>help(Nome_funzione)</code>. Leggendo l’help di <code>seq()</code> vediamo ad esempio che possiamo anche indicare in ordine diverso i parametri, a patto di specificarli usando il nome indicato nell’help. Ad esempio <code>seq(to = b, by = passo, from = a)</code> restituisce lo stesso output di <code>seq(a,b,passo)</code>.</p>
+<p>Inoltre è possibile ripetere un valore o un vettore usando il comando <code>rep()</code>, ad esempio <code>rep(1,5)</code> restituisce cinque volte il valore 1. Nel caso di un vettore, il comando ripeterà 5 volte il vettore.</p>
+</div>
+<div id="operazioni-su-vettori" class="section level2">
+<h2><span class="header-section-number">2.6</span> Operazioni su vettori</h2>
+<p>Oltre alle operazioni che abbiamo già visto esistono altre funzioni di R appositamente pensate per i vettori. Ad esempio le funzioni <code>min</code> e <code>max</code> restituiscono, rispettivamente, il minimo ed il massimo valore contenuto in un vettore. Per accedere alla posizione di tali valori si combinano i precedenti comandi con <code>which</code>. Ad esempio</p>
+<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">9</span>, <span class="dv">8</span>)
+<span class="kw">min</span>(x)</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">which.min</span>(x)</code></pre>
+<pre><code>## [1] 4</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">max</span>(x)</code></pre>
+<pre><code>## [1] 9</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">which.max</span>(x)</code></pre>
+<pre><code>## [1] 7</code></pre>
+<p>Altre funzioni molto utili per lavorare con i vettori sono la funzione <code>sum()</code> che calcola la somma di tutti gli elementi di un vettore e la funzione <code>diff()</code>
+che calcola la differenza di un valore da uno dei precedenti (è possibile indicare quanto prima “guardare”).</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(x)</code></pre>
+<pre><code>## [1] 39</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">diff</span>(x)</code></pre>
+<pre><code>## [1]  2  2 -6  2  0  6 -1</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">diff</span>(x,<span class="dv">2</span>)</code></pre>
+<pre><code>## [1]  4 -4 -4  2  6  5</code></pre>
+</div>
+<div id="operatori-relazionali-e-logici" class="section level2">
+<h2><span class="header-section-number">2.7</span> Operatori relazionali e logici</h2>
+<p>R ci permette anche di valutare espressioni relazionali o logiche. Il loro risultato sarà un valore logico indicato con TRUE o FALSE.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">6</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span></code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">6</span> <span class="op">&lt;=</span><span class="st"> </span><span class="dv">10</span></code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">is_bigger &lt;-<span class="st"> </span><span class="dv">6</span><span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span>
+is_bigger</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.integer</span>(is_bigger)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<p>R permette di valutare diverse espressioni relazionari, oltre a maggiore (uguale) o minore (uguale). Ad esempio è possibile valutare se due valori o variabili siano diversi <code>!=</code> o uguali <code>==</code>. Questo può essere particolarmente utile quando si definiscono delle funzioni proprie e si valuta se una condizione è soddisfatta.</p>
+<p>R permette anche di valutare gli operatori logici <code>&amp;</code> (and), <code>|</code> (or), <code>xor</code> e <code>!</code> (not).</p>
+<p>Questi operatori possono essere valutati sia su vettori logici, che di numeri qualsiasi. Nel secondo caso, tuttavia, tutto ciò che è diverso da zero conterà come TRUE, e solo lo 0 conterà come FALSE. Nel caso in cui si definiscano dei vettori misti (dove sono presenti sia valori logici che interi/reali/complessi), verranno tutti convertiti nel formato numerico presente.</p>
+</div>
+<div id="matrici" class="section level2">
+<h2><span class="header-section-number">2.8</span> Matrici</h2>
+<p>Come abbiamo visto i vettori sono considerati in generale vettori riga, e non è possibile generare una matrice usando il comando <code>c()</code>.</p>
+<p>Tuttavia le matrici esistono e si possono definire usando la funzione <code>cbind()</code> che unisce i vettori passati come argomento in una matrice dove i vettori argomento sono le colonne. La funzione <code>rbind()</code> ha la stessa funzione, ma i vettori passati come argomento saranno le righe della matrice. In tutti e due i casi, i vettori passati come argomento devono avere stessa dimensione (no uno riga e uno colonna). La funzione <code>dim()</code> restituisce le dimensioni dell’oggetto passato come argomento. La funzione <code>length()</code> (che avevamo visto con i vettori) ci restituisce il <em>prodotto</em> delle dimensioni.</p>
+<pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>))
+<span class="kw">dim</span>(a)</code></pre>
+<pre><code>## [1] 3 2</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">b &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>))
+<span class="kw">dim</span>(b)</code></pre>
+<pre><code>## [1] 2 3</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">a</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    1    4
+## [2,]    2    5
+## [3,]    3    6</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">b</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6</code></pre>
+<p>E’ possibile variare la dimensione di un oggetto usando gli stessi comandi <code>length</code> e <code>dim</code> come assegnazioni.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(a) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)
+a</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    3    5
+## [2,]    2    4    6</code></pre>
+<p>Il comando precedente cambia la forma della matrice, secondo la forma indicata. Tali comandi vanno comunque usati con attenzione, visto che non si ha controllo su come il contenuto verrà ridistribuito.</p>
+<p>Altra utile funzione per creare matrici è la funzione <code>array()</code> che chiede di specificare gli elementi della matrice e le dimensioni. Risultato analogo si può otenere con la funzione <code>matrix(elementi, num righe, num colonne)</code>. Si noti che con <code>array()</code> è possibile definire strutture con più di due dimensioni.</p>
+<p>Gli elementi una matrice si accedono usando le parentesi quadre, indicando la posizione dell’elemento.</p>
+<pre class="sourceCode r"><code class="sourceCode r">a[<span class="dv">2</span>,<span class="dv">3</span>]</code></pre>
+<pre><code>## [1] 6</code></pre>
+<p>Se si intende selezionare un’intera riga o colonna, basta lasciare vuoto tale campo. Per esempio <code>a[1,]</code> restitusce l’intera prima riga.</p>
+<p>Alcune funzioni come <code>contour(), persp(), image()</code> permettono di ottenere dei grafici, partendo da matrici.</p>
+</div>
+<div id="stringhe-vettori-di-caratteri" class="section level2">
+<h2><span class="header-section-number">2.9</span> Stringhe (vettori di caratteri)</h2>
+<p>R permette di manipolare anche vettori di caratteri, o stringhe, che possono essere salvati anche come vettori. Le stringhe vengono delimitate da doppie virgolette <code>&quot; &quot;</code> (o anche semplici virgolette <code>' '</code>).</p>
+<pre class="sourceCode r"><code class="sourceCode r">nomi &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Francesco&quot;</span>, <span class="st">&quot;Sofia&quot;</span>, <span class="st">&quot;Alessandro&quot;</span>)
+nomi[<span class="dv">1</span>]</code></pre>
+<pre><code>## [1] &quot;Francesco&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">nomi_e_numeri &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Francesco&quot;</span>, <span class="st">&quot;Sofia&quot;</span>, <span class="st">&quot;Alessandro&quot;</span>, <span class="dv">45</span>)</code></pre>
+<p>In R non possono convivere nello stesso array caratteri e numeri. Se ad esempio nell’assegnazione indichiamo nomi e numeri, questi ultimi verranno convertiti in caratteri.</p>
+<p>Una funzione molto utile per maneggiare stringhe, ma anche altri risultati, è la funzione <code>paste()</code> che concatena dei vettori dopo averli trasformati in stringhe.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>) </code></pre>
+<pre><code>##  [1] &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot; &quot;11&quot; &quot;12&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">(nth &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="kw">c</span>(<span class="st">&quot;st&quot;</span>, <span class="st">&quot;nd&quot;</span>, <span class="st">&quot;rd&quot;</span>, <span class="kw">rep</span>(<span class="st">&quot;th&quot;</span>, <span class="dv">9</span>))))</code></pre>
+<pre><code>##  [1] &quot;1st&quot;  &quot;2nd&quot;  &quot;3rd&quot;  &quot;4th&quot;  &quot;5th&quot;  &quot;6th&quot;  &quot;7th&quot;  &quot;8th&quot;  &quot;9th&quot;  &quot;10th&quot;
+## [11] &quot;11th&quot; &quot;12th&quot;</code></pre>
+<p>Questa funzione può essere molto utile, ad esempio, se si devono creare vettori di nomi per delle variabili.</p>
+<p>Per capire il tipo di dati contenuto in un vettore possiamo usare il comando <code>typeof()</code> o <code>class()</code>.</p>
+</div>
+<div id="liste-e-data-frame" class="section level2">
+<h2><span class="header-section-number">2.10</span> Liste e data frame</h2>
+<p>Possiamo pensare ad una matrice come ad un metodo efficace per immagazzinare informazioni numeriche, ed è così! Però se il tipo di informazioni che dobbiamo immagazzinare è misto, ad esempio contiene sia numeri che caratteri, la loro efficienza viene meno e si possono preferire altri metodi.</p>
+<p>Una lista è un insieme ordinato di oggetti. Si possono definire liste usando il comando <code>list()</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r">c &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">destinazione =</span> <span class="kw">c</span>(<span class="st">&quot;London&quot;</span>, <span class="st">&quot;Madrid&quot;</span>), <span class="dt">compagnia =</span> <span class="kw">c</span>(<span class="st">&quot;Ryanair&quot;</span>, <span class="st">&quot;EasyJet&quot;</span>), <span class="dt">costo =</span> <span class="kw">c</span>(<span class="dv">60</span>, <span class="dv">80</span>), <span class="dt">valuta =</span> <span class="kw">c</span>(<span class="st">&quot;£&quot;</span>, <span class="st">&quot;$&quot;</span>) )</code></pre>
+<p>Si può accedere al contenuto di una lista sia per posizione con le doppie parentesi <code>c[[2]]</code> oppure per nome <code>c[[&quot;compagnia&quot;]]</code> o <code>c$compagnia</code>. Tutti i precedenti comandi restituiscono il contenuto della lista definito da <em>compagnia</em>. Se vogliamo accedere direttamente ad un elemento possiamo usare indifferentemente i comandi <code>c[[2]][2]</code>, <code>c[[&quot;compagnia&quot;]][2]</code> o <code>c$compagnia[2]</code>.</p>
+<div id="data-frame" class="section level3">
+<h3><span class="header-section-number">2.10.1</span> Data frame</h3>
+<p>Un’altra struttura dati che permette di immagazzinate dati di tipo misto sono i <em>data frame</em>. Questa struttura è di gran lunga la più usata per leggere e manipolare dati in R.</p>
+<p>I <em>data frame</em> sono liste di tipo “data.frame” contenenti variabili con lo stesso numero di righe, il cui identificativo è univoco.</p>
+<pre class="sourceCode r"><code class="sourceCode r">L3 &lt;-<span class="st"> </span>LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]
+fac &lt;-<span class="st"> </span><span class="kw">sample</span>(L3, <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)
+(d &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">fac =</span> fac))</code></pre>
+<pre><code>##    x  y fac
+## 1  1  1   A
+## 2  1  2   B
+## 3  1  3   B
+## 4  1  4   A
+## 5  1  5   A
+## 6  1  6   C
+## 7  1  7   A
+## 8  1  8   C
+## 9  1  9   A
+## 10 1 10   A</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(<span class="dv">1</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, fac)</code></pre>
+<pre><code>##    X1 X1.10 fac
+## 1   1     1   A
+## 2   1     2   B
+## 3   1     3   B
+## 4   1     4   A
+## 5   1     5   A
+## 6   1     6   C
+## 7   1     7   A
+## 8   1     8   C
+## 9   1     9   A
+## 10  1    10   A</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## The &quot;same&quot; with automatic column names:</span>
+<span class="kw">data.frame</span>(<span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">10</span>), <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, fac)</code></pre>
+<pre><code>##    rep.1..10. X1.10 fac
+## 1           1     1   A
+## 2           1     2   B
+## 3           1     3   B
+## 4           1     4   A
+## 5           1     5   A
+## 6           1     6   C
+## 7           1     7   A
+## 8           1     8   C
+## 9           1     9   A
+## 10          1    10   A</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(<span class="dv">1</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="kw">sample</span>(L3, <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</code></pre>
+<pre><code>##    X1 X1.10 sample.L3..10..replace...TRUE.
+## 1   1     1                              A
+## 2   1     2                              C
+## 3   1     3                              A
+## 4   1     4                              C
+## 5   1     5                              C
+## 6   1     6                              A
+## 7   1     7                              B
+## 8   1     8                              A
+## 9   1     9                              A
+## 10  1    10                              B</code></pre>
+</div>
+<div id="tidy-data-please" class="section level3">
+<h3><span class="header-section-number">2.10.2</span> Tidy data, please!</h3>
+<blockquote>
+<p>A huge amount of effort is spent cleaning data to get it ready for
+analysis, but there has been little research on how to make data cleaning as easy and effective as possible. This paper tackles a small, but important, component of data cleaning: data tidying. <strong>Tidy datasets</strong> are easy to manipulate, model and visualize, and <strong>have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table</strong>. This framework makes it easy to tidy messy datasets because only a small set of tools are needed to deal with a wide range of un-tidy datasets. This structure also makes it easier to develop tidy tools for data analysis, tools that both input and output tidy datasets. The advantages of a consistent data structure and matching tools are demonstrated with a case study free from mundane data manipulation chores.</p>
+<p><cite> <a href="https://www.jstatsoft.org/article/view/v059i10">Tidy data</a> - Hadley Wickham <cite></p>
+</blockquote>
+<p>Visto l’importanza dei dati nel mondo moderno e l’innegabile importanza del tempo nella nostra società, evitiamo di perdere troppo tempo a risistemare i nostri dati e cerchiamo di uniformarci ai <em>tidy data</em> da quando creiamo un dataset in poi. Questo ci farà risparmiare molto tempo e migliorerà la ripetibilità delle nostre analisi!</p>
+</div>
+</div>
+<div id="programmazione-in-r" class="section level2">
+<h2><span class="header-section-number">2.11</span> Programmazione in R</h2>
+<p>R permette di eseguire comandi che permetto l’iterazione, la valutazione di espressioni condizionali e la definizione di funzioni.</p>
+<div id="condizioni-if" class="section level3">
+<h3><span class="header-section-number">2.11.1</span> Condizioni: if</h3>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (condizione) comando1 <span class="cf">else</span> comando2
+<span class="co">#Oppure</span>
+<span class="kw">ifelse</span>(condizione,comando1,comando2)</code></pre>
+<p>La prima espressione verifica una <em>condizione</em> <strong>solo</strong> su singolo elemento. Al contrario, il comando <code>ifelse</code> permette di vettorializzare il controllo. Se la <em>condizione</em> è va valutata su un vettore, il comando <code>ifelse</code> la valuta su tutte le entrate e applica <em>comando1</em> se soddisfatta per quell’entrata e <em>comando2</em> in caso contrario. Qualora venisse passato un vettore all’espressione <code>if</code>, questo valuterebbe la <em>condizione</em> solo rispetto al primo elemento del vettore ed eseguirebbe il comando opportuno.</p>
+<p>Si possono raggruppare più comandi usando le parentesi graffe e il punto e virgola. Ad esempio, nell’<code>if</code> è possibile in questo modo fare più operazioni per ogni caso.</p>
+</div>
+<div id="iterazioni-for---while---repeat" class="section level3">
+<h3><span class="header-section-number">2.11.2</span> Iterazioni: for - while - repeat</h3>
+<p>Si possono iterare dei comandi usando i comandi <code>for</code>, <code>while</code>o <code>repeat</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span> (i <span class="cf">in</span> sequenza) comando1</code></pre>
+<p><code>for</code> permette di iterare comando1 al variare di una variabile, in questo caso <em>i</em>. Questa espressione è molto utile quando si visitano dei vettori e alle diverse entrate viene applicato comando1. Usando le parentesi graffe è possibile indicare più comandi.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">while</span> (condizione) comando1</code></pre>
+<p><code>while</code> ripete comando1 finche la condizione è vera. L’uso di <code>while</code> può essere rischioso qualora la condizione sia sempre soddisfatta e si rimanga bloccati in un <em>loop infinito</em>.</p>
+<p><code>repeat</code> ripete semplicemente un comando. <code>break</code> permette di interrompere qualsiasi iterazione ed è l’unico modo per fermare un ciclo <code>repeat</code>.</p>
+</div>
+<div id="definire-funzioni" class="section level3">
+<h3><span class="header-section-number">2.11.3</span> Definire funzioni</h3>
+<p>R permette all’utente di definire funzioni, attraverso il comando <code>function</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r">nomeFunzione &lt;-<span class="st"> </span><span class="cf">function</span>( lista_argomenti ) comando1
+<span class="kw">return</span>(valore)</code></pre>
+<p>La sintassi precedente permette di definire una funzione chiamata <em>nomeFunzione</em> che valuterà comando1 e restituirà <em>valore</em>.</p>
+<p>L’uso di funzioni <em>user-defined</em> permette di richiamare nei passaggi successivi la funzione che è stata definita passando diversi argomenti. Usando le parentesi graffe è possibile specificare più comandi.</p>
+<pre class="sourceCode r"><code class="sourceCode r">my_fun &lt;-<span class="st"> </span><span class="cf">function</span>( a , b , c) {
+<span class="kw">return</span>(a<span class="op">*</span>b <span class="op">+</span><span class="st"> </span>c)    
+}</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">my_fun2 &lt;-<span class="st"> </span><span class="cf">function</span>( a , b , c) {
+    y &lt;-<span class="st"> </span>a<span class="op">**</span>b 
+<span class="kw">return</span>(y <span class="op">+</span><span class="st"> </span>a<span class="op">*</span>b <span class="op">+</span><span class="st"> </span>c)    
+}</code></pre>
+<p>Si possono salvare funzioni e script (usando l’estensione .R), che possono essere poi eseguiti attraverso il comando <code>source(“nome_della_funzione.R”)</code>. Per richiamare tali funzioni è essenziale che siano nella cartella di lavoro, altrimenti va indicato il path per raggiungere il file.</p>
+</div>
+</div>
+<div id="esercizi" class="section level2">
+<h2><span class="header-section-number">2.12</span> Esercizi</h2>
+<div id="esercizio-1" class="section level3">
+<h3><span class="header-section-number">2.12.1</span> Esercizio 1</h3>
+<p>Si trovino 2 modi differenti per calcolare la somma dai cavalli vapore (hp) di quelle auto contenute in mtcars che hanno più di 100 cavalli (hp).
+<em>Suggerimento:</em> In un caso si definisca una funzione apposita (senza usare funzioni di libreria) e nell’altro si usino i comandi visti, così da ottenere il risultato con una sola riga di comandi.</p>
+</div>
+<div id="esercizio-2" class="section level3">
+<h3><span class="header-section-number">2.12.2</span> Esercizio 2</h3>
+<p>Si definisca una funzione chiamata my_max che senza usare funzioni di libreria restituisce il massimo di un vettore.</p>
+</div>
+<div id="esercizio-3" class="section level3">
+<h3><span class="header-section-number">2.12.3</span> Esercizio 3</h3>
+<p>Si definisca una funzione chiamata funzione my_mean che senza usare funzioni di libreria restituisce la media di un vettore.</p>
+</div>
+<div id="esercizio-4" class="section level3">
+<h3><span class="header-section-number">2.12.4</span> Esercizio 4</h3>
+<p>Si definisca una funzione chiamata my_cov che verifica se una matrice può essere la matrice di covarianza di due variabili aleatorie.</p>
+<!-- 
+## Esercizio 5
+Si definisca una funzione chiamata my_monte che al variare del numero di punti N, approssimi l'integrale delle funzioni, usando un metodo Monte Carlo:
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=f(x)&space;=&space;x^2,&space;x&space;\in&space;(-1,1)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f(x)&space;=&space;x^2,&space;x&space;\in&space;(-1,1)" title="f(x) = x^2, x \in (-1,1)" /></a>
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=f(x)&space;=&space;e^{-x^2},&space;x&space;\in&space;\mathbb{R}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f(x)&space;=&space;e^{-x^2},&space;x&space;\in&space;\mathbb{R}" title="f(x) = e^{-x^2}, x \in \mathbb{R}" /></a>
+
+---->
+</div>
+</div>
+<div id="link-utili-1" class="section level2">
+<h2><span class="header-section-number">2.13</span> Link utili</h2>
+<!-- - A questo [link](http://tryr.codeschool.com/) è possibile seguire un veloce tutorial che introduce molti dei comandi di base di R (in inglese). -->
+<ul>
+<li>Esistono molti corsi online gratuiti o a pagamento che insegnano le basi di R. Tra i tanti segnalo quello di <a href="https://www.datacamp.com/courses/free-introduction-to-r">Data Camp</a> che è gratuito (in inglese). Come questo ne esistono innumerevoli, sia in inglese che in italiano.</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="primi-passi-con-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lavorare-con-i-dati.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-primipassi.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["bookdown.pdf", "bookdown.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

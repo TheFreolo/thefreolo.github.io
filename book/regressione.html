@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Regressione | Note di R</title>
+  <meta name="description" content="Questo libro riassume il contenuto del laboratorio di R del corso di Probabilità e Statistica Matematica dell’anno accademico 2018/2019" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Regressione | Note di R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Questo libro riassume il contenuto del laboratorio di R del corso di Probabilità e Statistica Matematica dell’anno accademico 2018/2019" />
+  <meta name="github-repo" content="rstudio/book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Regressione | Note di R" />
+  
+  <meta name="twitter:description" content="Questo libro riassume il contenuto del laboratorio di R del corso di Probabilità e Statistica Matematica dell’anno accademico 2018/2019" />
+  
+
+<meta name="author" content="Federico Reali" />
+
+
+<meta name="date" content="2019-06-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="fare-pratica-con-i-dati.html">
+<link rel="next" href="esercitazione-1.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Note di R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Premessa</a></li>
+<li class="chapter" data-level="1" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html"><i class="fa fa-check"></i><b>1</b> Primi passi con R</a><ul>
+<li class="chapter" data-level="1.1" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#perche-r"><i class="fa fa-check"></i><b>1.1</b> Perché R</a></li>
+<li class="chapter" data-level="1.2" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#installare-r"><i class="fa fa-check"></i><b>1.2</b> Installare R</a></li>
+<li class="chapter" data-level="1.3" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#installare-r-1"><i class="fa fa-check"></i><b>1.3</b> Installare R</a></li>
+<li class="chapter" data-level="1.4" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#usare-r"><i class="fa fa-check"></i><b>1.4</b> Usare R</a></li>
+<li class="chapter" data-level="1.5" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#installare-r-studio"><i class="fa fa-check"></i><b>1.5</b> Installare R Studio</a></li>
+<li class="chapter" data-level="1.6" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#usare-r-studio"><i class="fa fa-check"></i><b>1.6</b> Usare R Studio</a></li>
+<li class="chapter" data-level="1.7" data-path="primi-passi-con-r.html"><a href="primi-passi-con-r.html#link-utili"><i class="fa fa-check"></i><b>1.7</b> Link utili</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html"><i class="fa fa-check"></i><b>2</b> Primi comandi di R</a><ul>
+<li class="chapter" data-level="2.1" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#operazioni-aritmetiche"><i class="fa fa-check"></i><b>2.1</b> Operazioni Aritmetiche</a></li>
+<li class="chapter" data-level="2.2" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#esponenziale-e-logaritmi"><i class="fa fa-check"></i><b>2.2</b> Esponenziale e logaritmi</a></li>
+<li class="chapter" data-level="2.3" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#funzioni-trigonometriche"><i class="fa fa-check"></i><b>2.3</b> Funzioni Trigonometriche</a></li>
+<li class="chapter" data-level="2.4" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#assegnazione-e-vettori"><i class="fa fa-check"></i><b>2.4</b> Assegnazione e vettori</a></li>
+<li class="chapter" data-level="2.5" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#sequenze"><i class="fa fa-check"></i><b>2.5</b> Sequenze</a></li>
+<li class="chapter" data-level="2.6" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#operazioni-su-vettori"><i class="fa fa-check"></i><b>2.6</b> Operazioni su vettori</a></li>
+<li class="chapter" data-level="2.7" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#operatori-relazionali-e-logici"><i class="fa fa-check"></i><b>2.7</b> Operatori relazionali e logici</a></li>
+<li class="chapter" data-level="2.8" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#matrici"><i class="fa fa-check"></i><b>2.8</b> Matrici</a></li>
+<li class="chapter" data-level="2.9" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#stringhe-vettori-di-caratteri"><i class="fa fa-check"></i><b>2.9</b> Stringhe (vettori di caratteri)</a></li>
+<li class="chapter" data-level="2.10" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#liste-e-data-frame"><i class="fa fa-check"></i><b>2.10</b> Liste e data frame</a></li>
+<li class="chapter" data-level="2.11" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#programmazione-in-r"><i class="fa fa-check"></i><b>2.11</b> Programmazione in R</a></li>
+<li class="chapter" data-level="2.12" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#esercizi"><i class="fa fa-check"></i><b>2.12</b> Esercizi</a></li>
+<li class="chapter" data-level="2.13" data-path="primi-comandi-di-r.html"><a href="primi-comandi-di-r.html#link-utili-1"><i class="fa fa-check"></i><b>2.13</b> Link utili</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html"><i class="fa fa-check"></i><b>3</b> Lavorare con i dati</a><ul>
+<li class="chapter" data-level="3.1" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html#pacchetti"><i class="fa fa-check"></i><b>3.1</b> Pacchetti</a></li>
+<li class="chapter" data-level="3.2" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html#manipolare-dati"><i class="fa fa-check"></i><b>3.2</b> Manipolare dati</a></li>
+<li class="chapter" data-level="3.3" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html#missing-data"><i class="fa fa-check"></i><b>3.3</b> Missing data</a></li>
+<li class="chapter" data-level="3.4" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html#manipolare-i-dati"><i class="fa fa-check"></i><b>3.4</b> Manipolare i dati</a></li>
+<li class="chapter" data-level="3.5" data-path="lavorare-con-i-dati.html"><a href="lavorare-con-i-dati.html#distribuzioni-di-probabilita"><i class="fa fa-check"></i><b>3.5</b> Distribuzioni di probabilità</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html"><i class="fa fa-check"></i><b>4</b> Visualizzare i dati</a><ul>
+<li class="chapter" data-level="4.1" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#box-plot"><i class="fa fa-check"></i><b>4.1</b> Box plot</a></li>
+<li class="chapter" data-level="4.2" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#istogrammi-e-scatter-plost"><i class="fa fa-check"></i><b>4.2</b> Istogrammi e scatter plost</a></li>
+<li class="chapter" data-level="4.3" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#analizzare-il-dataset-body-temperature"><i class="fa fa-check"></i><b>4.3</b> Analizzare il dataset Body Temperature</a></li>
+<li class="chapter" data-level="4.4" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#visualizzare-il-dataset-bodytemperature"><i class="fa fa-check"></i><b>4.4</b> Visualizzare il dataset BodyTemperature</a></li>
+<li class="chapter" data-level="4.5" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#analizzare-il-dataset-pima.tr2"><i class="fa fa-check"></i><b>4.5</b> Analizzare il dataset Pima.tr2</a></li>
+<li class="chapter" data-level="4.6" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#visualizzare-il-dataset-pima.tr2"><i class="fa fa-check"></i><b>4.6</b> Visualizzare il dataset Pima.tr2</a></li>
+<li class="chapter" data-level="4.7" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#esercizi-1"><i class="fa fa-check"></i><b>4.7</b> Esercizi</a></li>
+<li class="chapter" data-level="4.8" data-path="visualizzare-i-dati.html"><a href="visualizzare-i-dati.html#link-utili-2"><i class="fa fa-check"></i><b>4.8</b> Link utili</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="fare-pratica-con-i-dati.html"><a href="fare-pratica-con-i-dati.html"><i class="fa fa-check"></i><b>5</b> Fare pratica con i dati</a><ul>
+<li class="chapter" data-level="5.1" data-path="fare-pratica-con-i-dati.html"><a href="fare-pratica-con-i-dati.html#inquinamento-a-san-andreas"><i class="fa fa-check"></i><b>5.1</b> Inquinamento a San Andreas</a></li>
+<li class="chapter" data-level="5.2" data-path="fare-pratica-con-i-dati.html"><a href="fare-pratica-con-i-dati.html#inquinamento-in-california"><i class="fa fa-check"></i><b>5.2</b> Inquinamento in California</a></li>
+<li class="chapter" data-level="5.3" data-path="fare-pratica-con-i-dati.html"><a href="fare-pratica-con-i-dati.html#inquinamento-a-los-angeles"><i class="fa fa-check"></i><b>5.3</b> Inquinamento a Los Angeles</a></li>
+<li class="chapter" data-level="5.4" data-path="fare-pratica-con-i-dati.html"><a href="fare-pratica-con-i-dati.html#esercizi-2"><i class="fa fa-check"></i><b>5.4</b> Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="regressione.html"><a href="regressione.html"><i class="fa fa-check"></i><b>6</b> Regressione</a><ul>
+<li class="chapter" data-level="6.1" data-path="regressione.html"><a href="regressione.html#regressione-lineare"><i class="fa fa-check"></i><b>6.1</b> Regressione lineare</a></li>
+<li class="chapter" data-level="6.2" data-path="regressione.html"><a href="regressione.html#stimare-beta_0-e-beta_1"><i class="fa fa-check"></i><b>6.2</b> Stimare <span class="math inline">\(\beta_0\)</span> e <span class="math inline">\(\beta_1\)</span></a></li>
+<li class="chapter" data-level="6.3" data-path="regressione.html"><a href="regressione.html#valutare-il-modello-r2"><i class="fa fa-check"></i><b>6.3</b> Valutare il modello: <span class="math inline">\(R^2\)</span></a></li>
+<li class="chapter" data-level="6.4" data-path="regressione.html"><a href="regressione.html#regressione-lineare-in-r"><i class="fa fa-check"></i><b>6.4</b> Regressione lineare in R</a></li>
+<li class="chapter" data-level="6.5" data-path="regressione.html"><a href="regressione.html#regressione-multipla"><i class="fa fa-check"></i><b>6.5</b> Regressione multipla</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="esercitazione-1.html"><a href="esercitazione-1.html"><i class="fa fa-check"></i><b>7</b> Esercitazione 1</a><ul>
+<li class="chapter" data-level="7.1" data-path="esercitazione-1.html"><a href="esercitazione-1.html#esercizi-3"><i class="fa fa-check"></i><b>7.1</b> Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Note di R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="regressione" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Regressione</h1>
+<p><img src="media/spurCorr.png" />
+Originally posted <a href="http://www.tylervigen.com/spurious-correlations">here</a>.</p>
+<p>Il contenuto di questo capitolo si basa sull’omonimo capitolo del libro Calcolo delle probabilità e statistica di Paolo Baldi <span class="citation">(Baldi <a href="#ref-Baldi1998">1998</a>)</span>.</p>
+<p>Si consideri il problema, piuttosto comune, di voler esprimere una variabile, ad esempio <span class="math inline">\(y\)</span>, in funzione di altre variabili, ad esempio <span class="math inline">\(x_1, \dots , x_n\)</span>, più delle perturbazioni aleatorie.</p>
+<div id="regressione-lineare" class="section level2">
+<h2><span class="header-section-number">6.1</span> Regressione lineare</h2>
+<p>Prendiamo in considerazione il caso in cui tale funzione sia lineare. Parleremo di <em>regressione lineare</em>. Ciò significa che assumiamo che la variabile <span class="math inline">\(y\)</span>, detta <em>dipendente</em>, si possa esprimere come
+<span class="math display">\[
+y = \beta_0 + \beta_1 \cdot x + \omega
+\]</span>
+dove <span class="math inline">\(\beta_0, \beta_1\)</span> sono parametri da determinare e <span class="math inline">\(\omega\)</span> è una perturbazione stocastica con distribuzione normale di media 0 e varianza <span class="math inline">\(\sigma^2\)</span>. I parametri <span class="math inline">\(\beta_0, \beta_1\)</span> vengono solitamente determinati in base a diversi valori di <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>.</p>
+<p>Se abbiamo più osservazioni per la variabile <span class="math inline">\(y\)</span>, ottenute rispetto a diversi valori di <span class="math inline">\(x\)</span>, indicheremo con <span class="math inline">\(y_i\)</span> e <span class="math inline">\(x_i\)</span> tali valori.</p>
+<p>Se l’assunzione che la dipendenza sia lineare è plausibile, ci aspettiamo che per le varie osservazioni valga:
+<span class="math display">\[
+y_i = \beta_0 + \beta_1 x_i + \omega_i, \quad i= 1, \dots , n
+\]</span>
+con <span class="math inline">\(\omega_i\)</span> indipendenti e tutti con distribuzione <span class="math inline">\(N(0,\sigma^2)\)</span>, con <span class="math inline">\(\sigma^2\)</span> che non dipende da <span class="math inline">\(i\)</span>.</p>
+</div>
+<div id="stimare-beta_0-e-beta_1" class="section level2">
+<h2><span class="header-section-number">6.2</span> Stimare <span class="math inline">\(\beta_0\)</span> e <span class="math inline">\(\beta_1\)</span></h2>
+<p>Il problema di stimare <span class="math inline">\(\beta_0, \beta_1\)</span> viene risolto andando a trovare quei valori per i parametri che minimizzano la distanza tra i dati osservati (<span class="math inline">\(y_i\)</span>) e i valori prodotti dal modello:
+<span class="math display">\[
+\hat{y_i} = \beta_0 + \beta_1 x_i
+\]</span>
+La formulazione diviene quindi:
+<span class="math display">\[
+\min_{\beta_0, \beta_1 } S = S(\beta_0, \beta_1 ) = \sum_{i=1}^n \left( y_i - \beta_0 + \beta_1 x_i \right)^2
+\]</span></p>
+<p>Questo problema di minimizzazione quadratica ammette soluzione (unica) e si può ottenere andando ad imporre che il gradiente si annulli. Questo porta alla soluzione <span class="math inline">\((b_0, b_1)\)</span> tale che:
+<span class="math display">\[
+b_0  = \bar{y} - b_1 \bar{x}
+\]</span></p>
+<p><span class="math display">\[
+b_1 = \frac{\sum_i (y_i - \bar{y}) x_i}{\sum_i x_i (x_i - \bar{x})} = \frac{\bar{\sigma}
+_{x y }} {\bar{\sigma_{x}^2}}
+\]</span>
+con
+<span class="math display">\[
+ \bar{x} = \frac{1}{n} \sum_i x_i \, \text{ e } \bar{y} = \frac{1}{n} \sum_i y_i
+\]</span>
+I valori di <span class="math inline">\(b_0\)</span> e <span class="math inline">\(b_1\)</span> così ottenuti sono <em>stimatori</em> per i parametri <span class="math inline">\(\beta_0\)</span> e <span class="math inline">\(\beta_1\)</span>. In particolare è possibile dimostrare che sono degli stimatori <strong>non distorti</strong>.</p>
+<p>Inoltre c’è tutta una serie di risultati (che non dimostreremo) che permettono di provare, usando anche le ipotesi sugli <span class="math inline">\(\omega_i\)</span>, che:
+<span class="math display">\[
+b_0 \sim N\left( \beta_0, \sigma^2 (\frac{1}{n} + \frac{\bar{x}^2}{\bar{\sigma}_x^2}) \right), \, b_1 \sim N\left( \beta_1, \frac{\sigma^2}{\bar{\sigma}_x^2}) \right)
+\]</span>
+Ovviamente è possibile associare degli intervalli di confidenza ai valori ottenuti, così come eseguire altri test statistici, ma noi non tratteremo questa parte.</p>
+<p>Se indichiamo con <span class="math inline">\(r_i = y_i - \hat{y_i}\)</span>, i così detti <strong>residui</strong>, possiamo definire:
+<span class="math display">\[
+s^2 = \frac{1}{n-2} \sum_i r_i^2 
+\]</span>
+che è uno stimatore non distorto di <span class="math inline">\(\sigma^2\)</span>, la varianza (sconosciuta) delle perturbazioni aleatorie. Inoltre vale che:
+<span class="math display">\[
+\frac{s^2}{\sigma^2}(n-2) \sim \chi^2(n-2)
+\]</span>
+dove <span class="math inline">\(\chi^2\)</span> indica la distribuzione <a href="https://it.wikipedia.org/wiki/Distribuzione_chi_quadrato">Chi quadrato</a>.
+Usando R con il comando <code>lm()</code> è possibile non solo definire un modello di regressione lineare, ma anche accedere a molte di queste informazioni.</p>
+</div>
+<div id="valutare-il-modello-r2" class="section level2">
+<h2><span class="header-section-number">6.3</span> Valutare il modello: <span class="math inline">\(R^2\)</span></h2>
+<p>Un utile valore per valutare la correttezza del modello, è il valore di <span class="math inline">\(R^2\)</span>, definito come:
+<span class="math display">\[
+R^2 = \frac{\sum_i (\hat{y_i} - \bar{y} )^2}{\sum_i (y_i - \bar{y})^2} = 1 -\frac{\sum_i (y_i - \hat{y_i})^2}{\sum_i (y_i - \bar{y})^2} 
+\]</span></p>
+<p>Questo valore, che assume valori tra 0 e 1, quantifica la proporzione di varianza dei dati che è spiegata dal modello. Più tale valore si avvicina a 1, migliore è il modello. Se invece tale valore è piccolo, o il modello è inadeguato (relazione non lineare o ipotesi non soddisfatte), o <span class="math inline">\(\sigma^2\)</span> potrebbe avere un valore elevato.</p>
+</div>
+<div id="regressione-lineare-in-r" class="section level2">
+<h2><span class="header-section-number">6.4</span> Regressione lineare in R</h2>
+<p>Ricordiamo che per applicare la regressione lineare dobbiamo essere sicuri che le ipotesi siano soddisfatte. In particolare dovremo assicurarci che i residui seguano una distribuzione normale centrata in 0 e siano indipendenti.</p>
+<p>Alcune delle funzioni già viste possono aiutarci in questo compito.</p>
+<p>Definire e richiamare un modello lineare in R è molto semplice. Basta infatti utilizzare la funzione <code>lm()</code>, dove va specificata la <em>variabile dipendente</em> e il <em>predittore</em> ed i dati da usare per definire il modello.</p>
+<p>Sebbene i modelli di <em>regressione multipla</em> siano concettualmente e praticamente più complessi, R li supporta usando la stessa funzione e la stessa notazione. In tal caso, invece che indicare un predittore, se ne indicano più usando il simbolo <code>+</code> per elencarli.</p>
+<div id="mtcars" class="section level3">
+<h3><span class="header-section-number">6.4.1</span> Mtcars</h3>
+<p>Vediamo alcuni esempi usando il dataset <code>mtcars</code>.</p>
+<p>Supponiamo di voler investigare se il consumo di carburante e il numero di cavalli seguono una relazione lineare.</p>
+<p>Un ottimo metodo per intuire se la relazione possa essere in qualche modo lineare è quello di disegnare la variabile dipendente in funzione del predittore.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(mpg <span class="op">~</span><span class="st"> </span>hp, <span class="dt">data =</span> mtcars)</code></pre>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-96-1.png" width="672" /></p>
+<p>Secondo i risultati della nostra analisi preliminare sembra plausibile che la relazione sia lineare. Continuiamo la nostra investigazione definendo il modello con la funzione <code>lm()</code> e visualizzando il risultato usando la ben nota funzione <code>summary()</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r">mtcars_reg &lt;-<span class="st"> </span><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>hp, <span class="dt">data =</span> mtcars)
+<span class="kw">summary</span>(mtcars_reg)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ hp, data = mtcars)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -5.7121 -2.1122 -0.8854  1.5819  8.2360 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 30.09886    1.63392  18.421  &lt; 2e-16 ***
+## hp          -0.06823    0.01012  -6.742 1.79e-07 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.863 on 30 degrees of freedom
+## Multiple R-squared:  0.6024, Adjusted R-squared:  0.5892 
+## F-statistic: 45.46 on 1 and 30 DF,  p-value: 1.788e-07</code></pre>
+<p>Si può accedere ai vari elementi elencati da <code>summary()</code> usando la notazione <code>$</code>.</p>
+<p>Tra le informazioni che fornisce summary, è presente anche il valore <strong>R-squared</strong> (R quadro), che è la <strong>proporzione di varianza della variabile dipendente che viene spiegata dal predittore</strong>. Tale valore è compreso tra 0 e 1. Valori vicino a 1 indicano un buon modello, mentre valori bassi possono indicare o che il modello non spieghi completamente/correttamente i dati, o che la varianza dei residui è molto alta.</p>
+<p>Una volta definito il modello, è importante visualizzare i risultati per valutarne la bontà e per capire il comportamento dei residui. In questo modo è infatti possibile verificare <strong>quantitativamente</strong> (non formalmente) se i residui soddisfano le ipotesi di indipendenza (non si devono osservare dei pattern) e che la distribuzione dei quantili sia confrontabile con quella di una normale.</p>
+<p>I seguenti comandi permettono di visualizzare la retta di regressione, i quantili e di confrontarli con la distribuzione in quantili di una normale.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">1</span>), <span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>))
+<span class="co"># Retta di regressione</span>
+<span class="kw">plot</span>(mpg <span class="op">~</span><span class="st"> </span>hp, <span class="dt">data =</span> mtcars)
+<span class="kw">abline</span>(mtcars_reg<span class="op">$</span>coefficients, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)
+<span class="co"># Pattern nei residui</span>
+<span class="kw">plot</span>(mtcars_reg<span class="op">$</span>residuals, <span class="dt">main =</span> <span class="st">&quot;Residui&quot;</span>)
+<span class="co"># Distribuzione in quantili </span>
+<span class="kw">qqnorm</span>(mtcars_reg<span class="op">$</span>residuals)
+<span class="kw">qqline</span>(mtcars_reg<span class="op">$</span>residuals)</code></pre>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-98-1.png" width="672" /></p>
+<div id="esercizio-a" class="section level4 unnumbered">
+<h4>Esercizio A</h4>
+<p>In modo analogo a quanto fato sopra, si investighi la relazione tra consumo e peso delle auto in esame.</p>
+</div>
+<div id="esercizio-b" class="section level4 unnumbered">
+<h4>Esercizio B</h4>
+<p>Si discuta un modello lineare per le variabili <strong>x</strong> e <strong>y</strong> di <strong>Esercizo 1</strong>.</p>
+</div>
+</div>
+</div>
+<div id="regressione-multipla" class="section level2">
+<h2><span class="header-section-number">6.5</span> Regressione multipla</h2>
+<p>Come anticipato, se volessimo considerare una regressione multipla, e per esempio considerare come predittori sia la potenza (cavalli) che il peso, possiamo implementare il modello in modo simile in R.</p>
+<pre class="sourceCode r"><code class="sourceCode r">mtcars_reg_hp_wt &lt;-<span class="st"> </span><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>hp <span class="op">+</span><span class="st"> </span>wt, <span class="dt">data =</span> mtcars)
+<span class="kw">summary</span>(mtcars_reg_hp_wt)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ hp + wt, data = mtcars)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -3.941 -1.600 -0.182  1.050  5.854 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 37.22727    1.59879  23.285  &lt; 2e-16 ***
+## hp          -0.03177    0.00903  -3.519  0.00145 ** 
+## wt          -3.87783    0.63273  -6.129 1.12e-06 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.593 on 29 degrees of freedom
+## Multiple R-squared:  0.8268, Adjusted R-squared:  0.8148 
+## F-statistic: 69.21 on 2 and 29 DF,  p-value: 9.109e-12</code></pre>
+<!-- #### [Soluzioni](/SvolgimentoEsL5.R) -->
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Baldi1998">
+<p>Baldi, Paolo. 1998. <em>Calcolo Delle Probabilià E Statistica</em>. 2nd ed. McGraw-Hill Education.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="fare-pratica-con-i-dati.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="esercitazione-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-Regressione.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["bookdown.pdf", "bookdown.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
