@@ -5,10 +5,21 @@
     <link>https://thefreolo.github.io/</link>
     <description>Recent content on Federico Reali</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 10 Jun 2019 00:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 09 Jul 2019 00:00:00 +0100</lastBuildDate>
     
 	<atom:link href="https://thefreolo.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Esame Luglio 2019</title>
+      <link>https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/esameluglio2019/</link>
+      <pubDate>Tue, 09 Jul 2019 00:00:00 +0100</pubDate>
+      
+      <guid>https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/esameluglio2019/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.maxpixel.net/static/photo/1x/Analog-Clock-White-Old-Digits-Historic-Dial-Tips-1528796.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Esame Giugno 2019</title>
@@ -347,8 +358,7 @@ It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.&lt;
       <pubDate>Tue, 09 May 2017 10:49:04 +0200</pubDate>
       
       <guid>https://thefreolo.github.io/publications/</guid>
-      <description>2018  Vo Hong T, Marchetti L, Reali F and Priami C, Incorporating extrinsic noise into the stochastic simulation of biochemical reactions: A comparison of approaches, THE JOURNAL OF CHEMICAL PHYSICS, v. 148, n. 6 (2018), p. 064111. DOI:10.1063 ⁄1.5016338. URL: https://aip.scitation.org/doi/10.1063/1.5016338
- Kaddi C, Reali F, Marchetti L, Niesner B, Parolo S, Simoni G, Zaph S, Tao M, Abrams R, van Rijn Z, Leonard J, Judith Peterschmitt M, Puga Ana C, Mange K, Barrett J S, Priami C, Schuchman E H.</description>
+      <description>2019  Simoni G, Reali F, Priami C and Marchetti L, Stochastic simulation algorithms for computational systems biology: Exact, approximate, and hybrid methods, WIREs System Biology and Medicine, e1459, 2019 DOI:10.1002/wsbm.1459. URL: https://onlinelibrary.wiley.com/doi/abs/10.1002/wsbm.1459  2018  Vo Hong T, Marchetti L, Reali F and Priami C, Incorporating extrinsic noise into the stochastic simulation of biochemical reactions: A comparison of approaches, THE JOURNAL OF CHEMICAL PHYSICS, v. 148, n. 6 (2018), p.</description>
     </item>
     
     <item>
