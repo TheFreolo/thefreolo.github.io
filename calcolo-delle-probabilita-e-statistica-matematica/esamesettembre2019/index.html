@@ -5,9 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Esame Luglio 2019</title>
-  <meta property="og:title" content="Esame Luglio 2019" />
-  <meta name="twitter:title" content="Esame Luglio 2019" />
+  <title>Esame Settembre 2019</title>
+  <meta property="og:title" content="Esame Settembre 2019" />
+  <meta name="twitter:title" content="Esame Settembre 2019" />
   <meta name="description" content="
 
 ">
@@ -24,12 +24,12 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@TheFreolo" />
   <meta name="twitter:creator" content="@TheFreolo" />
-  <meta property="og:url" content="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/esameluglio2019/" />
+  <meta property="og:url" content="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/esamesettembre2019/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Federico Reali" />
 
   <meta name="generator" content="Hugo 0.36.1" />
-  <link rel="canonical" href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/esameluglio2019/" />
+  <link rel="canonical" href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/esamesettembre2019/" />
   <link rel="alternate" href="https://thefreolo.github.io/index.xml" type="application/rss+xml" title="Federico Reali">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -184,7 +184,7 @@ ga('send', 'pageview');
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="Calcolo delle Probabilita e Statistica Matematica-heading">
-              <h1>Esame Luglio 2019</h1>
+              <h1>Esame Settembre 2019</h1>
                 
                 
             </div>
@@ -200,7 +200,7 @@ ga('send', 'pageview');
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p><img src="https://www.maxpixel.net/static/photo/1x/Analog-Clock-White-Old-Digits-Historic-Dial-Tips-1528796.jpg" alt="" /></p>
+        <p><img src="/media/MaxPixel.net-Antique-Vintage-Station-Clock-Golden-Metal-Old-3418342.jpg" alt="" /></p>
 
 <p></p>
 
@@ -209,31 +209,27 @@ ga('send', 'pageview');
 <p>Si consideri il <a href="https://www.dropbox.com/s/02oyr3iixa64m6o/Metro_Interstate_Traffic_Volume.csv?dl=1">dataset</a> (<a href="http://archive.ics.uci.edu/ml/datasets/Metro+Interstate+Traffic+Volume">descrizione</a>) che riporta i dati orari relativi al volume di traffico sull&rsquo;interstatale I-94.</p>
 
 <ul>
-<li><strong>(2 punti)</strong> Si importi il dataset in R e si verifichi la correttezza de contenuto. Si sostituiscano eventuali errori con la mediana della stessa variabile.</li>
-<li><strong>(2 punti)</strong> Si crei una nuova variabile <code>TempC</code> in cui si trasforma la variabile <code>Temp</code> da gradi Kelvin a Celsius. Si crei una nuova variabile <code>rain_YN</code> uguale a 0 se <code>rain_1h</code> è 0, e 1 altrimenti. Si trasformi la variabile <code>date_time</code> nel tipo data e ora (con time zone GMT-5).</li>
-<li><strong>(3 punti)</strong> Per le misure <strong>con e senza pioggia</strong>, si calcolino il minimo, massimo, media e mediana per la temperatura (in Celsius) e per il volume di traffico. Inoltre si visualizzino gli stessi dati (al variare della pioggia) usando i boxplot.</li>
-<li><strong>(1 punto)</strong> Si determini se la differenza delle medie del volume di traffico nei giorni con/senza pioggia è statisticamente significativa. Si commenti il risultato e si discuta cosa dicono le analisi fatte finora rispetto al pensiero comune che risulta esserci più traffico quando piove.</li>
-<li><strong>(2 punti)</strong> Si definisca un nuovo dataset contenente il massimo del volume di traffico aggregato per la stessa data. Su questo nuovo dataset si definisca una nuova variabile contenente il giorno della settimana relativo alla data.  Si visualizzi la distribuzione del massimo del traffico giornaliero con un istogramma e si visualizzi con dei boxplot la distribuzione nei vari giorni della settimana. Visivamente, quale è il giorno con mediana di traffico più alta?</li>
+<li><strong>(2 punti)</strong> Si importi il dataset in R e si verifichi la correttezza del contenuto. Si sostituiscano eventuali errori con la media della stessa variabile.</li>
+<li><strong>(3 punti)</strong> Dopo aver creato una nuova variabile riportante solo la data delle misurazioni, si crei un nuovo dataset che per ogni giorno riporti il traffico massimo e medio registrato dalla variabile <code>traffic_volume</code>. <strong>Il resto dell&rsquo;esercizio si intende su questo nuovo dataset</strong>.</li>
+<li><strong>(2 punti)</strong> Si calcolino media e deviazione standard del traffico medio giornaliero negli anni dal 2013 al 2016 inclusi. Quante misurazioni ci sono per ogni anno? Si commentino i risultati.</li>
+<li><strong>(2 punti)</strong> Si visualizzi l&rsquo;andamento del traffico medio e massimo rispetto al tempo nel periodo dal 2016 al 2017 inclusi. Riusciamo a individuare qualche pattern?</li>
+<li><strong>(1 punto)</strong> Si determini se la differenza delle medie del volume di traffico nel 2015 e nel 2016  è statisticamente significativa.</li>
 </ul>
 
 <hr />
 
 <p>Si produca uno script funzionante (o un notebook) che contiene tutto il codice per risolvere l’esercizio.</p>
 
-<h4 id="soluzione-https-www-dropbox-com-s-j7hiax747dsxgnp-solesameluglio2019-r-dl-1"><a href="https://www.dropbox.com/s/j7hiax747dsxgnp/SolEsameLuglio2019.R?dl=1">Soluzione</a></h4>
+<!-- #### [Soluzione]() -->
       </article>
 
       
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/esamegiugno2019/" data-toggle="tooltip" data-placement="top" title="Esame Giugno 2019">&larr; Previous Post</a>
+              <a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/esameluglio2019/" data-toggle="tooltip" data-placement="top" title="Esame Luglio 2019">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/esamesettembre2019/" data-toggle="tooltip" data-placement="top" title="Esame Settembre 2019">Next Post &rarr;</a>
-            </li>
           
         </ul>
       
