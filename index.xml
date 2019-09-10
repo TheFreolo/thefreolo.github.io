@@ -213,39 +213,6 @@ It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.&lt;
     </item>
     
     <item>
-      <title>Reports with R Markdown</title>
-      <link>https://thefreolo.github.io/biostatistics/lezionermd/</link>
-      <pubDate>Sun, 21 Oct 2018 16:00:00 +0100</pubDate>
-      
-      <guid>https://thefreolo.github.io/biostatistics/lezionermd/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://thefreolo.github.io/media/Rlogo.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>LezioneR</title>
-      <link>https://thefreolo.github.io/biostatistics/lezioner/</link>
-      <pubDate>Tue, 02 Oct 2018 10:49:04 +0200</pubDate>
-      
-      <guid>https://thefreolo.github.io/biostatistics/lezioner/</guid>
-      <description>&lt;h1 id=&#34;usare-r&#34;&gt;Usare R&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://thefreolo.github.io/media/Rlogo.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;perché-r&#34;&gt;Perché R&lt;/h2&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;R is a free software environment for statistical computing and graphics.
-It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.&lt;/p&gt;
-
-&lt;p&gt;&lt;cite&gt; The R Foundation &lt;cite&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>Esame Settembre 2018 </title>
       <link>https://thefreolo.github.io/teaching/esamesettembre2018/</link>
       <pubDate>Mon, 03 Sep 2018 05:00:00 +0100</pubDate>
@@ -301,7 +268,9 @@ It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.&lt;
       <pubDate>Tue, 01 May 2018 10:49:04 +0200</pubDate>
       
       <guid>https://thefreolo.github.io/teachings/</guid>
-      <description>&lt;!-- This part of the site contains a selection of material useful for the courses I am teaching or teaching assisting.</description>
+      <description>Biostatistics/Statistical Learning The aim of the course in Biostatistics/Statistical Learning is to provide the students with the tools and the understanding to properly use statistics for analyzing and drawing exhaustive conclusions from data.
+During the course, the teacher introduces many concepts of mathematics, statistics, probability and machine learning, and, at the same time, these concepts are linked to biology-related case studies.
+This course is part of the master degrees in Quantitative and Computational Biology and in Data Science at the University of Trento (Italy).</description>
     </item>
     
     <item>
