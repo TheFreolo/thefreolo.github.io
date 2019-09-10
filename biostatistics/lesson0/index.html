@@ -5,12 +5,45 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Teaching</title>
-  <meta property="og:title" content="Teaching" />
-  <meta name="twitter:title" content="Teaching" />
-  <meta name="description" content="Material for courses">
-  <meta property="og:description" content="Material for courses">
-  <meta name="twitter:description" content="Material for courses">
+  <title>Install R and RStudio</title>
+  <meta property="og:title" content="Install R and RStudio" />
+  <meta name="twitter:title" content="Install R and RStudio" />
+  <meta name="description" content="
+
+Why R
+
+
+R is a free software environment for statistical computing and graphics.
+It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.
+
+ The R Foundation 
+
+
+">
+  <meta property="og:description" content="
+
+Why R
+
+
+R is a free software environment for statistical computing and graphics.
+It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.
+
+ The R Foundation 
+
+
+">
+  <meta name="twitter:description" content="
+
+Why R
+
+
+R is a free software environment for statistical computing and graphics.
+It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.
+
+ The R Foundation 
+
+
+">
   <meta name="author" content=""/>
   <link href='https://thefreolo.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta property="og:image" content="https://thefreolo.github.io/media/Profile_PIC.jpg" />
@@ -18,12 +51,12 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@TheFreolo" />
   <meta name="twitter:creator" content="@TheFreolo" />
-  <meta property="og:url" content="https://thefreolo.github.io/teachings/" />
+  <meta property="og:url" content="https://thefreolo.github.io/biostatistics/lesson0/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Federico Reali" />
 
   <meta name="generator" content="Hugo 0.36.1" />
-  <link rel="canonical" href="https://thefreolo.github.io/teachings/" />
+  <link rel="canonical" href="https://thefreolo.github.io/biostatistics/lesson0/" />
   <link rel="alternate" href="https://thefreolo.github.io/index.xml" type="application/rss+xml" title="Federico Reali">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -177,8 +210,8 @@ ga('send', 'pageview');
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="page-heading">
-              <h1>Teaching</h1>
+            <div class="Biostatistics-heading">
+              <h1>Install R and RStudio</h1>
                 
                 
             </div>
@@ -194,108 +227,155 @@ ga('send', 'pageview');
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <!-- This part of the site contains a selection of material useful for the courses I am teaching or teaching assisting.
- 
--->
+        <p><img src="/media/Rlogo.png" alt="" /></p>
 
-<h1 id="biostatistics-statistical-learning">Biostatistics/Statistical Learning</h1>
+<h2 id="why-r">Why R</h2>
 
-<!-- The aim of the course in __Biostatistics__ is to provide the students, especially those with bachelor degrees in biology-related subjects, with the tools and the understanding to properly use statistics for analyzing and drawing exhaustive conclusions from biological data.  -->
+<blockquote>
+<p>R is a free software environment for statistical computing and graphics.
+It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.</p>
 
-<p>The aim of the course in <strong>Biostatistics/Statistical Learning</strong> is to provide the students with the tools and the understanding to properly use statistics for analyzing and drawing exhaustive conclusions from data.</p>
+<p><cite> The R Foundation <cite></p>
+</blockquote>
 
-<p>During the course, the teacher introduces many concepts of mathematics, statistics, probability and machine learning, and, at the same time, these concepts are linked to biology-related case studies.</p>
+<p></p>
 
-<p>This course is part of the master degrees in <a href="http://international.unitn.it/mqcb">Quantitative and Computational Biology</a> and in <a href="https://international.unitn.it/maths/master-in-data-science">Data Science</a> at the <a href="http://www.unitn.it/">University of Trento</a> (Italy).</p>
+<p>R is a versatile programming language that is particularly widespread between statistician community. For this reason, there are many web pages devoted to explaining how to install and use it. Moreover, there are thousands of blogs, forums and discussion platforms where users can find answers to the most common questions.</p>
 
-<h4 id="lesson-0-install-r-and-r-studio-hahahugoshortcode-1hbhb"><a href="https://thefreolo.github.io/biostatistics/lesson0/">Lesson 0 - Install R and R studio</a></h4>
+<p>R is open-source software that is freely available for the most common platforms, like Windows, Mac e several Linux distributions.</p>
 
-<!-- #### [Planning and preparing to write assignments](http://www.nottingham.ac.uk/studentservices/documents/planning-and-preparing-to-write-assignments.pdf)
+<p>For example, we can find countless tutorials on how to install R on our platform and a simple Google query returns millions of pages.</p>
 
-#### [R and Rstudio](https://thefreolo.github.io/biostatistics/lezioner/)
+<p><img src="/media/InstallR.png" alt="" /></p>
 
-#### [Reports with R Markdown](https://thefreolo.github.io/biostatistics/lezionermd/)
- -->
+<p>In our case, we will follow divide the installation of R in two steps:</p>
 
-<p>For more information, please, see the teacher <a href="http://www.science.unitn.it/~pugliese/">webpage</a>.
-<!-- https://sites.google.com/site/ozankahramanogullari/teaching). --></p>
+<ul>
+<li>install R;</li>
+<li>install an interface.</li>
+</ul>
 
-<hr />
+<p>We are going to install the latest <a href="https://www.r-project.org/">version</a>, released the 2019-07-05.</p>
 
-<h1 id="calcolo-delle-probabilità-e-statistica-matematica">Calcolo delle probabilità e statistica matematica</h1>
+<p><img src="/media/R_release_2019_1.png" alt="R latest Releases" /></p>
 
-<p>The following links provide material for the course I am teaching assisting  that is called <a href="https://sites.google.com/g.unitn.it/bonaccorsi/">Calcolo delle probabilità e statistica matematica</a>. In the part of the course covered by these pages, I introduce R to the students and I show some applications to statistics.</p>
+<h2 id="install-r">Install R</h2>
 
-<p>The course introduces the fundamental concepts related to probability and statistics. It is part of the bachelor degree in Mathematics at the University of Trento (Italy).</p>
+<p>Let&rsquo;s proceed with the installation.</p>
 
-<p>I collected the notes from 2019 classes in a book format, which can be found <a href="/book/index.html">here</a>.</p>
+<h3 id="download-r">Download R</h3>
 
-<p>The content of these pages is in Italian.</p>
+<p>We can retrieve the R releases in the <a href="https://cran.r-project.org/">cran</a> site, where we can select the closest server to proceed with the download. For example, we can select the <a href="https://cran.stat.unipd.it/">Università di Padova</a> server and download the package for our platform.</p>
 
-<h4 id="lezione-1-r-e-r-studio-hahahugoshortcode-4hbhb"><a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/lezione1_2019/">Lezione 1 - R e R Studio</a></h4>
 
-<h4 id="lezione-2-la-sintassi-di-r-hahahugoshortcode-5hbhb-r-notebook-l2-rmd-r-notebook-html-l2-nb-html"><a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/lezione2_2019/">Lezione 2 - La sintassi di R</a> <a href="/L2.Rmd">(R Notebook)</a> <a href="/L2.nb.html">(R Notebook - html)</a></h4>
+<link rel="stylesheet" href="/css/hugo-easy-gallery.css" />
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="/media/cran_unipa.png" alt="The cran server at Padova University"/>
+    </div>
+      <figcaption>
+          <p>The cran server at Padova University</p>
+      </figcaption>
+    <a href="/media/cran_unipa.png" itemprop="contentUrl"></a>
+  </figure>
+</div>
 
-<h4 id="lezione-3-manipolare-e-visualizzare-dati-hahahugoshortcode-6hbhb"><a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/lezione3_2019/">Lezione 3 - Manipolare e visualizzare dati</a></h4>
+<p>R is open-source, thus not only we can download the installers but we can also download the source code, modify it and compile it. However, for the end of this course, we will just choose the right installer for our OS (operative system) and proceed with the installation. In the figures, you can see the case of a Mac.</p>
 
-<h4 id="lezione-4-statistica-descrittiva-hahahugoshortcode-7hbhb"><a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/lezione4_2019/">Lezione 4 - Statistica descrittiva</a></h4>
+<p>From this page, we can also download older versions of R. We will see this into details later, but just remember that this is particularly important if we are working with R extensions, called <strong><em>packages</em></strong>. Sometimes some packages are not available for the latest release, so we may need to install a previous one.</p>
 
-<h4 id="lezione-5-manipolare-dati-hahahugoshortcode-8hbhb"><a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/lezione5_2019/">Lezione 5 - Manipolare dati</a></h4>
+<p>In this tutorial, we install the version 3.6.1. of R.</p>
 
-<h4 id="lezione-6-fare-pratica-con-i-dati-e-regressione-hahahugoshortcode-9hbhb"><a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/lezione6_2019/">Lezione 6 - Fare pratica con i dati e regressione</a></h4>
+<p><img src="/media/R361down.png" alt="Example image" /></p>
 
-<h4 id="lezione-7-statistica-e-applicazioni-hahahugoshortcode-10hbhb"><a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/lezione7_2019/">Lezione 7 - Statistica e applicazioni</a></h4>
+<p>Please note that if you are installing R on Mac, you may need to install <a href="https://www.xquartz.org/">XQuartz</a>.</p>
 
-<h4 id="breve-riflessione-hahahugoshortcode-11hbhb"><a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/riflessione_2019/">Breve riflessione</a></h4>
+<p>Some older computer may support the latest version of R. In that case, you can install the version 3.3.3.</p>
 
-<h1 id="prove-di-esame">Prove di esame</h1>
+<p><img src="/media/R330down.png" alt="Example image" /></p>
 
-<h4 id="seconda-prova-intermedia-hahahugoshortcode-12hbhb-svolgimento-https-www-dropbox-com-s-z4vy160nrxhq3jb-iiprovaintermedia2019-r-dl-1"><a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/iiprovaintermedia2019/">Seconda Prova Intermedia</a> <a href="https://www.dropbox.com/s/z4vy160nrxhq3jb/IIProvaIntermedia2019.R?dl=1">(Svolgimento)</a></h4>
+<h3 id="install-r-1">Install R</h3>
 
-<h4 id="prova-di-esame-del-10-06-2019-hahahugoshortcode-13hbhb-svolgimento-https-www-dropbox-com-s-mpyqopai3h6s4wd-solesamegiugno2019-r-dl-1"><a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/esamegiugno2019/">Prova di esame del 10/06/2019</a> <a href="https://www.dropbox.com/s/mpyqopai3h6s4wd/SolEsameGiugno2019.R?dl=1">(Svolgimento)</a></h4>
+<p>Once the correct package for your platform is downloaded, the actual installation is a standard procedure on Windows and Mac. Double click on the installer and follow the instructions.</p>
 
-<h4 id="prova-di-esame-del-10-07-2019-hahahugoshortcode-14hbhb-svolgimento-https-www-dropbox-com-s-j7hiax747dsxgnp-solesameluglio2019-r-dl-1"><a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/esameluglio2019/">Prova di esame del 10/07/2019</a> <a href="https://www.dropbox.com/s/j7hiax747dsxgnp/SolEsameLuglio2019.R?dl=1">(Svolgimento)</a></h4>
+<p>Install R on Ubuntu is particularly convenient using the command line. It is sufficient to type the following commands in the terminal.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get update
+sudo apt-get install r-base</code></pre></div>
+<h2 id="use-r">Use R</h2>
 
-<h4 id="prova-di-esame-del-03-09-2019-hahahugoshortcode-15hbhb"><a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/esamesettembre2019/">Prova di esame del 03/09/2019</a></h4>
+<p>Once we installed R, we can already test its functionality. Going into the <strong>Applications</strong> or <strong>Program</strong> folder, we can already see it. By clicking the icon, we can run the <strong>R console</strong>, which is a basic interface. Even if it is basic, it already allows us to use all the R functions.</p>
 
-<!-- [(Svolgimento)]() -->
+<p><img src="/media/R_open.png" alt="Example image" /></p>
 
-<h3 id="esami-anni-precedente">Esami anni precedente</h3>
+<p>For example, we can already use the console as a calculator, however, this is just a small part of the R potential.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="m">2+2</span></code></pre></div>
+<p>or</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="m">3</span><span class="o">*</span><span class="m">5</span></code></pre></div>
+<p>Even though we could run all our examples and script using the console, we will use different software, which is a complete graphic interface for R, called <a href="https://www.rstudio.com/products/rstudio/">RStudio</a>.</p>
 
-<h3 id="2017-2018"><sup>2017</sup>&frasl;<sub>2018</sub></h3>
+<h2 id="install-rstudio">Install RStudio</h2>
 
-<h4 id="seconda-prova-intermedia-hahahugoshortcode-16hbhb-svolgimento-svolgimento-seconda-prova-intermedia-2018-r"><a href="https://thefreolo.github.io/teaching/secondaprovaintermedia_2018/">Seconda Prova Intermedia</a> <a href="/Svolgimento_Seconda_prova_intermedia_2018.R">(Svolgimento)</a></h4>
+<p>Just like R, RStudio is freely available for users, even though, commercial versions for companies require a fee. At the <a href="https://www.rstudio.com/products/rstudio/download2/">link</a> we can download the installer for Windows, Mac and some Linux distributions.</p>
 
-<h4 id="prova-di-esame-del-12-06-2018-hahahugoshortcode-17hbhb-svolgimento-soluzioniesameluglio2018-r"><a href="https://thefreolo.github.io/teaching/esamegiugno2018/">Prova di esame del 12/06/2018</a> <a href="/SoluzioniEsameLuglio2018.R">(Svolgimento)</a></h4>
+<p><img src="/media/Rstudio_Versions_2019.png" alt="RStudio - Versions" /></p>
 
-<h4 id="prova-di-esame-del-10-07-2018-hahahugoshortcode-18hbhb"><a href="https://thefreolo.github.io/teaching/esameluglio2018/">Prova di esame del 10/07/2018</a></h4>
+<p>Once we download the installers, the automatic installation procedure should easily install the software in all the platforms.</p>
 
-<h4 id="prova-di-esame-del-03-09-2018-hahahugoshortcode-19hbhb"><a href="https://thefreolo.github.io/teaching/esamesettembre2018/">Prova di esame del 03/09/2018</a></h4>
+<h2 id="use-rstudio">Use RStudio</h2>
 
-<h4 id="prova-di-esame-del-14-01-2019-hahahugoshortcode-20hbhb"><a href="https://thefreolo.github.io/teaching/esamegennaio2019/">Prova di esame del 14/01/2019</a></h4>
+<p>After the installation of RStudio, we can run it and we can see the initial page:</p>
 
-<h4 id="prova-di-esame-del-11-02-2019-hahahugoshortcode-21hbhb"><a href="https://thefreolo.github.io/teaching/esamefebbraio2019/">Prova di esame del 11/02/2019</a></h4>
+<p><img src="/media/Rstudio_blank.png" alt="RStudio - Versions" /></p>
 
-<h3 id="2016-2017"><sup>2016</sup>&frasl;<sub>2017</sub></h3>
+<p>In the RStudio graphic interface, we can see three main windows. On the right, we can access the R console, which is the same we opened after the installation of R, on the left we have the windows with <strong>Environment</strong> and <strong>History</strong> and the one with <strong>Files</strong>, <strong>Plots</strong>, <strong>Packages</strong>, <strong>Help</strong> e <strong>Viewer</strong>.</p>
 
-<h4 id="prova-di-esame-del-13-06-2017-hahahugoshortcode-22hbhb-svolgimento-soluzioniesamegiugno-r"><a href="https://thefreolo.github.io/teaching/esame1/">Prova di esame del 13/06/2017</a> <a href="/SoluzioniEsameGiugno.R">(Svolgimento)</a></h4>
+<p>After the installation, we can check if all the pre-installed packages are updated. To do this, we go to <strong>Tools</strong></p>
 
-<h4 id="prova-di-esame-del-13-07-2017-hahahugoshortcode-23hbhb-svolgimento-soluzioniesameluglio-r"><a href="https://thefreolo.github.io/teaching/esame2/">Prova di esame del 13/07/2017</a> <a href="/SoluzioniEsameLuglio.R">(Svolgimento)</a></h4>
+<p><img src="/media/Rstudio_tool.png" alt="RStudio - Versions" /></p>
 
-<h4 id="prova-di-esame-del-28-08-2017-hahahugoshortcode-24hbhb-svolgimento-soluzioniesameagosto-r"><a href="https://thefreolo.github.io/teaching/esame3/">Prova di esame del 28/08/2017</a> <a href="/SoluzioniEsameAgosto.R">(Svolgimento)</a></h4>
+<p>If there are updates available, let&rsquo;s install them. Otherwise, RStudio should warn us that there is nothing to update.</p>
 
-<h4 id="prova-di-esame-del-15-01-2018-hahahugoshortcode-25hbhb-svolgimento-soluzioniesamegennaio-r"><a href="https://thefreolo.github.io/teaching/esame4/">Prova di esame del 15/01/2018</a> <a href="/SoluzioniEsameGennaio.R">(Svolgimento)</a></h4>
+<h3 id="script">Script</h3>
 
-<h4 id="prova-di-esame-del-05-02-2018-hahahugoshortcode-26hbhb"><a href="https://thefreolo.github.io/teaching/esame5/">Prova di esame del 05/02/2018</a></h4>
+<p>A script is a text file that contains (multiple) lines of code. It is the easiest way to save and execute more commands in RStudio.</p>
 
-<hr />
+<p>We can open a new script in RStudio by selecting <strong>File|New File|R Script</strong>. In this way, RStudio opens a new window where we can edit and run our commands.</p>
+
+<p><img src="/media/Rstudio_NewScript.png" alt="RStudio - Versions" /></p>
+
+<p><img src="/media/Rstudio_4tab.png" alt="RStudio - Versions" /></p>
+
+<p>Now, let&rsquo;s spend some time familiarizing with the studio interface and the commands in R!</p>
+
+<h1 id="useful-links">Useful links</h1>
+
+<ul>
+<li><a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf">Here</a> we can find some notes on R, including many commands we will use during the course.</li>
+<li><a href="https://cran.r-project.org/doc/contrib/Mineo-dispensaR.pdf">Here</a> we can find some notes on R (in Italian).</li>
+<li>At the <a href="https://cran.r-project.org/doc/contrib/Frascati-FormularioStatisticaR.pdf">link</a> we can find some notes that contains many R commands divided by topic (in Italian).</li>
+</ul>
+
+<!-- - A questo [link](http://tryr.codeschool.com/) è possibile seguire un veloce tutorial che introduce molti dei comandi di base di R (in inglese). -->
 
 <p> &copy; 2017-2019  Federico Reali</p>
       </article>
 
       
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://thefreolo.github.io/biostatistics/lezionermd/" data-toggle="tooltip" data-placement="top" title="Reports with R Markdown">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
 
 
+      
+        
+        
       
 
     </div>

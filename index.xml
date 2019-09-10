@@ -5,10 +5,30 @@
     <link>https://thefreolo.github.io/</link>
     <description>Recent content on Federico Reali</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 03 Sep 2019 00:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 09 Sep 2019 00:00:00 +0200</lastBuildDate>
     
 	<atom:link href="https://thefreolo.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Install R and RStudio</title>
+      <link>https://thefreolo.github.io/biostatistics/lesson0/</link>
+      <pubDate>Mon, 09 Sep 2019 00:00:00 +0200</pubDate>
+      
+      <guid>https://thefreolo.github.io/biostatistics/lesson0/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://thefreolo.github.io/media/Rlogo.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;why-r&#34;&gt;Why R&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;R is a free software environment for statistical computing and graphics.
+It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.&lt;/p&gt;
+
+&lt;p&gt;&lt;cite&gt; The R Foundation &lt;cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Esame Settembre 2019</title>
