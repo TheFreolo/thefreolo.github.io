@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Lesson 2</title>
+  <meta property="og:title" content="Lesson 2" />
+  <meta name="twitter:title" content="Lesson 2" />
+  <meta name="description" content="Working with data
+
+">
+  <meta property="og:description" content="Working with data
+
+">
+  <meta name="twitter:description" content="Working with data
+
+">
+  <meta name="author" content=""/>
+  <link href='https://thefreolo.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="https://thefreolo.github.io/media/Profile_PIC.jpg" />
+  <meta name="twitter:image" content="https://thefreolo.github.io/media/Profile_PIC.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@TheFreolo" />
+  <meta name="twitter:creator" content="@TheFreolo" />
+  <meta property="og:url" content="https://thefreolo.github.io/biostatistics/lesson2/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Federico Reali" />
+
+  <meta name="generator" content="Hugo 0.36.1" />
+  <link rel="canonical" href="https://thefreolo.github.io/biostatistics/lesson2/" />
+  <link rel="alternate" href="https://thefreolo.github.io/index.xml" type="application/rss+xml" title="Federico Reali">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://thefreolo.github.io/css/codeblock.css" />
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-142285014-1cse', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://thefreolo.github.io/">Federico Reali</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">Teaching</a>
+              <div class="navlinks-children">
+                
+                  <a href="/teachings/">Home</a>
+                
+                  <a href="/biostatistics/">Biostatistics</a>
+                
+                  <a href="/calcolo-delle-probabilita-e-statistica-matematica">Calcolo delle Probabilità e Statistica Matematica</a>
+                
+                  <a href="/book/index.html">Note di R (it)</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Publications" href="/publications/">Publications</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="Federico Reali" href="https://thefreolo.github.io/">
+            <img class="avatar-img" src="https://thefreolo.github.io/media/Profile_PIC.jpg" alt="Federico Reali" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="Biostatistics-heading">
+              <h1>Lesson 2</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h1 id="working-with-data">Working with data</h1>
+
+<p></p>
+
+<p><blockquote class="twitter-tweet"><p lang="en" dir="ltr">Data is/are? **10 days until <a href="https://t.co/n4ju7Of6aM">https://t.co/n4ju7Of6aM</a>! <a href="https://t.co/R0cHOuTpz5">pic.twitter.com/R0cHOuTpz5</a></p>&mdash; PHD Comics (@PHDcomics) <a href="https://twitter.com/PHDcomics/status/858434932695195648?ref_src=twsrc%5Etfw">April 29, 2017</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<h2 id="manipulate-datasets">Manipulate datasets</h2>
+
+<p>As seen during the previous lesson, there are some datasets that are always available on R, or other that are included in specific packages.</p>
+
+<p>For example, in the previous lesson, we worked with <em>mtcars</em>, <em>beav2</em> and <em>hflights</em>.</p>
+
+<p>However, in the most common real case scenario, we will need for reading and writing our own data, maybe starting from some sort of tables.</p>
+
+<h3 id="read-and-write-files">Read and write files</h3>
+
+<p>In R, it is possible to acquire dataset in different ways, not only through packages. One of the simplest and most intuitive ways is reading from a file. There are many formats that can contain data. The simplest and most widespread are in the <em>.csv</em> file (<em>comma-separated values</em>) or the <em>.tsv</em> (tab-separated values).</p>
+
+<p>One of the most used command to read files is <code>read.table()</code>, which reads the content of a tabular file and saves it as a data frame. Let&rsquo;s take a practical example.</p>
+
+<p>Let&rsquo;s consider the dataset <a href="http://extras.springer.com/2012/978-1-4614-1301-1">body temperature</a> that contains the data about the human body temperature for some patients. We can download the dataset in the most convenient folder (for example, <em>data</em>) and we can read it using <code>read.table()</code> and specifying the path to the file.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">BodyTemperature <span class="o">&lt;-</span> read.table<span class="p">(</span>file <span class="o">=</span> <span class="s">&#34;../data/BodyTemperature.txt&#34;</span><span class="p">,</span> header <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> sep <span class="o">=</span> <span class="s">&#34; &#34;</span><span class="p">)</span></code></pre></div>
+<p>The first argument of <code>read.table()</code> is the path to the file. Then, we can indicate if there are <em>headers</em>, <em>i.e.,</em> the first row contains the name of the of the variables. Another argument is the separator, which is the symbol or character used in the file to delimit the different elements of a line. The default separator of <code>read.table()</code> is Space but it is possible to indicate different ones. If the file had been a csv (<em>comma separated values​​</em>), we could have indicated <code>sep =&quot;, &quot;</code>. Likewise, we could have used the <code>read.csv()</code> function which considers the comma as the default separator. If the values ​​were separated by semicolons we could have used <code>read.csv2()</code> and <code>read.delim()</code> if separated by tab (\t).</p>
+
+<p>The function <code>read.csv</code> also accepts <em>url</em> as an argument. In this way, R will download the dataset by itself and save it in the indicated variable.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="p">(</span>BodyTemperature <span class="o">&lt;-</span> read.csv<span class="p">(</span><span class="kp">url</span><span class="p">(</span><span class="s">&#39;http://extras.springer.com/2012/978-1-4614-1301-1/BodyTemperature.txt&#39;</span><span class="p">),</span> sep<span class="o">=</span><span class="s">&#34; &#34;</span><span class="p">))</span></code></pre></div>
+<p>In a similar way to the <code>read.table()</code> command, we can use <code>write.table()</code> to write a data frame (or a variable) in a file. Also in this case, we can use <code>write.csv</code> for writing comma-separated values file. For example, the following command writes the dataset downloaded from the internet to the data folder as a csv file.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">write.csv<span class="p">(</span>BodyTemperature<span class="p">,</span> <span class="s">&#34;./data/BodyTemperature.txt&#34;</span><span class="p">)</span></code></pre></div>
+<h3 id="explore-the-data">Explore the data</h3>
+
+<p>Once we read or download our dataset, we can start analyzing the content. Often the datasets are accompanied by descriptions that explain the content and it is a good rule to read them.</p>
+
+<p>We can access head or the tail of a dataset, using the <code>head()</code> and <code>tail()</code> commands. We can even visualize the entire dataset in an R Studio window using the <code>View()</code> command. The <code>dim()</code> returns the dataset dimension and the command <code>names()</code> returns of the column names.</p>
+
+<p>The <code>str()</code> command returns information about the structure of the dataset. In R Studio, the equivalent of this command is accessible in the <strong>Environment</strong> window. All these functions are always a good starting point for understanding the data you are dealing with.</p>
+
+<p>Another handy function is <code>summary()</code>. This function returns the minimum, maximum, mean, and quantiles of the numerical variables. We specified <em>numeric</em> since a data frame could contain non-numeric variables. For example, in the case of BodyTemperature, the first column is the categorical variable of the patient&rsquo;s sex.</p>
+
+<p>Other useful functions are <code>mean()</code> and <code>sd()</code> which return us the mean and standard deviation of a <strong>vector</strong> argument. Analogously, the <code>IQR()</code> and <code>range()</code> functions return the interquartile range and the range of a vector.</p>
+
+<p>A useful command to apply functions designed for scalar or vector to the elements of an array or matrix is <code>apply()</code>. This function is also useful for applying functions along a single dimension. The <code>lapply()</code> and <code>sapply()</code> variants work similarly for lists. Another command for data manipulation is <code>round()</code> which rounds a value or a vector to the nearest integer, or by indicating the number of decimal places, rounds up to the indicated decimal digits.</p>
+
+<p>Other useful features are <code>sort()</code>, which sorts the elements of a vector, <code>unique()</code> which removes repeated entries from an array or data frame. Functions like <code>any()</code> and <code>which()</code> check if a condition is satisfied. The first returns <code>TRUE</code> if at least one element verifies the condition, whereas <code>which()</code> returns the index of the elements that satisfy the condition.</p>
+
+<p>Let&rsquo;s look at some examples with the <code>BodyTemperature</code> dataset.</p>
+
+<h3 id="merge-datasets">Merge datasets</h3>
+
+<p>We have widely seen how to work and manipulate data. However, an important function that allows data to be grouped has not been explained in class: it is <code>aggregate()</code>. This command allows you to apply a function to a subset of the data, following a precise pattern. Let&rsquo;s look at some examples.</p>
+
+<p>Another useful command is <code>merge()</code> which allows the user to merge data frames according to a specific variable. if we are sure that our observations are &ldquo;aligned&rdquo;, we can obtain the same result,by using use the commands <code>rbin()</code> and <code>cbind()</code>.</p>
+
+<h3 id="factors">Factors</h3>
+
+<p>Sometimes some categorical variables are saved as numeric variables. Let&rsquo;s consider the dataset <em>birthwt</em> (birth weight) in the MASS package. We can note that some variables, although numerical, represent categories: for example, smokers or not, or hypertensive or not. However, if we use the <code>summary()</code> function, we see that they are treated as numerical variables. The <code>as.factor()</code> converts numeric variables to categorical variables.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">birthwt1 <span class="o">&lt;-</span> birthwt
+birthwt1<span class="o">$</span>race <span class="o">&lt;-</span> <span class="kp">as.factor</span><span class="p">(</span>birthwt1<span class="o">$</span>race<span class="p">)</span></code></pre></div>
+<p>From the description of the variables in the R Studio <strong>Environment</strong> window, we can see that after the assignment, race is indicated as a factor, no longer integer. If we call <code>summary()</code>, the results for this variable are different than before.</p>
+
+<p>The <code>table()</code> function builds a contingency table among the combination of factors. <code>levels()</code> returns the level attributes of a variable (use the <em>help</em> to see what <code>prop.table()</code> does).  Using <code>levels()</code> it is also possible to assign or vary the level attributes. Let&rsquo;s use this function to change the levels of race.</p>
+
+<h2 id="missing-data">Missing data</h2>
+
+<p>Often data may contain unreliable values, due to errors in a few lines or missing values. This is a significant problem, both because, if not recognized in advance, these values ​​can influence our results, and because there are no standard protocols to deal with these cases.</p>
+
+<p>Some elements may be missing they are usually reported with NA (not available). R has a dedicated function to find these elements: <code>is.na()</code>. This function returns boolean values ​​to indicate whether the content is NA or not. Similarly, <code>na.omit()</code> returns the argument without the rows containing NA.</p>
+
+<p>In a similar way, the <code>is.nan()</code> command checks if the content is NaN (not a number). There are also the functions <code>is.infinite()</code> and <code>is.finite()</code> that check for <code>Inf/-Inf</code> values.</p>
+
+<!-- # [Visualizzare i dati](/L3visual.nb.html)
+[R notebook](/L3visual.Rmd) -->
+
+<h1 id="probability-distributions-in-r">Probability distributions in R</h1>
+
+<p>R allows us to access many probability distributions through specific functions that are contained in the <em>stast</em> package, which must then be loaded.</p>
+
+<p>We can access the distributions through functions that recall their names, for example with <em>norm</em>, <em>binom</em> and <em>pois</em>, just to name a few, we access the normal, binomial and Poisson distributions. To this name is added a <em>prefix</em>, which serves to specify the density function (<em>d</em>), the distribution (<em>p</em>), and the function that returns the quantiles (<em>q</em>) or the one that generates random numbers according to the distribution (<em>r</em> ).</p>
+
+<p>You can access the list of all the distributions of R by searching <em>distribution</em> in the help.</p>
+
+<h1 id="let-s-do-some-practice">Let&rsquo;s do some practice</h1>
+
+<h2 id="it-s-always-time-for-pizza">It&rsquo;s always time for pizza!</h2>
+
+<p>Download the dataset at the <a href="https://www.dropbox.com/s/lzfukdpkhpwbjzp/pizza_data_set.csv?dl=1">link</a>, which contains the reviews of pizza restaurants in NY. This exercise is inspired by <a href="https://www.youtube.com/watch?v=Mkac8DHScps&amp;feature=youtu.be">this video</a>.</p>
+
+<h3 id="explore-and-prepare-the-dataset">Explore and prepare the dataset</h3>
+
+<ol>
+<li>How many records are collected in the dataset? What is the information?</li>
+<li>How many restaurants and records are in the dataset? How many variables?</li>
+<li>What is the maximum number of votes? And the minimum?</li>
+<li>According to the last number of your <em>matricola</em>(university registration number) select the data of the following pizzerias:</li>
+</ol>
+
+<table>
+<thead>
+<tr>
+<th>Last number</th>
+<th>Pizzeria1</th>
+<th>Pizzeria2</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1</td>
+<td>Kiss My Slice</td>
+<td>Big Slice Pizza</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Mariella</td>
+<td>Spunto</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>Rivoli Pizza</td>
+<td>Joe&rsquo;s Pizza</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>Pizza Italia</td>
+<td>New York Pizza Suprema</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>Williamsburg Pizza</td>
+<td>John&rsquo;s of Bleecker</td>
+</tr>
+
+<tr>
+<td>6</td>
+<td>Bleecker Street Pizza</td>
+<td>Vinny Vincenz</td>
+</tr>
+
+<tr>
+<td>7</td>
+<td>Highline Pizza</td>
+<td>Famous Original Ray&rsquo;s</td>
+</tr>
+
+<tr>
+<td>8</td>
+<td>Cavallo&rsquo;s Pizza</td>
+<td>Pizza 33</td>
+</tr>
+
+<tr>
+<td>9</td>
+<td>Luna Pizza</td>
+<td>Roio&rsquo;s</td>
+</tr>
+
+<tr>
+<td>0</td>
+<td>Bella Napoli</td>
+<td>Ben&rsquo;s of SoHo 14th Street</td>
+</tr>
+</tbody>
+</table>
+
+<p>Your new dataset must contain <strong>only</strong> the data about these 2 restaurants.
+You should perform the following analyses on this new dataset.</p>
+
+<h3 id="manipulate-the-dataset">Manipulate the dataset</h3>
+
+<ol>
+<li>Add a new column with the number of total votes of each restaurant.</li>
+<li>Create a new column with the relative frequency of the answers. Round the value to the third decimal.</li>
+<li>Create a new column where you transform the review into numbers, where 0 is <em>Never Again</em> and 4 is <em>Excellent</em>.</li>
+<li>Compute the mean review for the two pizzerias in your dataset. Which one is the best?</li>
+<li>Plot the number of votes at the varying of the score.</li>
+<li>Choose one of the two restaurants. If we approximate its distribution of votes with a Poisson distribution with parameter equal to the mean rate, are we close to the data distribution?</li>
+</ol>
+
+<h2 id="titanic">Titanic</h2>
+
+<p>Consider the Titanic <a href="https://web.stanford.edu/class/archive/cs/cs109/cs109.1166/stuff/titanic.csv">dataset</a> (<a href="https://web.stanford.edu/class/archive/cs/cs109/cs109.1166/problem12.html">description</a>).</p>
+
+<ol>
+<li>Read the dataset and analyze the variables. Are all the variables type correct?</li>
+<li>What is the mean age of the passengers? And the quantiles?</li>
+<li>What is the mean price of the ticket? And the standard deviation?</li>
+<li>Who is the passenger with more children aboard? How many?</li>
+<li>How many passengers survived? What is the survival probability?</li>
+<li>What is the survival probability in the various classes?</li>
+</ol>
+
+<p> &copy; 2017-2019  Federico Reali</p>
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://thefreolo.github.io/biostatistics/lesson1/" data-toggle="tooltip" data-placement="top" title="Lesson 1">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/TheFreolo" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/TheFreolo" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/federico-reali-9379b4116" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          
+          2019
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://thefreolo.github.io/">Federico Reali</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.36.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://thefreolo.github.io/js/main.js"></script>
+<script src="https://thefreolo.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script>
+<script src="https://thefreolo.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
+
