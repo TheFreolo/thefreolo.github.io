@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Lesson 3</title>
+  <meta property="og:title" content="Lesson 3" />
+  <meta name="twitter:title" content="Lesson 3" />
+  <meta name="description" content="Data visualization (and Manipulation)
+
+
+
+">
+  <meta property="og:description" content="Data visualization (and Manipulation)
+
+
+
+">
+  <meta name="twitter:description" content="Data visualization (and Manipulation)
+
+
+
+">
+  <meta name="author" content=""/>
+  <link href='https://thefreolo.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="https://thefreolo.github.io/media/Profile_PIC.jpg" />
+  <meta name="twitter:image" content="https://thefreolo.github.io/media/Profile_PIC.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@TheFreolo" />
+  <meta name="twitter:creator" content="@TheFreolo" />
+  <meta property="og:url" content="https://thefreolo.github.io/biostatistics/lesson3/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Federico Reali" />
+
+  <meta name="generator" content="Hugo 0.36.1" />
+  <link rel="canonical" href="https://thefreolo.github.io/biostatistics/lesson3/" />
+  <link rel="alternate" href="https://thefreolo.github.io/index.xml" type="application/rss+xml" title="Federico Reali">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://thefreolo.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://thefreolo.github.io/css/codeblock.css" />
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-142285014-1cse', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://thefreolo.github.io/">Federico Reali</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">Teaching</a>
+              <div class="navlinks-children">
+                
+                  <a href="/teachings/">Home</a>
+                
+                  <a href="/biostatistics/">Biostatistics</a>
+                
+                  <a href="/calcolo-delle-probabilita-e-statistica-matematica">Calcolo delle Probabilità e Statistica Matematica</a>
+                
+                  <a href="/book/index.html">Note di R (it)</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Publications" href="/publications/">Publications</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="Federico Reali" href="https://thefreolo.github.io/">
+            <img class="avatar-img" src="https://thefreolo.github.io/media/Profile_PIC.jpg" alt="Federico Reali" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="Biostatistics-heading">
+              <h1>Lesson 3</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h1 id="data-visualization-and-manipulation">Data visualization (and Manipulation)</h1>
+
+<p><img src="/media/Cholera.jpg" alt="" /></p>
+
+<p></p>
+
+<p>In this lesson, we will analyze the basic commands for plotting data and retrieving information from these instruments. In addition, we will go tough other manipulation commands and the basic syntax for writing our own R functions.</p>
+
+<h2 id="data-visualization">Data visualization</h2>
+
+<p>Data visualization allows at identifying trends, connections and retrieve information from data that are not obvious in a tabular form. All the commands that follow will help in these investigations and all of them can be customized using different colors, labels of the axes or placing side by side images.</p>
+
+<!-- A package that allows not only to produce images (more beautiful), but also to use advanced functions is [ggplot2] (http://ggplot2.org/). However, in this course,  we will only provide some examples of ggplot2, and we will prefer the built in functions. -->
+
+<h2 id="box-plot">Box plot</h2>
+
+<p>Using R, it is very easy to produce box plots using the <code>boxplot()</code> commands. We will specify the variable we want to visualize. In case we are interested in exploring the distribution of a variable according to another factor variable, we can use the notation <code>boxplot(ColumnName ~ FactorColumnName, data = dataset )</code>.</p>
+
+<h2 id="histograms">Histograms</h2>
+
+<p>Using the <code>hist ()</code> command it is possible to get histograms for the variables. It i important to notice that we can specify the optional argument <em>freq</em>. If <em>freq</em> is TRUE, the histogram shows the counts of the component; if FALSE, it shows the relative frequencies, <em>i.e.</em>, the probability densities. The latter is useful if we are comparing variables with different number of observations. The default value for <em>freq</em> is TRUE. Note that <code>hist()</code> does not support the <code>~</code> notation.</p>
+
+<h2 id="scatter-plots">Scatter plots</h2>
+
+<p>With the commands <code>plot (x, y)</code> or <code>scatterplot (x, y)</code> it is possible to represent the data as points. We have already used plot and we noticed that it can be very useful for exploring the relationships between variables.</p>
+
+<p>There are other commands that can be combined with all the previous, for example <code>abline ()</code>, <code>text ()</code>, <code>points()</code> and <code>lines ()</code> that are very useful and we will use them in the examples.</p>
+
+<p>It should be pointed out, at least for the normal distribution, there are the <code>qqnorm</code> and <code>qqline</code> functions, which graphically compare the quantiles of the data with those of a normal distribution. This is a way to graphical way (and therefore not formally) to verify if your data follows a normal distribution. Together with the requirement that the measurements be independent, these two are hypotheses that we have seen very often, especially in the use of limit theorems.</p>
+
+<h2 id="programming-in-r">Programming in R</h2>
+
+<p>In R, we can execute commands for the iteration, the evaluation of conditional expressions and we can define our own functions.</p>
+
+<h3 id="conditional-statements-if">Conditional statements (if)</h3>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="kr">if</span> <span class="p">(</span>condition<span class="p">)</span> command1 <span class="kr">else</span> command2
+<span class="c1">#OR</span>
+<span class="kp">ifelse</span><span class="p">(</span>condition<span class="p">,</span>command1<span class="p">,</span>command2<span class="p">)</span></code></pre></div>
+<p>The first expression verifies a <em>condition</em> <strong>only</strong> on a single element. In contrast, the <code>ifelse</code> command allows you to vectorize the control. If the <em>condition</em> is to be evaluated on a vector, the <code>ifelse</code> command evaluates it on all entries and applies <em>command1</em> if satisfied for that entry and <em>command2</em> otherwise. If a vector were passed to the expression <code>if</code>, this would evaluate the <em>condition</em> only with respect to the first element of the vector and execute the appropriate command.</p>
+
+<p>You can group multiple commands using braces and semicolons. For example, in this way, with the <code>if</code> it is possible to perform more operations for each case.</p>
+
+<h3 id="iterations-for-while-repeat">Iterations (for - while - repeat)</h3>
+
+<p>We can iterate commands using the <code>for</code>, <code>while</code>o <code>repeat</code>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="kp">sequence</span><span class="p">)</span> command1</code></pre></div>
+<p><code>for</code> allows iterating command1 as a variable varies, in this case <em>i</em>. This expression is very useful when visiting vectors and command1 is applied to different entries. Using braces, you can indicate multiple commands.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="kr">while</span> <span class="p">(</span>condition<span class="p">)</span> command1</code></pre></div>
+<p><code>while</code> repeats command1 until the condition is true. Using <code>while</code> can be risky if the condition is always satisfied and gets stuck in an <em>infinite loop</em>.</p>
+
+<p><code>repeat</code> simply repeats a command. <code>break</code> allows you to interrupt any iteration and is the only way to stop a<code>repeat</code> loop.</p>
+
+<h3 id="define-functions">Define functions</h3>
+
+<p>R allows the user to define functions, through the <code>function</code> command.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">FunName <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span> arguments <span class="p">)</span> command1
+<span class="kr">return</span><span class="p">(</span>value<span class="p">)</span></code></pre></div>
+<p>The previous syntax allows you to define a function called <em>FunName</em> that will evaluate command1 and return <em>value</em>.</p>
+
+<p>The use of <em>user-defined</em> functions allows you to recall the same function more time in different parts of the code and to pass different arguments. Also in this case, using braces, you can specify multiple commands.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">my_fun <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span> a <span class="p">,</span> b <span class="p">,</span> <span class="kt">c</span><span class="p">)</span> <span class="p">{</span>
+<span class="kr">return</span><span class="p">(</span>a<span class="o">*</span>b <span class="o">+</span> <span class="kt">c</span><span class="p">)</span>    
+<span class="p">}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">my_fun2 <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span> a <span class="p">,</span> b <span class="p">,</span> <span class="kt">c</span><span class="p">)</span> <span class="p">{</span>
+    y <span class="o">&lt;-</span> a<span class="o">**</span>b 
+<span class="kr">return</span><span class="p">(</span>y <span class="o">+</span> a<span class="o">*</span>b <span class="o">+</span> <span class="kt">c</span><span class="p">)</span>    
+<span class="p">}</span></code></pre></div>
+<p>You can save functions and scripts (using the .R extension), which can then be executed using <code>source (&quot; function_name.R &quot;)</code>. To recall these functions it is essential that they are in the working directory, otherwise the path to reach the file must be indicated.</p>
+
+<h1 id="the-tidyverse">The tidyverse</h1>
+
+<p>We cannot ignore the growing attention towards some packages that are oriented to data manipulation and visualization such as <strong>dplyr</strong>, <strong>ggplot2</strong>, <strong>tidyr</strong>, <strong>tibble</strong> and others, which are part of the so called <em>tidyverse</em>. These packages allow the user to easily manipulate data and perform non trivial selections using specific commands. For example, we can select columns or rows using commands such as <em>select</em> and <em>filter</em>.</p>
+
+<p>The following lines are an example of the use of <strong>dplyr</strong>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>dplyr<span class="p">)</span>
+
+starwars <span class="o">%&gt;%</span> 
+  filter<span class="p">(</span>species <span class="o">==</span> <span class="s">&#34;Droid&#34;</span><span class="p">)</span>
+
+starwars <span class="o">%&gt;%</span> 
+  select<span class="p">(</span>name<span class="p">,</span> ends_with<span class="p">(</span><span class="s">&#34;color&#34;</span><span class="p">))</span>
+
+starwars <span class="o">%&gt;%</span> 
+  mutate<span class="p">(</span>name<span class="p">,</span> bmi <span class="o">=</span> mass <span class="o">/</span> <span class="p">((</span>height <span class="o">/</span> <span class="m">100</span><span class="p">)</span>  <span class="o">^</span> <span class="m">2</span><span class="p">))</span> <span class="o">%&gt;%</span>
+  select<span class="p">(</span>name<span class="o">:</span>mass<span class="p">,</span> bmi<span class="p">)</span>
+
+starwars <span class="o">%&gt;%</span> 
+  arrange<span class="p">(</span>desc<span class="p">(</span>mass<span class="p">))</span>
+
+starwars <span class="o">%&gt;%</span>
+  group_by<span class="p">(</span>species<span class="p">)</span> <span class="o">%&gt;%</span>
+  summarise<span class="p">(</span>
+    n <span class="o">=</span> n<span class="p">(),</span>
+    mass <span class="o">=</span> <span class="kp">mean</span><span class="p">(</span>mass<span class="p">,</span> na.rm <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+  <span class="p">)</span> <span class="o">%&gt;%</span>
+  filter<span class="p">(</span>n <span class="o">&gt;</span> <span class="m">1</span><span class="p">,</span>
+         mass <span class="o">&gt;</span> <span class="m">50</span><span class="p">)</span></code></pre></div>
+<p>The following lines are an <a href="https://www2.stat.duke.edu/courses/Fall15/sta112.01/post/hw/HW1.html">example</a> of the use of <strong>ggplot2</strong>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
+
+ggplot<span class="p">(</span>data <span class="o">=</span> diamonds<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> depth<span class="p">,</span> fill <span class="o">=</span> <span class="kp">cut</span><span class="p">))</span> <span class="o">+</span>
+  geom_histogram<span class="p">(</span>binwidth <span class="o">=</span> <span class="m">0.2</span><span class="p">)</span>
+
+ggplot<span class="p">(</span>data <span class="o">=</span> diamonds<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> depth<span class="p">))</span> <span class="o">+</span>
+    geom_histogram<span class="p">(</span>binwidth <span class="o">=</span> <span class="m">0.2</span><span class="p">)</span> <span class="o">+</span>
+    facet_wrap<span class="p">(</span><span class="o">~</span> <span class="kp">cut</span><span class="p">)</span>
+
+<span class="c1"># The combination of the two packages</span>
+
+<span class="kn">library</span><span class="p">(</span>dplyr<span class="p">)</span>
+
+fair_diamonds <span class="o">&lt;-</span> diamonds <span class="o">%&gt;%</span>
+  filter<span class="p">(</span>cut <span class="o">==</span> <span class="s">&#34;Fair&#34;</span><span class="p">)</span>
+ggplot<span class="p">(</span>data <span class="o">=</span> fair_diamonds<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> price<span class="p">,</span> y <span class="o">=</span> carat<span class="p">))</span> <span class="o">+</span>
+  geom_point<span class="p">()</span>
+ggplot<span class="p">(</span>data <span class="o">=</span> fair_diamonds<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> price<span class="p">,</span> y <span class="o">=</span> carat<span class="p">))</span> <span class="o">+</span>
+  geom_point<span class="p">(</span>position <span class="o">=</span> <span class="s">&#34;jitter&#34;</span><span class="p">)</span></code></pre></div>
+<p>However, in this course, we will not explicitly use these packages, since they require to study their own syntax and grammar. However, you can use them if you like! You can find at the links more information about <a href="https://dplyr.tidyverse.org/">dplyr</a> and <a href="https://ggplot2.tidyverse.org/">ggplot2</a>.</p>
+
+<h2 id="the-pima-tr2-dataset">The Pima.tr2 dataset</h2>
+
+<p>Let&rsquo;s see together an example using the dataset Pima.tr2 in the library MASS.</p>
+
+<ol>
+<li>Save a copy of the dataset and explore its structure.</li>
+<li>Identify and count the missing data.</li>
+<li>Compute the summary of the dataset.</li>
+<li>Replace the missing values with the median of the same variable. Recompute the summary. Are there any changes?</li>
+<li>Create two vectors containing the values of the variable <strong>glu</strong> at the varying of type. Visually compare the distribution of the two vectors and comment the results.</li>
+<li>Repeat the previous comparison using a box plot and without the use of the two vectors. Comment the results.</li>
+<li>Compare the distribution of the measurements of the variable <strong>glu</strong> with a Gaussian distribution with mean and standard deviation equal to the experimental ones. Are the two distributions comparable?</li>
+<li>Compute mean and standard deviation of the number of pregnancies <strong>npreg</strong>. If we compare the data distribution with a Poisson with lambda equals to the mean of the data, are the two distributions comparable? Can you think of a better distribution for reproducing the data?</li>
+</ol>
+
+<p> &copy; 2017-2019  Federico Reali</p>
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://thefreolo.github.io/biostatistics/lesson2/" data-toggle="tooltip" data-placement="top" title="Lesson 2">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/TheFreolo" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/TheFreolo" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/federico-reali-9379b4116" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          
+          2019
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://thefreolo.github.io/">Federico Reali</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.36.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://thefreolo.github.io/js/main.js"></script>
+<script src="https://thefreolo.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script>
+<script src="https://thefreolo.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
+
