@@ -5,10 +5,24 @@
     <link>https://thefreolo.github.io/</link>
     <description>Recent content on Federico Reali</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 17 Oct 2019 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 29 Oct 2019 00:00:00 +0200</lastBuildDate>
     
 	<atom:link href="https://thefreolo.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>October exercises</title>
+      <link>https://thefreolo.github.io/biostatistics/october_exercises/</link>
+      <pubDate>Tue, 29 Oct 2019 00:00:00 +0200</pubDate>
+      
+      <guid>https://thefreolo.github.io/biostatistics/october_exercises/</guid>
+      <description>&lt;h1 id=&#34;data-manipulation-exercises&#34;&gt;Data manipulation exercises&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://errantscience.com/wp-content/uploads/Supervisor-data-simplifier-2-1024x703.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Originally posted &lt;a href=&#34;https://errantscience.com/blog/2019/09/09/cartoon-gallery-doughnuts-and-unicorns/&#34;&gt;here&lt;/a&gt;.
+&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Lesson 3</title>
