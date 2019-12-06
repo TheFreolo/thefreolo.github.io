@@ -212,7 +212,7 @@ ga('send', 'pageview');
 
 <p></p>
 
-<h2 id="exercise-1-linear-regression">Exercise 1 (linear regression)</h2>
+<h2 id="exercise-1">Exercise 1</h2>
 
 <p>Load the library MASS and consider the dataset &ldquo;crabs&rdquo;, which has 200 rows and 8 columns, describing 5 morphological measurements on 50 crabs each of two colour forms and both sexes, of the species Leptograpsus variegatus collected at Fremantle, W. Australia.</p>
 
@@ -223,7 +223,7 @@ ga('send', 'pageview');
 
 <li><p>Using a box plot, visualize the variable RW at the varying of the sex. Comment on the result.</p></li>
 
-<li><p>Define a linear model for the variable RW at the varying of FL (predictor). Comment on the results and visualize the regression line against the experimental data</p></li>
+<li><p>Define a linear model for the variable RW at the varying of FL (predictor). Comment on the results and visualize the regression line against the experimental data.</p></li>
 
 <li><p>Define a linear model for the variable RW at the varying of FL and sex (predictors). Compare the results with the previous regression model and comment on the results.</p></li>
 </ol>
@@ -244,15 +244,27 @@ ga('send', 'pageview');
 
 <h3 id="solutions-https-www-dropbox-com-s-i8nm2evudr9tftz-lesson6-12-r-dl-1"><a href="https://www.dropbox.com/s/i8nm2evudr9tftz/Lesson6_12.R?dl=1">Solutions</a></h3>
 
-<!-- ## Exercise 3
+<h2 id="exercise-3">Exercise 3</h2>
 
-Download the [dataset](https://www.dropbox.com/s/byv8h4qftq3ukz0/WeatherData.csv?dl=1) containing the weather information for the same period of Exercise 2. 
+<p>Download the <a href="https://www.dropbox.com/s/byv8h4qftq3ukz0/WeatherData.csv?dl=1">dataset</a> containing the weather information for the same period of Exercise 2.</p>
 
-1. Merge the two datasets (weather and bike sharing).
+<ol>
+<li><p>Merge the two datasets (weather and bike sharing). <strong>The following analysis are intended on this merged dataset.</strong></p></li>
 
-2. From this new dataset, select the rows about spring of 2012.
+<li><p>From this new dataset, select the rows about spring of 2012. <strong>The following analysis are intended on this reduced dataset.</strong></p></li>
 
-3. Use the t.test to determine if the mean number of rented bike is statistically different in days with and without rain. Comment th results.  -->
+<li><p>Using histograms, visualize the distribution of the numerical variables cnt.</p></li>
+
+<li><p>Using a box plot, visualize the variable cnt at the varying of the weathersit. Comment on the result.</p></li>
+
+<li><p>Use the t.test to determine if the mean number of rented bike is statistically different in days with nice weather (variable weathersit == 1) or not so nice weather (weathersit &gt;1). Comment on the results.</p></li>
+
+<li><p>Define a linear model for the variable cnt at the varying of atemp (predictor). Comment on the results and visualize the regression line against the experimental data.</p></li>
+
+<li><p>Define a linear model for the variable cnt at the varying of atemp and weathersit (predictors). Compare the results with the previous regression model and comment on the results.</p></li>
+</ol>
+
+<p><a href="https://www.autodeskresearch.com/publications/samestats">Link</a> at the Datasaurus distribution.</p>
 
 <p> &copy; 2017-2019  Federico Reali</p>
       </article>
