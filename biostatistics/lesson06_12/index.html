@@ -5,9 +5,24 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Biostatistics</title>
-  <meta property="og:title" content="Biostatistics" />
-  <meta name="twitter:title" content="Biostatistics" />
+  <title>Lesson 6 December 2019</title>
+  <meta property="og:title" content="Lesson 6 December 2019" />
+  <meta name="twitter:title" content="Lesson 6 December 2019" />
+  <meta name="description" content="Practice with regression and statistical hypothesis
+
+
+
+">
+  <meta property="og:description" content="Practice with regression and statistical hypothesis
+
+
+
+">
+  <meta name="twitter:description" content="Practice with regression and statistical hypothesis
+
+
+
+">
   <meta name="author" content=""/>
   <link href='https://thefreolo.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta property="og:image" content="https://thefreolo.github.io/media/Profile_PIC.jpg" />
@@ -15,13 +30,13 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@TheFreolo" />
   <meta name="twitter:creator" content="@TheFreolo" />
-  <meta property="og:url" content="https://thefreolo.github.io/biostatistics/" />
+  <meta property="og:url" content="https://thefreolo.github.io/biostatistics/lesson06_12/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Federico Reali" />
 
   <meta name="generator" content="Hugo 0.36.1" />
-  <link rel="canonical" href="https://thefreolo.github.io/biostatistics/" />
-  <link rel="alternate" href="https://thefreolo.github.io/biostatistics/index.xml" type="application/rss+xml" title="Federico Reali">
+  <link rel="canonical" href="https://thefreolo.github.io/biostatistics/lesson06_12/" />
+  <link rel="alternate" href="https://thefreolo.github.io/index.xml" type="application/rss+xml" title="Federico Reali">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -158,14 +173,26 @@ ga('send', 'pageview');
 
 
     
+  
+  
+  
+
+
+
+
+  
+
   <header class="header-section ">
+    
     <div class="intro-header no-img">
+      
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="page-heading">
-              <h1>Biostatistics</h1>
-              <hr class="small">
+            <div class="Biostatistics-heading">
+              <h1>Lesson 6 December 2019</h1>
+                
+                
             </div>
           </div>
         </div>
@@ -173,175 +200,81 @@ ga('send', 'pageview');
     </div>
   </header>
 
+
     
-  <div class="container" role="main">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        
-        <div class="posts-list">
-          
-            <article class="post-preview">
-              <a href="https://thefreolo.github.io/biostatistics/lesson06_12/">
-                <h2 class="post-title">Lesson 6 December 2019</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on December 5, 2019
-              </p>
-              <div class="post-entry">
-                
-                  <h1 id="practice-with-regression-and-statistical-hypothesis">Practice with regression and statistical hypothesis</h1>
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h1 id="practice-with-regression-and-statistical-hypothesis">Practice with regression and statistical hypothesis</h1>
 
 <p><img src="https://cdn.pixabay.com/photo/2015/09/21/18/57/crabs-950463_960_720.jpg" alt="" /></p>
 
 <p></p>
-                  <a href="https://thefreolo.github.io/biostatistics/lesson06_12/" class="post-read-more">[Read More]</a>
-                
-              </div>
 
-              
+<h2 id="exercise-1-linear-regression">Exercise 1 (linear regression)</h2>
 
-            </article>
+<p>Load the library MASS and consider the dataset &ldquo;crabs&rdquo;, which has 200 rows and 8 columns, describing 5 morphological measurements on 50 crabs each of two colour forms and both sexes, of the species Leptograpsus variegatus collected at Fremantle, W. Australia.</p>
+
+<ol>
+<li><p>Create a new dataset that contains only the variables sex, FL e RW. Compute the mean, quartiles and standard deviation of the numerical variables.</p></li>
+
+<li><p>Using histograms, visualize the distribution of the numerical variables.</p></li>
+
+<li><p>Using a box plot, visualize the variable RW at the varying of the sex. Comment on the result.</p></li>
+
+<li><p>Define a linear model for the variable RW at the varying of FL (predictor). Comment on the results and visualize the regression line against the experimental data</p></li>
+
+<li><p>Define a linear model for the variable RW at the varying of FL and sex (predictors). Compare the results with the previous regression model and comment on the results.</p></li>
+</ol>
+
+<h2 id="exercise-2">Exercise 2</h2>
+
+<p>Read the <a href="https://www.dropbox.com/s/nr6q0put49pg60a/Count0.csv?dl=1">dataset</a> about the bike sharing service in Washington (<a href="https://www.dropbox.com/s/lb7l9lwa4me0zti/descrizione.txt?dl=0">description</a>).</p>
+
+<ol>
+<li><p>Check if all the variables are read correctly, otherwise transform them in the correct format.</p></li>
+
+<li><p>Plot the variable cnt at the varying of the date.</p></li>
+
+<li><p>Using the likelihood ratio, discuss if the mean number of rented bikes in the months of May 2011 and May 2012 are statistically different.</p></li>
+
+<li><p>Compare and comment the results with <code>t.test</code>.</p></li>
+</ol>
+
+<!-- ## Exercise 3
+
+Download the [dataset](https://www.dropbox.com/s/byv8h4qftq3ukz0/WeatherData.csv?dl=1) containing the weather information for the same period of Exercise 2. 
+
+1. Merge the two datasets (weather and bike sharing).
+
+2. From this new dataset, select the rows about spring of 2012.
+
+3. Use the t.test to determine if the mean number of rented bike is statistically different in days with and without rain. Comment th results.  -->
+
+<p> &copy; 2017-2019  Federico Reali</p>
+      </article>
+
+      
+        <ul class="pager blog-pager">
           
-            <article class="post-preview">
-              <a href="https://thefreolo.github.io/biostatistics/october_exercises/">
-                <h2 class="post-title">October exercises</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on October 29, 2019
-              </p>
-              <div class="post-entry">
-                
-                  <h1 id="data-manipulation-exercises">Data manipulation exercises</h1>
-
-<p><img src="https://errantscience.com/wp-content/uploads/Supervisor-data-simplifier-2-1024x703.png" alt="" /></p>
-
-<p>Originally posted <a href="https://errantscience.com/blog/2019/09/09/cartoon-gallery-doughnuts-and-unicorns/">here</a>.
-</p>
-                  <a href="https://thefreolo.github.io/biostatistics/october_exercises/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-
-            </article>
+            <li class="previous">
+              <a href="https://thefreolo.github.io/biostatistics/october_exercises/" data-toggle="tooltip" data-placement="top" title="October exercises">&larr; Previous Post</a>
+            </li>
           
-            <article class="post-preview">
-              <a href="https://thefreolo.github.io/biostatistics/lesson3/">
-                <h2 class="post-title">Lesson 3</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on October 17, 2019
-              </p>
-              <div class="post-entry">
-                
-                  <h1 id="data-visualization-and-manipulation">Data visualization (and Manipulation)</h1>
-
-<p><img src="/media/Cholera.jpg" alt="" /></p>
-
-<p></p>
-                  <a href="https://thefreolo.github.io/biostatistics/lesson3/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-
-            </article>
           
-            <article class="post-preview">
-              <a href="https://thefreolo.github.io/biostatistics/lesson2/">
-                <h2 class="post-title">Lesson 2</h2>
+        </ul>
+      
 
-                
-              </a>
 
-              <p class="post-meta">
-                Posted on October 3, 2019
-              </p>
-              <div class="post-entry">
-                
-                  <h1 id="working-with-data">Working with data</h1>
-
-<p></p>
-                  <a href="https://thefreolo.github.io/biostatistics/lesson2/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://thefreolo.github.io/biostatistics/lesson1/">
-                <h2 class="post-title">Lesson 1</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on September 19, 2019
-              </p>
-              <div class="post-entry">
-                
-                  <p><img src="https://1.bp.blogspot.com/-ju4m6PBOrgo/V-E5qz99SaI/AAAAAAAAMF0/gle0zsZz_nIBEMVg0EdZHoGJhjlnBzv1gCLcB/s1600/moz-screenshot-3-729576.png" alt="" />
-Originally posted <a href="https://www.kdnuggets.com/2016/10/battle-data-science-venn-diagrams.html">here</a>.</p>
-
-<h1 id="r-basic-syntax">R basic syntax</h1>
-
-<p></p>
-                  <a href="https://thefreolo.github.io/biostatistics/lesson1/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://thefreolo.github.io/biostatistics/lesson0/">
-                <h2 class="post-title">Install R and RStudio</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on September 9, 2019
-              </p>
-              <div class="post-entry">
-                
-                  <p><img src="/media/Rlogo.png" alt="" /></p>
-
-<h2 id="why-r">Why R</h2>
-
-<blockquote>
-<p>R is a free software environment for statistical computing and graphics.
-It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.</p>
-
-<p><cite> The R Foundation <cite></p>
-</blockquote>
-
-<p></p>
-                  <a href="https://thefreolo.github.io/biostatistics/lesson0/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-
-            </article>
-          
-        </div>
+      
         
-      </div>
+        
+      
+
     </div>
   </div>
+</div>
 
     <footer>
   <div class="container">

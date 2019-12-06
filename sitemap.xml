@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://thefreolo.github.io/biostatistics/lesson06_12/</loc>
+    <lastmod>2019-12-05T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://thefreolo.github.io/biostatistics/october_exercises/</loc>
     <lastmod>2019-10-29T00:00:00+02:00</lastmod>
   </url>
@@ -169,7 +174,7 @@
   
   <url>
     <loc>https://thefreolo.github.io/biostatistics/</loc>
-    <lastmod>2019-10-29T00:00:00+02:00</lastmod>
+    <lastmod>2019-12-05T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -186,7 +191,7 @@
   
   <url>
     <loc>https://thefreolo.github.io/</loc>
-    <lastmod>2019-10-29T00:00:00+02:00</lastmod>
+    <lastmod>2019-12-05T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
