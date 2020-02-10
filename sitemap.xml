@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/esamefebbraio2020/</loc>
+    <lastmod>2020-02-05T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://thefreolo.github.io/biostatistics/howtormd/</loc>
     <lastmod>2020-01-21T16:00:00+01:00</lastmod>
   </url>
@@ -190,7 +195,7 @@
   
   <url>
     <loc>https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/</loc>
-    <lastmod>2019-09-03T00:00:00+01:00</lastmod>
+    <lastmod>2020-02-05T00:00:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -201,7 +206,7 @@
   
   <url>
     <loc>https://thefreolo.github.io/</loc>
-    <lastmod>2020-01-21T16:00:00+01:00</lastmod>
+    <lastmod>2020-02-05T00:00:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
