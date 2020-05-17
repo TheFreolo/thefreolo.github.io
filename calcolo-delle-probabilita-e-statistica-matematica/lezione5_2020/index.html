@@ -5,22 +5,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Lezione4</title>
-  <meta property="og:title" content="Lezione4" />
-  <meta name="twitter:title" content="Lezione4" />
-  <meta name="description" content="Manipolare dati
+  <title>Lezione5</title>
+  <meta property="og:title" content="Lezione5" />
+  <meta name="twitter:title" content="Lezione5" />
+  <meta name="description" content="Ipotesi statistiche
 
-
-Originally posted here.
-
-">
-  <meta property="og:description" content="Manipolare dati
 
 
 Originally posted here.
 
 ">
-  <meta name="twitter:description" content="Manipolare dati
+  <meta property="og:description" content="Ipotesi statistiche
+
+
+
+Originally posted here.
+
+">
+  <meta name="twitter:description" content="Ipotesi statistiche
+
 
 
 Originally posted here.
@@ -33,12 +36,12 @@ Originally posted here.
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@TheFreolo" />
   <meta name="twitter:creator" content="@TheFreolo" />
-  <meta property="og:url" content="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/lezione4_2020/" />
+  <meta property="og:url" content="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/lezione5_2020/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Federico Reali" />
 
   <meta name="generator" content="Hugo 0.36.1" />
-  <link rel="canonical" href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/lezione4_2020/" />
+  <link rel="canonical" href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/lezione5_2020/" />
   <link rel="alternate" href="https://thefreolo.github.io/index.xml" type="application/rss+xml" title="Federico Reali">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -193,7 +196,7 @@ ga('send', 'pageview');
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="Calcolo delle Probabilita e Statistica Matematica-heading">
-              <h1>Lezione4</h1>
+              <h1>Lezione5</h1>
                 
                 
             </div>
@@ -209,58 +212,47 @@ ga('send', 'pageview');
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h1 id="manipolare-dati">Manipolare dati</h1>
+        <h1 id="ipotesi-statistiche">Ipotesi statistiche</h1>
 
-<p><img src="https://imgs.xkcd.com/comics/extrapolating.png" alt="" />
-Originally posted <a href="https://xkcd.com/605/">here</a>.</p>
+<p><img src="https://imgs.xkcd.com/comics/t_distribution.png" alt="" /></p>
+
+<p>Originally posted <a href="https://xkcd.com/1347/">here</a>.</p>
 
 <p></p>
 
-<p>In questa lezione lavorerete molto più voi di me, e per questo ci saranno meno note. Nonostante questo, inizieremo vedendo alcuni comandi e funzioni che risultano utili. Ricordiamoci di inizializzare la cartella relativa a questa lezione con le ormai note cartelle.</p>
+<h1 id="ipotesi-statistiche-test-nb-html"><a href="/Test.nb.html">Ipotesi statistiche</a></h1>
 
-<h1 id="manipolare-dati-continua">Manipolare dati (continua)</h1>
+<p>Le note riportano una breve introduzione sui test statistici con R.</p>
 
-<p>Abbiamo ampiamente visto come lavorare e manipolare i dati. Tuttavia un importante funzione che permette di raggruppare i dati non è stata spiegata in classe: si tratta di <code>aggregate()</code>. Tale comando, permette di applicare una funzione ad un sottoinsieme dei dati, seguendo uno schema preciso. Vediamo alcuni esempi.</p>
-
-<p>Altro utile comando è <code>merge()</code> che permette di unire dataframe indicando il campo da usare per confrontare le entrate. In modo più semplice, e dopo essersi assicurati che le osservazioni siano &ldquo;allineate&rdquo;, è possibile usare anche i comandi <code>rbin()</code> e <code>cbind()</code> che sono già stati trattati.</p>
-
-<h1 id="distribuzioni-di-probabilità">Distribuzioni di probabilità</h1>
-
-<p>R ci permette di accedere a molte distribuzioni di probabilità attraverso delle apposite funzioni che sono contenuto nel pacchetto <em>stast</em>, che va quindi caricato.</p>
-
-<p>Le distribuzioni sono accessibili attraverso delle funzioni che richiamano il nome della distribuzione, ad esempio con <em>norm</em>, <em>binom</em> e <em>gamma</em>, solo per citarne alcune, si accede alla distribuzione normale, binomiale e gamma. A tale nome si aggiunge un <em>prefisso</em>, che serve a specificare se si è interessati alla funzione densità (<em>d</em>), alla distribuzione (<em>p</em>), alla funzione che riporta i quantili (<em>q</em>) o se si vogliono generare dei numeri usando tale distribuzione (<em>r</em>).</p>
-
-<p>Cercando <em>distribution</em> nell&rsquo;help è possibile accedere all&rsquo;elenco di tutte le distribuzioni di R. Il fatto che R permetta di accedere facilmente alle distribuzioni tornerà particolarmente utile quando lavoreremo con gli intervalli di confidenza, e potremmo interrogare R, piuttosto che lavorare con la versione tabulare delle stesse.</p>
-
-<p>Va segnalata, almeno per la distribuzione normale, che esiste la funzione <code>qqnorm</code> che permette di confrontare graficamente i quantili dei propri dati con quelli della distribuzione normale. Questo è un modo per verificare graficamente (e quindi non formalmente) se i propri dati seguono una distribuzione normale. Insieme alla richiesta che le misurazioni siano indipendenti, queste due sono delle ipotesi che abbiamo visto molto spesso, specialmente nell&rsquo;uso di teoremi limite.</p>
-
-<h1 id="esercitazione">Esercitazione</h1>
+<h2 id="breve-esercizio">Breve esercizio</h2>
 
 <ol>
-<li><p>Si leggano i dati regionali della protezione civile relativi a COVID-19 Leggi dati covid al <a href="https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni.csv">link</a>. Si salvino in un opportuno dataframe.</p></li>
-
-<li><p>Si selezionino i dati relativi alla propria regione/provincia autonoma di origine e si salvino in un nuovo dataset. <strong>Le analisi seguenti si intendono su queso dataset.</strong></p></li>
-
-<li><p>Si confronti il numero medio di nuovi positivi nei mesi di Marzo e Aprile, così come le due deviazioni standard.</p></li>
-
-<li><p>Si visualizzi l&rsquo;andamento nel tempo dei nuovi positivi (durante tutto il periodo) aggiungendo delle opportune label lungo gli assi.</p></li>
-
-<li><p>Si definisca la colonna <code>nuovi_guariti</code>, con il conto giornaliero dei guariti.</p></li>
-
-<li><p>Con un solo plot, si confrontino i nuovi positivi ed i nuovi guariti. Si ripeta il grafico usando linee invece che punti.</p></li>
-
-<li><p>Si affianchino le distribuzioni dei nuovi positivi e dei nuovi guariti.</p></li>
+<li>Si leggano i dati regionali della protezione civile relativi a COVID-19 al <a href="https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni.csv">link</a>. Si salvino in un opportuno dataframe.</li>
+<li>Si verifichi se il valore medio di nuovi contagi tra tutte le regioni durante il mese di Aprile è statisticamente maggiore di 135 rispetto alla soglia di significatività del 99%.</li>
+<li>Si ripeta separatamente l&rsquo;analisi per Piemonte e Toscana (nello stesso periodo). Si commentino i risultati.</li>
+<li>Se verifichi se il valore medio dei nuovi guariti (come definiti nella scorsa lezione) in Veneto ed Emilia Romagna sono statisticamente differenti.</li>
 </ol>
 
-<h1 id="facciamo-un-po-di-pratica-l4-nb-html"><a href="/L4.nb.html">Facciamo un po&rsquo; di pratica!</a></h1>
+<h1 id="esercitazione-2">Esercitazione 2</h1>
 
-<p><a href="/L4.Rmd">(R notebook)</a></p>
+<p>Si scarichi il dataset al <a href="https://www.dropbox.com/s/20uhunn7ci38yv6/DataL5%20%283%29.tsv?dl=1">link</a> e si eseguano le operazioni:</p>
 
-<!---
+<ol>
+<li>Si importi il dataset.</li>
+<li>Si crei un nuovo dataset contenente solo le righe corrispondenti alla variabile <strong>Idataset</strong> uguale all&rsquo;ultimo numero del proprio numero di matricola. Dopo aver fatto ciò, si rimuova la variabile. Le seguenti analisi si intendono su questo dataset.</li>
+<li>Si analizzi la struttura del dataset, si verifichi il numero di righe e colonne contenute. Il dataset è stato letto bene? E&rsquo; tidy?</li>
+<li>Si verifichi la presenza di eventuali errori nei dati e si sostituiscano con la mediana.</li>
+<li>Si calcolino media, mediana, minimo, massimo e quartili e deviazione standard.</li>
+<li>Si visualizzi la distribuzione delle variabili <strong>x</strong> e <strong>y</strong> e i loro box plot.</li>
+<li>Si visualizzino i dati mediante uno scatterplot.</li>
+</ol>
 
-# Regressione lineare
+<!-- #### [Soluzione](/SolLez5.R)
+Il dataset completo e una discussione riguardo i dati usati per l'esercizio sono disponibili [qui](https://www.autodeskresearch.com/publications/samestats). -->
 
-Al [link](/Regression.nb.html) è possibile trovare delle note sulla regressione.
+<!-- # Regressione lineare
+
+Al [link](/Regression_2019.nb.html) è possibile trovare delle note sulla regressione.
 
 Ricordiamo che per applicare la regressione lineare dobbiamo essere sicuri che le ipotesi siano soddisfatte. In particolare dovremo assicurarci che i residui seguano una distribuzione normale centrata in 0 e siano indipendenti. 
 
@@ -293,9 +285,27 @@ Si può accedere ai vari elementi elencati da `summary()` usando la notazione `$
 
 Tra le informazioni che fornisce summary, è presente anche il valore **R-squared** (R quadro), che è la **proporzione di varianza della variabile dipendente che viene spiegata dal predittore**. Tale valore è compreso tra 0 e 1. Valori vicino a 1 indicano un buon modello, mentre valori bassi possono indicare o che il modello non spieghi completamente/correttamente i dati, o che la varianza dei residui è molto alta. 
 
+Una volta definito il modello, è importante visualizzare i risultati per valutarne la bontà e per capire il comportamento dei residui. In questo modo è infatti possibile verificare __quantitativamente__ (non formalmente) se i residui soddisfano le ipotesi di indipendenza (non si devono osservare dei pattern) e che la distribuzione dei quantili sia confrontabile con quella di una normale. 
 
-#### Esercizio
+I seguenti comandi permettono di visualizzare la retta di regressione, i quantili e di confrontarli con la distribuzione in quantili di una normale.
+
+```{r}
+par(mfrow = c(3,1), mar = c(2,2,1,1))
+# Retta di regressione
+plot(mpg ~ hp, data = mtcars)
+abline(mtcars_reg$coefficients, col = "red")
+# Pattern nei residui
+plot(mtcars_reg$residuals, main = "Residui")
+# Distribuzione in quantili 
+qqnorm(mtcars_reg$residuals)
+qqline(mtcars_reg$residuals)
+```
+
+#### Esercizio A
 In modo analogo a quanto fato sopra, si investighi la relazione tra consumo e peso delle auto in esame.
+
+#### Esercizio B
+Si discuta un modello lineare per le variabili __x__ e __y__ di __Esercizo 1__.
 
 ## Regressione multipla
 
@@ -306,51 +316,48 @@ mtcars_reg_hp_wt <- lm(mpg ~ hp + wt, data = mtcars)
 summary(mtcars_reg_hp_wt)
 ```
 
-# Esercizi
+
+
+# Esercitazione 1
+
+Si scarichi il dataset al [link](https://www.dropbox.com/s/8uoacrlaeio1hy3/DataL5.tsv?dl=1) e si eseguano le operazioni:
+
+1. Si importi il dataset.
+2. Si crei un nuovo dataset contenente solo le righe corrispondenti alla variabile __Idataset__ uguale all'ultimo numero del proprio numero di matricola. Dopo aver fatto ciò, si rimuova la variabile. Le seguenti analisi si intendono su questo dataset.
+3. Si analizzi la struttura del dataset, si verifichi il numero di righe e colonne contenute. Il dataset è stato letto bene? E' tidy?
+4. Si verifichi la presenza di eventuali errori nei dati e si sostituiscano con la mediana. 
+5. Si calcolino media, mediana, minimo, massimo e quartili e deviazione standard.
+6. Si visualizzi la distribuzione delle variabili __x__ e __y__ e i loro box plot.
+7. Si visualizzino i dati mediante uno scatterplot.
+
+#### [Soluzione](/SolLez5.R)
+Il dataset completo e una discussione riguardo i dati usati per l'esercizio sono disponibili [qui](https://www.autodeskresearch.com/publications/samestats).
+ -->
+
+<!-- # Esercizi
 
 ## Esercizio 1
-Si importi il [dataset](https://www.dropbox.com/s/boesoonvh04nqym/Gray_Kangaroos.tsv?dl=0) ([descrizione](http://college.cengage.com/mathematics/brase/understandable_statistics/7e/students/datasets/slr/frames/frame.html)) e si analizzi la relazione tra le due variabili usando la regressione lineare. Si analizzino i risultati e si visualizzino i residui.
---->
+Si importi il [dataset](https://www.dropbox.com/s/boesoonvh04nqym/Gray_Kangaroos.tsv?dl=1) ([descrizione](http://college.cengage.com/mathematics/brase/understandable_statistics/7e/students/datasets/slr/frames/frame.html)) e si analizzi la relazione tra le due variabili usando la regressione lineare. Si analizzino i risultati e si visualizzino i residui.
 
-<h2 id="a-name-l5ex1-a-esercizio-1"><a name="L5Ex1"></a>Esercizio 1</h2>
 
-<p>Si trovi un modo adeguato per importare i dati relativi al <a href="http://docs.google.com/spreadsheet/pub?key=0ArfEDsV3bBwCdGhJcHAwanc2aFdZeXl1WTVZQnJjb1E&amp;output=xlsx">reddito nazionale lordo pro capite</a> e alla <a href="http://docs.google.com/spreadsheet/pub?key=0AkBd6lyS3EmpdDBKd2V5VmxkYlJuUHAtOURzUkZzNEE&amp;output=csv">percentuale di strade asfaltate</a> in R. Dopo aver analizzato e preparato i dataset, si usino i dati per investigare le due variabili rispetto ad un paese del G7, un paese in via di sviluppo ed un paese del terzo mondo a scelta, nel periodo dal 1990 al 2009.
-Si analizzino i dati e si visualizzino.
-<!--- Inoltre si usi la regressione lineare per analizzare la relazione tra le variabili. Si commentino e discutano i risultati. ---></p>
+## Esercizio 2
+Si trovi un modo adeguato per importare i dati relativi al [reddito nazionale lordo pro capite](http://docs.google.com/spreadsheet/pub?key=0ArfEDsV3bBwCdGhJcHAwanc2aFdZeXl1WTVZQnJjb1E&output=xlsx) e alla [percentuale di strade asfaltate](http://docs.google.com/spreadsheet/pub?key=0AkBd6lyS3EmpdDBKd2V5VmxkYlJuUHAtOURzUkZzNEE&output=csv) in R. Dopo aver analizzato e preparato i dataset, si usino i dati per investigare le due variabili rispetto ad un paese del G7, un paese in via di sviluppo ed un paese del terzo mondo a scelta, nel periodo dal 1990 al 2009. 
+Si analizzino i dati e si visualizzino. Inoltre si usi la regressione lineare per analizzare la relazione tra le variabili. Si commentino e discutano i risultati. 
 
-<!---
-## <a name="L4Ex3"></a>Exercizio 3
-Usando il dataset ottenuto nell'[Esercizio 3 della lezione precedente](../lezione3#L3Ex3 ), si investighi usando la regressione lineare la relazione tra prodotto interno lordo e aspettativa di vita per ognuno dei continenti. Si usi la funzione `predict()` per valutare il modello su dati diversi da quelli usati per definirlo. In particolare, si valuti il modello ottenuto per l'America sui dati europei e viceversa. Si visualizzino e si discutano i risultati ottenuti, dandone anche un interpretazione.
+##### [Soluzione Es2](/SolEs2.R) 
 
-## <a name="L4Ex4"></a>Esercizo 4
-Si considerino i modelli ottenuto nell'[Esercizio 3](./#L4Ex3). Si valuti separatamente il modello ottenuto per l'America e quello l'Europa usando i dati dei paesi _Canada_, _Italy_, _Argentina_ e _Sierra Leone_ contentuti nel dataset originale. Si valutino i valori di R quadro ottenuti e si discutano i risultati.
+
+## <a name="L6Ex3"></a>Esercizio 3
+Usando il dataset ottenuto nell'[Esercizio 3 della lezione 5](../lezione5_2019#L5Ex3 ), si investighi usando la regressione lineare la relazione tra prodotto interno lordo e aspettativa di vita per ognuno dei continenti. Si usi la funzione `predict()` per valutare il modello su dati diversi da quelli usati per definirlo. In particolare, si valuti il modello ottenuto per l'America sui dati europei e viceversa. Si visualizzino e si discutano i risultati ottenuti, dandone anche un interpretazione.
+
+## <a name="L6Ex4"></a>Esercizio 4
+Si considerino i modelli ottenuto nell'[Esercizio 3](./#L6Ex3). Si valuti separatamente il modello ottenuto per l'America e quello l'Europa usando i dati dei paesi _Canada_, _Italy_, _Argentina_ e _Sierra Leone_ contentuti nel dataset originale. Si valutino i valori di R quadro ottenuti e si discutano i risultati.
 
 _Suggerimento_ si usi la formulazione equivalente di R quadro:
 <a href="https://www.codecogs.com/eqnedit.php?latex=R^2&space;=&space;1&space;-&space;\frac{SS_{res}}{SS_{tot}},&space;\,&space;\text{&space;dove&space;}&space;SS_{res}&space;=&space;\sum_i&space;(y_i&space;-&space;\hat{y}_i)^2&space;\text{&space;e&space;}&space;SS_{tot}&space;=&space;\sum_i&space;(y_i&space;-&space;\bar{y})^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?R^2&space;=&space;1&space;-&space;\frac{SS_{res}}{SS_{tot}},&space;\,&space;\text{&space;dove&space;}&space;SS_{res}&space;=&space;\sum_i&space;(y_i&space;-&space;\hat{y}_i)^2&space;\text{&space;e&space;}&space;SS_{tot}&space;=&space;\sum_i&space;(y_i&space;-&space;\bar{y})^2" title="R^2 = 1 - \frac{SS_{res}}{SS_{tot}}, \, \text{ dove } SS_{res} = \sum_i (y_i - \hat{y}_i)^2 \text{ e } SS_{tot} = \sum_i (y_i - \bar{y})^2" /></a>
+ -->
 
---->
-
-<h2 id="esercizio-2">Esercizio 2</h2>
-
-<p>Si svolga il primo capitolo del <a href="https://www.datacamp.com/courses/introduction-to-credit-risk-modeling-in-r">corso online</a> di DataCamp che riguarda i modelli di rischio nel credito. Il primo capitolo del corso (in inglese) è gratuito.</p>
-
-<h2 id="a-name-l5ex3-a-esercizio-3"><a name="L5Ex3"></a>Esercizio 3</h2>
-
-<p>Si importi il <a href="https://raw.githubusercontent.com/socviz/soc880/master/data/gapminder.csv">dataset</a> contenente i dati relativi alla aspettativa di vita, popolazione e prodotto interno lordo pro capite di 142 paesi del mondo.
-Si aggreghino i dati per continenti e si visualizzi l&rsquo;andamento dell&rsquo;aspettativa di vita rispetto alle variabili tempo, reddito pro capite e popolazione.
-Si investighi una possibile trasformazione dei dati per rendere più informativa l&rsquo;analisi e si ripetano le analisi sui dati trasformati.</p>
-
-<h2 id="a-name-l5ex4-a-esercizio-4"><a name="L5Ex4"></a>Esercizio 4</h2>
-
-<p>Si consideri il <a href="https://www.kaggle.com/ronitf/heart-disease-uci">dataset</a> che riporta 14 parametri di 303 pazienti con problemi di cuore. Si importi il dataset e si visualizzino con degli istogrammi le distribuzioni  delle variabili. Inoltre usando la funzione <code>aggregate</code>, si determini al variare dell&rsquo;età, il valore medio e massimo delle variabili <code>chol</code> (colesterolo) e <code>thalach</code> (frequenza cardiaca massima).</p>
-
-<h2 id="esercizio-5">Esercizio 5</h2>
-
-<p>Dopo aver svolto l&rsquo;<a href="./#L5Ex4">Esercizio 4</a>, si consulti il notebook R al <a href="https://www.kaggle.com/naik170106027/prediction-of-heart-diseases">link</a>. Quali sono gli obbiettivi dell&rsquo;autore? Quale tecniche utilizza? Quale di queste non sono ancora state trattate nel nostro corso?</p>
-
-<!--- 
-#### [Soluzioni](/SvolgimentoEsL4.R)
---->
+<!-- #### [Soluzioni](/SvolgimentoEsL5.R) -->
 
 <p> &copy; 2017-2020  Federico Reali</p>
       </article>
@@ -359,13 +366,9 @@ Si investighi una possibile trasformazione dei dati per rendere più informativa
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/esamefebbraio2020/" data-toggle="tooltip" data-placement="top" title="Esame Febbraio 2020">&larr; Previous Post</a>
+              <a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/lezione4_2020/" data-toggle="tooltip" data-placement="top" title="Lezione4">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/lezione5_2020/" data-toggle="tooltip" data-placement="top" title="Lezione5">Next Post &rarr;</a>
-            </li>
           
         </ul>
       
