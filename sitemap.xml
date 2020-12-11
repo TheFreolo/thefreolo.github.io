@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://thefreolo.github.io/biostatistics/lesson11_12_2020/</loc>
+    <lastmod>2020-12-10T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/riflessione_2019/</loc>
     <lastmod>2020-05-24T21:30:00+01:00</lastmod>
   </url>
@@ -194,7 +199,7 @@
   
   <url>
     <loc>https://thefreolo.github.io/biostatistics/</loc>
-    <lastmod>2020-01-21T16:00:00+01:00</lastmod>
+    <lastmod>2020-12-10T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -211,7 +216,7 @@
   
   <url>
     <loc>https://thefreolo.github.io/</loc>
-    <lastmod>2020-05-24T21:30:00+01:00</lastmod>
+    <lastmod>2020-12-10T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   

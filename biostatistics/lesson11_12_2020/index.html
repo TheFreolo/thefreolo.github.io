@@ -5,12 +5,24 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Teaching</title>
-  <meta property="og:title" content="Teaching" />
-  <meta name="twitter:title" content="Teaching" />
-  <meta name="description" content="Material for courses">
-  <meta property="og:description" content="Material for courses">
-  <meta name="twitter:description" content="Material for courses">
+  <title>Lesson 11 December 2020</title>
+  <meta property="og:title" content="Lesson 11 December 2020" />
+  <meta name="twitter:title" content="Lesson 11 December 2020" />
+  <meta name="description" content="Practice with regression and statistical hypothesis II
+
+
+
+">
+  <meta property="og:description" content="Practice with regression and statistical hypothesis II
+
+
+
+">
+  <meta name="twitter:description" content="Practice with regression and statistical hypothesis II
+
+
+
+">
   <meta name="author" content=""/>
   <link href='https://thefreolo.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta property="og:image" content="https://thefreolo.github.io/media/Profile_PIC.jpg" />
@@ -18,12 +30,12 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@TheFreolo" />
   <meta name="twitter:creator" content="@TheFreolo" />
-  <meta property="og:url" content="https://thefreolo.github.io/teachings/" />
+  <meta property="og:url" content="https://thefreolo.github.io/biostatistics/lesson11_12_2020/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Federico Reali" />
 
   <meta name="generator" content="Hugo 0.36.1" />
-  <link rel="canonical" href="https://thefreolo.github.io/teachings/" />
+  <link rel="canonical" href="https://thefreolo.github.io/biostatistics/lesson11_12_2020/" />
   <link rel="alternate" href="https://thefreolo.github.io/index.xml" type="application/rss+xml" title="Federico Reali">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -177,8 +189,8 @@ ga('send', 'pageview');
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="page-heading">
-              <h1>Teaching</h1>
+            <div class="Biostatistics-heading">
+              <h1>Lesson 11 December 2020</h1>
                 
                 
             </div>
@@ -194,122 +206,114 @@ ga('send', 'pageview');
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        
+        <h1 id="practice-with-regression-and-statistical-hypothesis-ii">Practice with regression and statistical hypothesis II</h1>
 
-<!-- This part of the site contains a selection of material useful for the courses I am teaching or teaching assisting.
--->
+<p><img src="https://cdn.pixabay.com/photo/2016/03/23/12/53/clock-1274699_960_720.jpg" alt="" /></p>
 
-<h1 id="biostatistics-statistical-learning">Biostatistics/Statistical Learning</h1>
+<p></p>
 
-<!-- The aim of the course in __Biostatistics__ is to provide the students, especially those with bachelor degrees in biology-related subjects, with the tools and the understanding to properly use statistics for analyzing and drawing exhaustive conclusions from biological data.  -->
+<h2 id="exercise-1">Exercise 1</h2>
 
-<p>The aim of the course in <strong>Biostatistics/Statistical Learning</strong> is to provide the students with the tools and the understanding to properly use statistics for analyzing and drawing exhaustive conclusions from data.</p>
+<p>Read the dataset contained in the file <a href="https://www.dropbox.com/s/5yhlo3tr4nbk5wt/rats.txt?dl=1">rats.txt</a> that describes the survival time of rats which had been given one poison out of 4 different types, and an antidote of 3 different types.</p>
 
-<p>During the course, the teacher introduces many concepts of mathematics, statistics, probability and machine learning, and, at the same time, these concepts are linked to biology-related case studies.</p>
+<ol>
+<li>Create a variable mortality, equal to the inverse of the survival time.</li>
+<li>Fit a normal distribution to the mortality data and plot the resulting distribution superimposed to a histogram of the data. Comment the result.</li>
+<li>Compute mean and standard deviation of the mortality for each combination of poison and antidote.</li>
+<li>Study how mean mortality depends on poison and antidote, using an appropriate linear model. Comment the results.</li>
+</ol>
 
-<p>This course is part of the master degrees in <a href="http://international.unitn.it/mqcb">Quantitative and Computational Biology</a> and in <a href="https://international.unitn.it/maths/master-in-data-science">Data Science</a> at the <a href="http://www.unitn.it/">University of Trento</a> (Italy).</p>
+<h2 id="exercise-2">Exercise 2</h2>
 
-<h4 id="lesson-0-install-r-and-r-studio-hahahugoshortcode-1hbhb"><a href="https://thefreolo.github.io/biostatistics/lesson0/">Lesson 0 - Install R and R studio</a></h4>
+<p>Import the <a href="https://www.dropbox.com/s/ny2wkbfkoovmrwb/napa_marathon_fm2015.csv?dl=1">dataset</a> containing information on the finishers of the Napa Valley Marathon in 2015. The dataset includes Age, Gender, hours to complete the marathon, mean speed in miles per hour and overall ranking.</p>
 
-<h4 id="lesson-1-r-basic-syntax-hahahugoshortcode-2hbhb"><a href="https://thefreolo.github.io/biostatistics/lesson1/">Lesson 1 - R basic syntax</a></h4>
+<ol>
+<li>Compute the summary values of all variables, separately for Females and Males.</li>
+<li>Define a new variable kmph, where you transform the speed from miles to km per hour. <em>Hint: one mile is 1.60934 km</em></li>
+<li>Visualize the distribution of speed in kmph for the gender using boxplots.</li>
+<li>Using the t-test, verify if the mean speed for the gender are statistically different. Describe all the lines of the output; discuss whether the test is appropriate and comment on the result.</li>
+<li>We suspect that the distribution of speed in kmph follows a shifted gamma distribution. Write the log-likelihood for the shifted gamma distribution and compute the MLE estimators (shift, shape and scale).</li>
+<li>Find the 95% confidence intervals for the three parameters (shift, shape and scale).</li>
+<li>Using an adequate plot, visually compare the estimated distribution with the data.</li>
+</ol>
 
-<h4 id="lesson-2-working-with-data-hahahugoshortcode-3hbhb"><a href="https://thefreolo.github.io/biostatistics/lesson2/">Lesson 2 - Working with data</a></h4>
+<h2 id="exercise-3">Exercise 3</h2>
 
-<h4 id="lesson-3-data-visualization-hahahugoshortcode-4hbhb"><a href="https://thefreolo.github.io/biostatistics/lesson3/">Lesson 3 - Data visualization</a></h4>
+<p>Load the library MASS and consider the dataset &ldquo;Pima.tr&rdquo;, which contains the data about the population of women who were at least 21 years old, of Pima Indian heritage and living near Phoenix, Arizona. The subjects were tested for diabetes according to World Health Organization criteria.</p>
 
-<h4 id="data-manipulation-exercises-hahahugoshortcode-5hbhb"><a href="https://thefreolo.github.io/biostatistics/october_exercises/">Data manipulation exercises</a></h4>
+<ol>
+<li><p>Check if the data are read correctly.  Compute the mean, quartiles and median of the numerical variables.</p></li>
 
-<h4 id="lesson-4-intermediate-exam-solutions-https-www-dropbox-com-s-cxa9awvrwahm8sx-intermediate-exam-solution-r-dl-1"><a href="https://www.dropbox.com/s/cxa9awvrwahm8sx/Intermediate_exam_solution.R?dl=1">Lesson 4 - Intermediate exam solutions</a></h4>
+<li><p>According to the WHO, a BMI of less than 18.5 as &lsquo;underweight&rsquo; and may indicate malnutrition, an eating disorder, or other health problems, while a BMI equal to or greater than 25 is considered &lsquo;overweight&rsquo; and above 30 is considered &lsquo;obese&rsquo;. Define a new categorical variable &lsquo;Obese&rsquo;, which divides the patients according to the WHO definition of obesity based on the BMI. <strong>The following analysis are intended on this dataset.</strong></p></li>
 
-<h4 id="lesson-5-practice-with-regression-and-statistical-hypothesis-hahahugoshortcode-6hbhb"><a href="https://thefreolo.github.io/biostatistics/lesson06_12/">Lesson 5 - Practice with regression and statistical hypothesis</a></h4>
+<li><p>Using box plots, visualize the variable &lsquo;glu&rsquo; and &lsquo;bp&rsquo; at the varying of &lsquo;Obese&rsquo;. Comment on the result.</p></li>
 
-<h4 id="lesson-6-practice-with-regression-and-statistical-hypothesis-ii-hahahugoshortcode-7hbhb"><a href="https://thefreolo.github.io/biostatistics/lesson11_12_2020/">Lesson 6 - Practice with regression and statistical hypothesis II</a></h4>
+<li><p>Using a t.test, verify if the mean &lsquo;bp&rsquo; of the group &lsquo;Obese&rsquo; is statistically different from the other. Comment on the result.</p></li>
+</ol>
 
-<h4 id="reports-in-rmarkdown-hahahugoshortcode-8hbhb"><a href="https://thefreolo.github.io/biostatistics/howtormd/">Reports in Rmarkdown</a></h4>
+<h2 id="exercise-4">Exercise 4</h2>
 
-<!-- #### [Planning and preparing to write assignments](http://www.nottingham.ac.uk/studentservices/documents/planning-and-preparing-to-write-assignments.pdf)
--->
+<p>Consider the dataset defined and modified in the previous exercise.</p>
 
-<p>For more information, please, see the teacher <a href="http://www.science.unitn.it/~pugliese/">webpage</a>.
-<!-- https://sites.google.com/site/ozankahramanogullari/teaching). --></p>
+<ol>
+<li><p>Define a linear model for the variable &lsquo;glu&rsquo; at the varying of &lsquo;bp&rsquo; (predictor). Comment on the results and explain the meaning of each row of the summary. Besides, visualize the regression line against the experimental data, analyze the residuals and compute the confidence intervals for the regression coefficients.</p></li>
 
-<hr />
+<li><p>Define a linear model for the variable &lsquo;glu&rsquo; at the varying of &lsquo;bp&rsquo; and &lsquo;Obese&rsquo; (predictors). Compare the results with the previous regression model and comment on the results. Compare the AIC for both models and explain if it is wort to consider the latest.</p></li>
 
-<h1 id="calcolo-delle-probabilità-e-statistica-matematica">Calcolo delle probabilità e statistica matematica</h1>
+<li><p>Perform and comment the ANOVA test on the latest regression model.</p></li>
 
-<p>The following links provide material for the course I am teaching assisting  that is called <a href="https://sites.google.com/g.unitn.it/bonaccorsi/">Calcolo delle probabilità e statistica matematica</a>. In the part of the course covered by these pages, I introduce R to the students and I show some applications to statistics.</p>
+<li><p>Define a linear model for the variable &lsquo;glu&rsquo; at the varying of all the remaining variables (predictors). Then, use the <code>step</code> function to determine the a formula. Comment on the variable selected by this method and interpret the results.</p></li>
+</ol>
 
-<p>The course introduces the fundamental concepts related to probability and statistics. It is part of the bachelor degree in Mathematics at the University of Trento (Italy).</p>
+<h1 id="more-exercises">More exercises</h1>
 
-<p>I collected the notes from 2019 classes in a book format, which can be found <a href="/book/index.html">here</a>.</p>
+<h2 id="exercise-5">Exercise 5</h2>
 
-<p>The content of these pages is in Italian.</p>
+<p>Consider the <a href="https://www.dropbox.com/s/yeopvhde99802bt/data.csv?dl=1">dataset</a> containing economical and demographic data about 154 nations, such as literacy rate (%), gross domestic product (mld $) and military expenses ( $). Import also the <a href="https://www.dropbox.com/s/mkwgim2nbcfxlak/conts.txt?dl=1">dataset</a> containing  the list of 242 countries and their continent.</p>
 
-<h4 id="lezione-1-r-e-r-studio-hahahugoshortcode-9hbhb"><a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/lezione1_2019/">Lezione 1 - R e R Studio</a></h4>
+<ol>
+<li>Merge the two datasets removing the countries missing information on the continent.</li>
+<li>Substitute the NAs of &lsquo;gdp&rsquo; with the median computed on the other countries of the same continent.</li>
+<li>Using box plots, visualize the variable &lsquo;gdp&rsquo; at the varying of continent. Comment on the result.</li>
+<li>Can we consider a transformation of the &lsquo;gdp&rsquo; variable to better compare the data? Which one? Can we consider the logarithm?</li>
+<li>Using the likelihood ratio, discuss if the mean of the logarithm(gpd) is statistically different between Europe and Oceania . Compare the results with the t.test and comment on.</li>
+</ol>
 
-<h4 id="lezione-2-la-sintassi-di-r-hahahugoshortcode-10hbhb-r-notebook-l2-rmd-r-notebook-html-l2-nb-html"><a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/lezione2_2019/">Lezione 2 - La sintassi di R</a> <a href="/L2.Rmd">(R Notebook)</a> <a href="/L2.nb.html">(R Notebook - html)</a></h4>
+<!-- #### [Solution](https://www.dropbox.com/s/6ay93uq8b0rh11k/Lesson13_12_inclass.R?dl=1) -->
 
-<h4 id="lezione-3-manipolare-e-visualizzare-dati-hahahugoshortcode-11hbhb"><a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/lezione3_2019/">Lezione 3 - Manipolare e visualizzare dati</a></h4>
+<h2 id="exercise-6">Exercise 6</h2>
 
-<h4 id="lezione-4-manipolare-dati-ii-hahahugoshortcode-12hbhb"><a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/lezione4_2020/">Lezione 4 - Manipolare dati II</a></h4>
+<p>Consider the <a href="https://www.dropbox.com/s/enqjacfwny4z7zj/sleep.csv?dl=1">dataset</a>, which includes brain and body  weight,  life  span,  gestation  time,  time
+sleeping, and predation and danger indices for 62 mammals (<a href="https://www.dropbox.com/s/pkh3pj2ippmmvqo/sleep.txt?dl=1">description</a>) .</p>
 
-<h4 id="lezione-5-test-di-ipotesi-hahahugoshortcode-13hbhb"><a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/lezione5_2020/">Lezione 5 - Test di ipotesi</a></h4>
+<ol>
+<li><p>Import the dataset and analyze the variables. After reading the description and considering only the variables &lsquo;BodyWt&rsquo;, &lsquo;BrainWt&rsquo;, &lsquo;TotSleep&rsquo;, &lsquo;GestTime&rsquo; and &lsquo;SpleepExp&rsquo;, substitute eventual missing data with the median of the same variables.</p></li>
 
-<h4 id="lezione-6-regressione-lineare-hahahugoshortcode-14hbhb"><a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/lezione6_2020/">Lezione 6 - Regressione lineare</a></h4>
+<li><p>Using histograms, visualize the distribution of the variables &lsquo;BodyWt&rsquo;, &lsquo;BrainWt&rsquo;, &lsquo;TotSleep&rsquo;, &lsquo;GestTime&rsquo;.</p></li>
 
-<h4 id="breve-riflessione-hahahugoshortcode-15hbhb"><a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/riflessione_2020/">Breve riflessione</a></h4>
+<li><p>Can we use the ANOVA test to see if the mean of the variable &lsquo;GestTime&rsquo; in the groups defined by &lsquo;SpleepExp&rsquo; are statistically different? Is the homoscedastic hypothesis satisfied? Compute the test.</p></li>
 
-<h1 id="prove-di-esame">Prove di esame</h1>
-
-<h4 id="seconda-prova-intermedia-hahahugoshortcode-16hbhb-svolgimento-iiprovaintermedia2019-r"><a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/iiprovaintermedia2019/">Seconda Prova Intermedia</a> <a href="/IIProvaIntermedia2019.R">(Svolgimento)</a></h4>
-
-<h4 id="prova-di-esame-del-10-06-2019-hahahugoshortcode-17hbhb-svolgimento-solesamegiugno2019-r"><a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/esamegiugno2019/">Prova di esame del 10/06/2019</a> <a href="/SolEsameGiugno2019.R">(Svolgimento)</a></h4>
-
-<h4 id="prova-di-esame-del-10-07-2019-hahahugoshortcode-18hbhb-svolgimento-solesameluglio2019-r"><a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/esameluglio2019/">Prova di esame del 10/07/2019</a> <a href="/SolEsameLuglio2019.R">(Svolgimento)</a></h4>
-
-<h4 id="prova-di-esame-del-03-09-2019-hahahugoshortcode-19hbhb"><a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/esamesettembre2019/">Prova di esame del 03/09/2019</a></h4>
-
-<h4 id="prova-di-esame-del-10-02-2020-hahahugoshortcode-20hbhb"><a href="https://thefreolo.github.io/calcolo-delle-probabilita-e-statistica-matematica/esamefebbraio2020/">Prova di esame del 10/02/2020</a></h4>
-
-<!-- [(Svolgimento)]() -->
-
-<h3 id="esami-anni-precedente">Esami anni precedente</h3>
-
-<h3 id="2017-2018"><sup>2017</sup>&frasl;<sub>2018</sub></h3>
-
-<h4 id="seconda-prova-intermedia-hahahugoshortcode-21hbhb-svolgimento-svolgimento-seconda-prova-intermedia-2018-r"><a href="https://thefreolo.github.io/teaching/secondaprovaintermedia_2018/">Seconda Prova Intermedia</a> <a href="/Svolgimento_Seconda_prova_intermedia_2018.R">(Svolgimento)</a></h4>
-
-<h4 id="prova-di-esame-del-12-06-2018-hahahugoshortcode-22hbhb-svolgimento-soluzioniesameluglio2018-r"><a href="https://thefreolo.github.io/teaching/esamegiugno2018/">Prova di esame del 12/06/2018</a> <a href="/SoluzioniEsameLuglio2018.R">(Svolgimento)</a></h4>
-
-<h4 id="prova-di-esame-del-10-07-2018-hahahugoshortcode-23hbhb"><a href="https://thefreolo.github.io/teaching/esameluglio2018/">Prova di esame del 10/07/2018</a></h4>
-
-<h4 id="prova-di-esame-del-03-09-2018-hahahugoshortcode-24hbhb"><a href="https://thefreolo.github.io/teaching/esamesettembre2018/">Prova di esame del 03/09/2018</a></h4>
-
-<h4 id="prova-di-esame-del-14-01-2019-hahahugoshortcode-25hbhb"><a href="https://thefreolo.github.io/teaching/esamegennaio2019/">Prova di esame del 14/01/2019</a></h4>
-
-<h4 id="prova-di-esame-del-11-02-2019-hahahugoshortcode-26hbhb"><a href="https://thefreolo.github.io/teaching/esamefebbraio2019/">Prova di esame del 11/02/2019</a></h4>
-
-<h3 id="2016-2017"><sup>2016</sup>&frasl;<sub>2017</sub></h3>
-
-<h4 id="prova-di-esame-del-13-06-2017-hahahugoshortcode-27hbhb-svolgimento-soluzioniesamegiugno-r"><a href="https://thefreolo.github.io/teaching/esame1/">Prova di esame del 13/06/2017</a> <a href="/SoluzioniEsameGiugno.R">(Svolgimento)</a></h4>
-
-<h4 id="prova-di-esame-del-13-07-2017-hahahugoshortcode-28hbhb-svolgimento-soluzioniesameluglio-r"><a href="https://thefreolo.github.io/teaching/esame2/">Prova di esame del 13/07/2017</a> <a href="/SoluzioniEsameLuglio.R">(Svolgimento)</a></h4>
-
-<h4 id="prova-di-esame-del-28-08-2017-hahahugoshortcode-29hbhb-svolgimento-soluzioniesameagosto-r"><a href="https://thefreolo.github.io/teaching/esame3/">Prova di esame del 28/08/2017</a> <a href="/SoluzioniEsameAgosto.R">(Svolgimento)</a></h4>
-
-<h4 id="prova-di-esame-del-15-01-2018-hahahugoshortcode-30hbhb-svolgimento-soluzioniesamegennaio-r"><a href="https://thefreolo.github.io/teaching/esame4/">Prova di esame del 15/01/2018</a> <a href="/SoluzioniEsameGennaio.R">(Svolgimento)</a></h4>
-
-<h4 id="prova-di-esame-del-05-02-2018-hahahugoshortcode-31hbhb"><a href="https://thefreolo.github.io/teaching/esame5/">Prova di esame del 05/02/2018</a></h4>
-
-<hr />
+<li><p>Apply a logarithmic transformation to variable &lsquo;BodyWt&rsquo;.  Define a linear model for the variable &lsquo;GestTime&rsquo; at the varying of &lsquo;logBodyWt&rsquo; (predictor). Comment on the results and explain the meaning of each row of the summary. Besides, visualize the regression line against the experimental data and analyze the residuals.</p></li>
+</ol>
 
 <p> &copy; 2017-2020  Federico Reali</p>
-
       </article>
 
       
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://thefreolo.github.io/biostatistics/howtormd/" data-toggle="tooltip" data-placement="top" title="Reports with R Markdown">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
 
 
+      
+        
+        
       
 
     </div>
