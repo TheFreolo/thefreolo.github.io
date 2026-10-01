@@ -207,3 +207,31 @@ body {
     width: 45%;
   }
 }
+
+/* Publications grouped by year */
+.publication-year-group {
+  margin-top: 34px;
+}
+
+.publication-year-group:first-of-type {
+  margin-top: 18px;
+}
+
+.publication-year-heading {
+  border-bottom: 2px solid var(--profile-accent);
+  color: var(--profile-accent-dark);
+  font-size: 1.35em;
+  margin: 0 0 4px;
+  padding-bottom: 7px;
+}
+
+.publication-other-outputs {
+  border-top: 1px solid var(--profile-line);
+  margin-top: 46px;
+  padding-top: 20px;
+}
+
+.publication-other-outputs > h2 {
+  font-size: 1.35em;
+  margin-top: 0;
+}
